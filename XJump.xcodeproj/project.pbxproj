@@ -10,6 +10,7 @@
 		E6579F281B13C6A8000212D9 /* XJump.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = E6579F271B13C6A8000212D9 /* XJump.xcscheme */; };
 		E6579F2A1B13C6A8000212D9 /* XJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F291B13C6A8000212D9 /* XJump.swift */; };
 		E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */; };
+		E6C73D221B13CA97001305E0 /* JumpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C73D211B13CA97001305E0 /* JumpController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +19,7 @@
 		E6579F271B13C6A8000212D9 /* XJump.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = XJump.xcscheme; path = XJump.xcodeproj/xcshareddata/xcschemes/XJump.xcscheme; sourceTree = SOURCE_ROOT; };
 		E6579F291B13C6A8000212D9 /* XJump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJump.swift; sourceTree = "<group>"; };
 		E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject_Extension.swift; sourceTree = "<group>"; };
+		E6C73D211B13CA97001305E0 /* JumpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -41,6 +43,7 @@
 			isa = PBXGroup;
 			children = (
 				E6579F291B13C6A8000212D9 /* XJump.swift */,
+				E6C73D211B13CA97001305E0 /* JumpController.swift */,
 				E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */,
 				E6579F251B13C6A8000212D9 /* Supporting Files */,
 			);
@@ -122,6 +125,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6C73D221B13CA97001305E0 /* JumpController.swift in Sources */,
 				E6579F2A1B13C6A8000212D9 /* XJump.swift in Sources */,
 				E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */,
 			);
@@ -252,6 +256,7 @@
 				E6579F311B13C6A8000212D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
