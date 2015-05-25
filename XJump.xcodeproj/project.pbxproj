@@ -20,6 +20,12 @@
 		E6579F291B13C6A8000212D9 /* XJump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJump.swift; sourceTree = "<group>"; };
 		E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject_Extension.swift; sourceTree = "<group>"; };
 		E6C73D211B13CA97001305E0 /* JumpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpController.swift; sourceTree = "<group>"; };
+		E6C73D231B13CCD3001305E0 /* DVTFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DVTFoundation.h; sourceTree = "<group>"; };
+		E6C73D241B13CCD3001305E0 /* DVTKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DVTKit.h; sourceTree = "<group>"; };
+		E6C73D251B13CCD3001305E0 /* IDEFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDEFoundation.h; sourceTree = "<group>"; };
+		E6C73D261B13CCD3001305E0 /* IDEKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDEKit.h; sourceTree = "<group>"; };
+		E6C73D271B13CCD3001305E0 /* IDESourceEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDESourceEditor.h; sourceTree = "<group>"; };
+		E6C73D2C1B13CD27001305E0 /* XJump-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XJump-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -42,6 +48,7 @@
 		E6579F241B13C6A8000212D9 /* XJump */ = {
 			isa = PBXGroup;
 			children = (
+				E6C73D281B13CCD9001305E0 /* XCode headers */,
 				E6579F291B13C6A8000212D9 /* XJump.swift */,
 				E6C73D211B13CA97001305E0 /* JumpController.swift */,
 				E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */,
@@ -55,8 +62,21 @@
 			children = (
 				E6579F261B13C6A8000212D9 /* Info.plist */,
 				E6579F271B13C6A8000212D9 /* XJump.xcscheme */,
+				E6C73D2C1B13CD27001305E0 /* XJump-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E6C73D281B13CCD9001305E0 /* XCode headers */ = {
+			isa = PBXGroup;
+			children = (
+				E6C73D231B13CCD3001305E0 /* DVTFoundation.h */,
+				E6C73D241B13CCD3001305E0 /* DVTKit.h */,
+				E6C73D251B13CCD3001305E0 /* IDEFoundation.h */,
+				E6C73D261B13CCD3001305E0 /* IDEKit.h */,
+				E6C73D271B13CCD3001305E0 /* IDESourceEditor.h */,
+			);
+			name = "XCode headers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +237,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(DT_TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "XJump/XJump-Bridging-Header.h";
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Debug;
@@ -233,6 +254,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(DT_TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "XJump/XJump-Bridging-Header.h";
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Release;
