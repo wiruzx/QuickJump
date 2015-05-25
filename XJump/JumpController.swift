@@ -6,35 +6,54 @@
 //  Copyright (c) 2015 Victor Shamanov. All rights reserved.
 //
 
-import Foundation
+import AppKit
 
 final class JumpController {
     
-    // MARK:- Private properties
+    // MARK:- Type declarations
     
-    private var contextSubscription: NSObjectProtocol?
-    
-    // MARK:- Instantiation
-    
-    init() {
-        
-        let nc = NSNotificationCenter.defaultCenter()
-        
-        contextSubscription = nc.addObserverForName("IDEEditorAreaLastActiveEditorContextDidChangeNotification",
-                                                    object: nil,
-                                                    queue: nil,
-                                                    usingBlock: { [weak self] in self?.activeEditorContextDidChange($0) })
-        
+    private enum State {
+        case Inactive
+        case InputChar
+        case ShowResults
     }
     
-    deinit {
-        contextSubscription.map(NSNotificationCenter.defaultCenter().removeObserver)
+    // MARK:- Private properties
+    
+    private var currentEditorView: DVTSourceTextView? {
+        let windowController = NSApplication.sharedApplication().keyWindow?.windowController() as? IDEWorkspaceWindowController
+        let editor = windowController?.editorArea?.lastActiveEditorContext?.editor
+        return editor?.mainScrollView?.contentView.documentView as? DVTSourceTextView
+    }
+    
+    private lazy var inputTextField = NSTextField()
+    
+    private var state = State.Inactive
+    
+    // MARK:- Internal methods
+    
+    func toggle() {
+        
     }
     
     // MARK:- Private methods
     
-    private func activeEditorContextDidChange(notification: NSNotification) {
-        
+    private func showTextField() {
+        if let rect = (currentEditorView?.superview as? NSClipView)?.documentVisibleRect {
+            
+            var textFieldRect = rect
+            textFieldRect.origin.y += rect.size.height - 25
+            textFieldRect.size = NSSize(width: 100, height: 100)
+            
+            inputTextField.frame = textFieldRect
+            
+            currentEditorView!.addSubview(inputTextField)
+            
+            inputTextField.window?.makeFirstResponder(inputTextField)
+        }
     }
     
+    private func hideTextField() {
+        inputTextField.removeFromSuperview()
+    }
 }

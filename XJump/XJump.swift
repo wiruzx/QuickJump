@@ -11,6 +11,8 @@ var sharedPlugin: XJump?
 
 class XJump: NSObject {
     var bundle: NSBundle
+    
+    var jumpController = JumpController()
 
     init(bundle: NSBundle) {
         self.bundle = bundle
@@ -34,8 +36,7 @@ class XJump: NSObject {
     }
 
     func toggleXJump() {
-        let error = NSError(domain: "Hello World!", code:42, userInfo:nil)
-        NSAlert(error: error).runModal()
+        jumpController.toggle()
     }
 }
 
