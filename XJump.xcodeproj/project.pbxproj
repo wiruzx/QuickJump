@@ -1,0 +1,259 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E6579F281B13C6A8000212D9 /* XJump.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = E6579F271B13C6A8000212D9 /* XJump.xcscheme */; };
+		E6579F2A1B13C6A8000212D9 /* XJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F291B13C6A8000212D9 /* XJump.swift */; };
+		E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E6579F221B13C6A8000212D9 /* XJump.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XJump.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6579F261B13C6A8000212D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6579F271B13C6A8000212D9 /* XJump.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = XJump.xcscheme; path = XJump.xcodeproj/xcshareddata/xcschemes/XJump.xcscheme; sourceTree = SOURCE_ROOT; };
+		E6579F291B13C6A8000212D9 /* XJump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJump.swift; sourceTree = "<group>"; };
+		E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject_Extension.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		E6579F1A1B13C6A8000212D9 = {
+			isa = PBXGroup;
+			children = (
+				E6579F241B13C6A8000212D9 /* XJump */,
+				E6579F231B13C6A8000212D9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E6579F231B13C6A8000212D9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E6579F221B13C6A8000212D9 /* XJump.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E6579F241B13C6A8000212D9 /* XJump */ = {
+			isa = PBXGroup;
+			children = (
+				E6579F291B13C6A8000212D9 /* XJump.swift */,
+				E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */,
+				E6579F251B13C6A8000212D9 /* Supporting Files */,
+			);
+			path = XJump;
+			sourceTree = "<group>";
+		};
+		E6579F251B13C6A8000212D9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E6579F261B13C6A8000212D9 /* Info.plist */,
+				E6579F271B13C6A8000212D9 /* XJump.xcscheme */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E6579F211B13C6A8000212D9 /* XJump */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6579F2F1B13C6A8000212D9 /* Build configuration list for PBXNativeTarget "XJump" */;
+			buildPhases = (
+				E6579F1F1B13C6A8000212D9 /* Sources */,
+				E6579F201B13C6A8000212D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XJump;
+			productName = XJump;
+			productReference = E6579F221B13C6A8000212D9 /* XJump.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E6579F1B1B13C6A8000212D9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Victor Shamanov";
+				TargetAttributes = {
+					E6579F211B13C6A8000212D9 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+				};
+			};
+			buildConfigurationList = E6579F1E1B13C6A8000212D9 /* Build configuration list for PBXProject "XJump" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E6579F1A1B13C6A8000212D9;
+			productRefGroup = E6579F231B13C6A8000212D9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E6579F211B13C6A8000212D9 /* XJump */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E6579F201B13C6A8000212D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6579F281B13C6A8000212D9 /* XJump.xcscheme in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E6579F1F1B13C6A8000212D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6579F2A1B13C6A8000212D9 /* XJump.swift in Sources */,
+				E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E6579F2D1B13C6A8000212D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		E6579F2E1B13C6A8000212D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+			};
+			name = Release;
+		};
+		E6579F301B13C6A8000212D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = XJump/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				LD_RUNPATH_SEARCH_PATHS = "$(DT_TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		E6579F311B13C6A8000212D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = XJump/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				LD_RUNPATH_SEARCH_PATHS = "$(DT_TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E6579F1E1B13C6A8000212D9 /* Build configuration list for PBXProject "XJump" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6579F2D1B13C6A8000212D9 /* Debug */,
+				E6579F2E1B13C6A8000212D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6579F2F1B13C6A8000212D9 /* Build configuration list for PBXNativeTarget "XJump" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6579F301B13C6A8000212D9 /* Debug */,
+				E6579F311B13C6A8000212D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E6579F1B1B13C6A8000212D9 /* Project object */;
+}
