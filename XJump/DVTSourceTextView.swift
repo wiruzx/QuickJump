@@ -26,4 +26,12 @@ extension DVTSourceTextView {
         }
     }
     
+    func rectsOfChar(char: Character) -> [NSRect] {
+        return textStorage?.string.allRangesOfCharacters(char).map(rectFromRange) ?? []
+    }
+    
+    private func rectFromRange(range: NSRange) -> NSRect {
+        fatalError("Not implemented yet")
+    }
+    
 }
