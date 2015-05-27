@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E6420C741B163B0B00699FC0 /* NSTextViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */; };
 		E6579F281B13C6A8000212D9 /* XJump.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = E6579F271B13C6A8000212D9 /* XJump.xcscheme */; };
 		E6579F2A1B13C6A8000212D9 /* XJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F291B13C6A8000212D9 /* XJump.swift */; };
 		E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTextViewUtils.swift; sourceTree = "<group>"; };
 		E6579F221B13C6A8000212D9 /* XJump.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XJump.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6579F261B13C6A8000212D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6579F271B13C6A8000212D9 /* XJump.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = XJump.xcscheme; path = XJump.xcodeproj/xcshareddata/xcschemes/XJump.xcscheme; sourceTree = SOURCE_ROOT; };
@@ -73,6 +75,7 @@
 				E6C73D281B13CCD9001305E0 /* XCode headers */,
 				E6579F291B13C6A8000212D9 /* XJump.swift */,
 				E6C73D211B13CA97001305E0 /* JumpController.swift */,
+				E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */,
 				E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */,
 				E6579F251B13C6A8000212D9 /* Supporting Files */,
 				E6C73D361B13D139001305E0 /* Frameworks */,
@@ -183,6 +186,7 @@
 			files = (
 				E6C73D221B13CA97001305E0 /* JumpController.swift in Sources */,
 				E6579F2A1B13C6A8000212D9 /* XJump.swift in Sources */,
+				E6420C741B163B0B00699FC0 /* NSTextViewUtils.swift in Sources */,
 				E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
