@@ -13,7 +13,8 @@
 		E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */; };
 		E694A87A1B166B3D0072B0B9 /* SingleCharTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */; };
 		E694A87E1B167BD70072B0B9 /* Candidates.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694A87D1B167BD70072B0B9 /* Candidates.swift */; };
-		E6C73D221B13CA97001305E0 /* JumpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C73D211B13CA97001305E0 /* JumpController.swift */; };
+		E694A8801B1687C90072B0B9 /* XCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694A87F1B1687C90072B0B9 /* XCodeManager.swift */; };
+		E6C713641B16895C00E18014 /* JumpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C713631B16895C00E18014 /* JumpController.swift */; };
 		E6C73D371B13D188001305E0 /* DVTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C73D341B13CF9D001305E0 /* DVTKit.framework */; };
 		E6C73D381B13D188001305E0 /* DVTFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C73D321B13CF97001305E0 /* DVTFoundation.framework */; };
 		E6C73D391B13D188001305E0 /* IDEFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C73D2E1B13CF8F001305E0 /* IDEFoundation.framework */; };
@@ -29,7 +30,8 @@
 		E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject_Extension.swift; sourceTree = "<group>"; };
 		E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleCharTextField.swift; sourceTree = "<group>"; };
 		E694A87D1B167BD70072B0B9 /* Candidates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Candidates.swift; sourceTree = "<group>"; };
-		E6C73D211B13CA97001305E0 /* JumpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpController.swift; sourceTree = "<group>"; };
+		E694A87F1B1687C90072B0B9 /* XCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCodeManager.swift; sourceTree = "<group>"; };
+		E6C713631B16895C00E18014 /* JumpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpController.swift; sourceTree = "<group>"; };
 		E6C73D231B13CCD3001305E0 /* DVTFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DVTFoundation.h; sourceTree = "<group>"; };
 		E6C73D241B13CCD3001305E0 /* DVTKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DVTKit.h; sourceTree = "<group>"; };
 		E6C73D251B13CCD3001305E0 /* IDEFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDEFoundation.h; sourceTree = "<group>"; };
@@ -116,9 +118,10 @@
 			isa = PBXGroup;
 			children = (
 				E6579F291B13C6A8000212D9 /* XJump.swift */,
-				E6C73D211B13CA97001305E0 /* JumpController.swift */,
+				E6C713631B16895C00E18014 /* JumpController.swift */,
 				E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */,
 				E694A87D1B167BD70072B0B9 /* Candidates.swift */,
+				E694A87F1B1687C90072B0B9 /* XCodeManager.swift */,
 			);
 			name = XJump;
 			sourceTree = "<group>";
@@ -214,12 +217,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6C73D221B13CA97001305E0 /* JumpController.swift in Sources */,
 				E694A87A1B166B3D0072B0B9 /* SingleCharTextField.swift in Sources */,
 				E6579F2A1B13C6A8000212D9 /* XJump.swift in Sources */,
 				E694A87E1B167BD70072B0B9 /* Candidates.swift in Sources */,
 				E6420C741B163B0B00699FC0 /* NSTextViewUtils.swift in Sources */,
 				E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */,
+				E6C713641B16895C00E18014 /* JumpController.swift in Sources */,
+				E694A8801B1687C90072B0B9 /* XCodeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

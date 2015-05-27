@@ -2,11 +2,11 @@
 //  JumpController.swift
 //  XJump
 //
-//  Created by Victor Shamanov on 5/26/15.
+//  Created by Victor Shamanov on 5/28/15.
 //  Copyright (c) 2015 Victor Shamanov. All rights reserved.
 //
 
-import AppKit
+import Foundation
 
 final class JumpController: SingleCharTextFieldDelegate {
     
@@ -20,11 +20,7 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     // MARK:- Private properties
     
-    private var currentEditorView: DVTSourceTextView? {
-        let windowController = NSApplication.sharedApplication().keyWindow?.windowController() as? IDEWorkspaceWindowController
-        let editor = windowController?.editorArea?.lastActiveEditorContext?.editor
-        return editor?.mainScrollView?.contentView.documentView as? DVTSourceTextView
-    }
+    private let xcodeManager = XCodeManager.sharedManager
     
     private let inputTextField = SingleCharTextField()
     private var state = State.Inactive
@@ -45,7 +41,7 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     private func showTextField() {
         
-        if let editorView = currentEditorView {
+        if let editorView = xcodeManager.currentEditorView {
             
             let textFieldSize = NSSize(width: 20, height: 20)
             let textFieldRect = NSRect(origin: editorView.cursorPosition, size: textFieldSize)
