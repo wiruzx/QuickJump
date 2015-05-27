@@ -7,9 +7,4 @@
 //
 
 #import <AppKit/AppKit.h>
-
-#import "DVTFoundation.h"
-#import "DVTKit.h"
-#import "IDEFoundation.h"
-#import "IDEKit.h"
 #import "IDESourceEditor.h"
