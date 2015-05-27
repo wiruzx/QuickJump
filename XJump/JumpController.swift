@@ -8,7 +8,7 @@
 
 import AppKit
 
-final class JumpController {
+final class JumpController: SingleCharTextFieldDelegate {
     
     // MARK:- Type declarations
     
@@ -26,9 +26,14 @@ final class JumpController {
         return editor?.mainScrollView?.contentView.documentView as? DVTSourceTextView
     }
     
-    private lazy var inputTextField = NSTextField()
-    
+    private let inputTextField = SingleCharTextField()
     private var state = State.Inactive
+    
+    // MARK:- Instantiation
+    
+    init() {
+        inputTextField.charInputDelegate = self
+    }
     
     // MARK:- Internal methods
     
@@ -49,12 +54,29 @@ final class JumpController {
             
             editorView.addSubview(inputTextField)
             
-            let success = inputTextField.becomeFirstResponder()
+            if inputTextField.becomeFirstResponder() {
+                state = .InputChar
+            } else {
+                state = .Inactive
+                hideTextField()
+            }
         }
     }
     
     private func hideTextField() {
         inputTextField.removeFromSuperview()
+    }
+    
+    private func showResults(char: Character) {
+        state = .ShowResults
+        
+    }
+    
+    // MARK:- SingleCharTextFieldDelegate
+    
+    func didRecieveChar(textField: SingleCharTextField, char: Character) {
+        hideTextField()
+        showResults(char)
     }
     
 }
