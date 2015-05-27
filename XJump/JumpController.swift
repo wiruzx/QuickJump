@@ -39,21 +39,22 @@ final class JumpController {
     // MARK:- Private methods
     
     private func showTextField() {
-        if let rect = (currentEditorView?.superview as? NSClipView)?.documentVisibleRect {
+        
+        if let editorView = currentEditorView {
             
-            var textFieldRect = rect
-            textFieldRect.origin.y += rect.size.height - 25
-            textFieldRect.size = NSSize(width: 100, height: 100)
+            let textFieldSize = NSSize(width: 20, height: 20)
+            let textFieldRect = NSRect(origin: editorView.cursorPosition, size: textFieldSize)
             
             inputTextField.frame = textFieldRect
             
-            currentEditorView!.addSubview(inputTextField)
+            editorView.addSubview(inputTextField)
             
-            inputTextField.window?.makeFirstResponder(inputTextField)
+            let success = inputTextField.becomeFirstResponder()
         }
     }
     
     private func hideTextField() {
         inputTextField.removeFromSuperview()
     }
+    
 }
