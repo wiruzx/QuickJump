@@ -72,11 +72,10 @@
 		E6579F241B13C6A8000212D9 /* XJump */ = {
 			isa = PBXGroup;
 			children = (
-				E6C73D281B13CCD9001305E0 /* XCode headers */,
-				E6579F291B13C6A8000212D9 /* XJump.swift */,
-				E6C73D211B13CA97001305E0 /* JumpController.swift */,
-				E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */,
-				E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */,
+				E694A8781B166AFF0072B0B9 /* XJump */,
+				E6C73D281B13CCD9001305E0 /* Dumped headers */,
+				E694A8771B16687D0072B0B9 /* Utils */,
+				E694A8761B16685C0072B0B9 /* Other */,
 				E6579F251B13C6A8000212D9 /* Supporting Files */,
 				E6C73D361B13D139001305E0 /* Frameworks */,
 			);
@@ -93,7 +92,32 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E6C73D281B13CCD9001305E0 /* XCode headers */ = {
+		E694A8761B16685C0072B0B9 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		E694A8771B16687D0072B0B9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		E694A8781B166AFF0072B0B9 /* XJump */ = {
+			isa = PBXGroup;
+			children = (
+				E6579F291B13C6A8000212D9 /* XJump.swift */,
+				E6C73D211B13CA97001305E0 /* JumpController.swift */,
+			);
+			name = XJump;
+			sourceTree = "<group>";
+		};
+		E6C73D281B13CCD9001305E0 /* Dumped headers */ = {
 			isa = PBXGroup;
 			children = (
 				E6C73D231B13CCD3001305E0 /* DVTFoundation.h */,
@@ -102,7 +126,7 @@
 				E6C73D261B13CCD3001305E0 /* IDEKit.h */,
 				E6C73D271B13CCD3001305E0 /* IDESourceEditor.h */,
 			);
-			name = "XCode headers";
+			name = "Dumped headers";
 			sourceTree = "<group>";
 		};
 		E6C73D361B13D139001305E0 /* Frameworks */ = {
