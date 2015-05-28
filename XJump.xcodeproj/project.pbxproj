@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		E6420C741B163B0B00699FC0 /* NSTextViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */; };
 		E64B172A1B17C1C0002B389B /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B17291B17C1C0002B389B /* Candidate.swift */; };
+		E64B172E1B17C40D002B389B /* CandidateLabelsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B172D1B17C40D002B389B /* CandidateLabelsController.swift */; };
+		E64B17301B17C8E0002B389B /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B172F1B17C8E0002B389B /* ArrayUtils.swift */; };
+		E64B17321B17D136002B389B /* CandidateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B17311B17D136002B389B /* CandidateInfo.swift */; };
 		E6579F281B13C6A8000212D9 /* XJump.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = E6579F271B13C6A8000212D9 /* XJump.xcscheme */; };
 		E6579F2A1B13C6A8000212D9 /* XJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F291B13C6A8000212D9 /* XJump.swift */; };
 		E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */; };
@@ -26,6 +29,9 @@
 /* Begin PBXFileReference section */
 		E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTextViewUtils.swift; sourceTree = "<group>"; };
 		E64B17291B17C1C0002B389B /* Candidate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
+		E64B172D1B17C40D002B389B /* CandidateLabelsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateLabelsController.swift; sourceTree = "<group>"; };
+		E64B172F1B17C8E0002B389B /* ArrayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
+		E64B17311B17D136002B389B /* CandidateInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateInfo.swift; sourceTree = "<group>"; };
 		E6579F221B13C6A8000212D9 /* XJump.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XJump.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6579F261B13C6A8000212D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6579F271B13C6A8000212D9 /* XJump.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = XJump.xcscheme; path = XJump.xcodeproj/xcshareddata/xcschemes/XJump.xcscheme; sourceTree = SOURCE_ROOT; };
@@ -116,6 +122,7 @@
 				E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */,
 				E6C713651B168B7E00E18014 /* DVTSourceTextView.swift */,
 				E6C713671B168F7900E18014 /* StringUtils.swift */,
+				E64B172F1B17C8E0002B389B /* ArrayUtils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -127,6 +134,8 @@
 				E6C713631B16895C00E18014 /* JumpController.swift */,
 				E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */,
 				E64B17291B17C1C0002B389B /* Candidate.swift */,
+				E64B172D1B17C40D002B389B /* CandidateLabelsController.swift */,
+				E64B17311B17D136002B389B /* CandidateInfo.swift */,
 				E694A87F1B1687C90072B0B9 /* XCodeManager.swift */,
 			);
 			name = XJump;
@@ -227,9 +236,12 @@
 				E694A87A1B166B3D0072B0B9 /* SingleCharTextField.swift in Sources */,
 				E6C713661B168B7E00E18014 /* DVTSourceTextView.swift in Sources */,
 				E6579F2A1B13C6A8000212D9 /* XJump.swift in Sources */,
+				E64B172E1B17C40D002B389B /* CandidateLabelsController.swift in Sources */,
 				E6420C741B163B0B00699FC0 /* NSTextViewUtils.swift in Sources */,
 				E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */,
+				E64B17321B17D136002B389B /* CandidateInfo.swift in Sources */,
 				E64B172A1B17C1C0002B389B /* Candidate.swift in Sources */,
+				E64B17301B17C8E0002B389B /* ArrayUtils.swift in Sources */,
 				E6C713641B16895C00E18014 /* JumpController.swift in Sources */,
 				E694A8801B1687C90072B0B9 /* XCodeManager.swift in Sources */,
 			);
