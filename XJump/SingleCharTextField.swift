@@ -38,6 +38,7 @@ final class SingleCharTextField: NSTextField, NSTextFieldDelegate {
     override func textDidChange(_: NSNotification) {
         if let char = last(stringValue) {
             charInputDelegate?.didRecieveChar(self, char: char)
+            stringValue = ""
         }
     }
     
