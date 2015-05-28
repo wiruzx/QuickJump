@@ -22,7 +22,7 @@ final class CandidateLabelsController {
         }
     }
     
-    private var displayedLabels: [CATextLayer] = []
+    private var displayedLabels: [NSTextField] = []
     
     // MAKR:- Instantiation
     
@@ -63,19 +63,15 @@ final class CandidateLabelsController {
     // MARK:- Private methods
     
     private func displayCandidates() {
-        func addToSuperview(layer: CALayer) {
-            superview.layer?.addSublayer(layer)
-        }
-        displayedLabels.each { $0.removeFromSuperlayer }
+        displayedLabels.each { $0.removeFromSuperview() }
         displayedLabels = candidateInfos.map(labelFromInfo)
-        displayedLabels.each(addToSuperview)
+        displayedLabels.each(superview.addSubview)
     }
     
-    private func labelFromInfo(candidateInfo: CandidateInfo) -> CATextLayer {
-        let label = CATextLayer()
-        label.string = String(candidateInfo.candidate.char)
-        label.frame = candidateInfo.rect
-        return label
+    private func labelFromInfo(candidateInfo: CandidateInfo) -> NSTextField {
+        let textField = NSTextField(frame: candidateInfo.rect)
+        textField.stringValue = String(candidateInfo.candidate.char)
+        return textField
     }
     
 }
