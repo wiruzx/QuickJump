@@ -10,8 +10,19 @@ import Foundation
 
 extension String {
     
-    func allRangesOfCharacters(char: Character) -> [NSRange] {
-        fatalError("Not implemented yet")
+    func allRangesOfCharacters(char: Character, inRange: NSRange) -> [NSRange] {
+        let string: NSString = self
+        let charAsString = String(char)
+        
+        var result = [NSRange]()
+        
+        string.enumerateSubstringsInRange(inRange, options: .ByComposedCharacterSequences) { substr, range, _, _ in
+            if substr == charAsString {
+                result.append(range)
+            }
+        }
+        
+        return result
     }
     
 }
