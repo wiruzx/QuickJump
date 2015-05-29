@@ -61,6 +61,11 @@ final class CandidateLabelsController {
             }
         }
         
+        // User input char which is not equal to any of candidates
+        if newCandidates.isEmpty {
+            return nil
+        }
+
         candidateInfos = newCandidates
         
         return nil
