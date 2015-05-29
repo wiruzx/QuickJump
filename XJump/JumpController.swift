@@ -10,21 +10,21 @@ import Foundation
 
 final class JumpController: SingleCharTextFieldDelegate {
     
-    // MARK:- Type declarations
-    
-    private enum State {
-        case Inactive
-        case InputChar
-        case ShowResults
-    }
-    
     // MARK:- Private properties
     
     private let xcodeManager = XCodeManager.sharedManager
     
+    private var labelsController: CandidateLabelsController!
+    
+    private var currentEditorView: DVTSourceTextView! {
+        didSet {
+            if currentEditorView != oldValue {
+                labelsController = CandidateLabelsController(superview: currentEditorView)
+            }
+        }
+    }
+    
     private let inputTextField = SingleCharTextField()
-    private var state = State.Inactive
-    private var labelsController: CandidateLabelsController?
     
     // MARK:- Instantiation
     
@@ -35,6 +35,13 @@ final class JumpController: SingleCharTextFieldDelegate {
     // MARK:- Internal methods
     
     func toggle() {
+        
+        currentEditorView = xcodeManager.currentEditorView
+        
+        if currentEditorView == nil {
+            return
+        }
+        
         showTextField()
     }
     
@@ -42,22 +49,14 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     private func showTextField() {
         
-        if let editorView = xcodeManager.currentEditorView {
-            
-            let textFieldSize = NSSize(width: 20, height: 20)
-            let textFieldRect = NSRect(origin: editorView.cursorPosition, size: textFieldSize)
-            
-            inputTextField.frame = textFieldRect
-            
-            editorView.addSubview(inputTextField)
-            
-            if inputTextField.becomeFirstResponder() {
-                state = .InputChar
-            } else {
-                state = .Inactive
-                hideTextField()
-            }
-        }
+        let textFieldSize = NSSize(width: 20, height: 20)
+        let textFieldRect = NSRect(origin: currentEditorView.cursorPosition, size: textFieldSize)
+        
+        inputTextField.frame = textFieldRect
+        
+        currentEditorView.addSubview(inputTextField)
+        
+        inputTextField.becomeFirstResponder()
     }
     
     private func hideTextField() {
@@ -65,17 +64,10 @@ final class JumpController: SingleCharTextFieldDelegate {
     }
     
     private func showResults(char: Character) {
-        state = .ShowResults
-        if let editorView = xcodeManager.currentEditorView {
-            if labelsController == nil {
-                labelsController = CandidateLabelsController(superview: editorView)
-            }
-            
-            let ranges = editorView.rangesOfVisible(char)
-            let rects = ranges.map(editorView.rectFromRange)
-            
-            labelsController!.initialize(Array(zip(ranges, rects)))
-        }
+        let ranges = currentEditorView.rangesOfVisible(char)
+        let rects = ranges.map(currentEditorView.rectFromRange)
+        
+        labelsController!.initialize(Array(zip(ranges, rects)))
     }
     
     // MARK:- SingleCharTextFieldDelegate

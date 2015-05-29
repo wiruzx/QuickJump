@@ -30,6 +30,12 @@ final class CandidateLabelsController {
         self.superview = superview
     }
     
+    // MARK:- Deinitialization
+    
+    deinit {
+        displayedLabels.map { $0.removeFromSuperview() }
+    }
+    
     // MARK:- Public methods
     
     func initialize(rangesAndRects: [(NSRange, NSRect)]) {
