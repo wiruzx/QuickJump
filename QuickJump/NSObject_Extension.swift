@@ -1,5 +1,6 @@
 //
 //  NSObject_Extension.swift
+//  QuickJump
 //
 //  Created by Victor Shamanov on 5/26/15.
 //  Copyright (c) 2015 Victor Shamanov. All rights reserved.
@@ -12,7 +13,7 @@ extension NSObject {
         let appName = NSBundle.mainBundle().infoDictionary?["CFBundleName"] as? NSString
         if appName == "Xcode" {
         	if sharedPlugin == nil {
-        		sharedPlugin = XJump(bundle: bundle)
+        		sharedPlugin = QuickJump(bundle: bundle)
         	}
         }
     }

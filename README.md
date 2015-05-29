@@ -1,2 +1,2 @@
-# XJump
+# QuickJump
 AceJump-like plugin for XCode

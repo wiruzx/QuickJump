@@ -12,8 +12,8 @@
 		E64B172E1B17C40D002B389B /* CandidateLabelsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B172D1B17C40D002B389B /* CandidateLabelsController.swift */; };
 		E64B17301B17C8E0002B389B /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B172F1B17C8E0002B389B /* ArrayUtils.swift */; };
 		E64B17321B17D136002B389B /* CandidateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B17311B17D136002B389B /* CandidateInfo.swift */; };
-		E6579F281B13C6A8000212D9 /* XJump.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = E6579F271B13C6A8000212D9 /* XJump.xcscheme */; };
-		E6579F2A1B13C6A8000212D9 /* XJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F291B13C6A8000212D9 /* XJump.swift */; };
+		E6579F281B13C6A8000212D9 /* QuickJump.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = E6579F271B13C6A8000212D9 /* QuickJump.xcscheme */; };
+		E6579F2A1B13C6A8000212D9 /* QuickJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F291B13C6A8000212D9 /* QuickJump.swift */; };
 		E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */; };
 		E694A87A1B166B3D0072B0B9 /* SingleCharTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */; };
 		E694A8801B1687C90072B0B9 /* XCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694A87F1B1687C90072B0B9 /* XCodeManager.swift */; };
@@ -32,10 +32,10 @@
 		E64B172D1B17C40D002B389B /* CandidateLabelsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateLabelsController.swift; sourceTree = "<group>"; };
 		E64B172F1B17C8E0002B389B /* ArrayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
 		E64B17311B17D136002B389B /* CandidateInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateInfo.swift; sourceTree = "<group>"; };
-		E6579F221B13C6A8000212D9 /* XJump.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XJump.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6579F221B13C6A8000212D9 /* QuickJump.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickJump.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6579F261B13C6A8000212D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E6579F271B13C6A8000212D9 /* XJump.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = XJump.xcscheme; path = XJump.xcodeproj/xcshareddata/xcschemes/XJump.xcscheme; sourceTree = SOURCE_ROOT; };
-		E6579F291B13C6A8000212D9 /* XJump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJump.swift; sourceTree = "<group>"; };
+		E6579F271B13C6A8000212D9 /* QuickJump.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = QuickJump.xcscheme; path = QuickJump.xcodeproj/xcshareddata/xcschemes/QuickJump.xcscheme; sourceTree = SOURCE_ROOT; };
+		E6579F291B13C6A8000212D9 /* QuickJump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickJump.swift; sourceTree = "<group>"; };
 		E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject_Extension.swift; sourceTree = "<group>"; };
 		E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleCharTextField.swift; sourceTree = "<group>"; };
 		E694A87F1B1687C90072B0B9 /* XCodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCodeManager.swift; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 		E6C73D251B13CCD3001305E0 /* IDEFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDEFoundation.h; sourceTree = "<group>"; };
 		E6C73D261B13CCD3001305E0 /* IDEKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDEKit.h; sourceTree = "<group>"; };
 		E6C73D271B13CCD3001305E0 /* IDESourceEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDESourceEditor.h; sourceTree = "<group>"; };
-		E6C73D2C1B13CD27001305E0 /* XJump-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XJump-Bridging-Header.h"; sourceTree = "<group>"; };
+		E6C73D2C1B13CD27001305E0 /* QuickJump-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuickJump-Bridging-Header.h"; sourceTree = "<group>"; };
 		E6C73D2E1B13CF8F001305E0 /* IDEFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDEFoundation.framework; path = /Applications/Xcode.app/Contents/Frameworks/IDEFoundation.framework; sourceTree = "<absolute>"; };
 		E6C73D2F1B13CF8F001305E0 /* IDEKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDEKit.framework; path = /Applications/Xcode.app/Contents/Frameworks/IDEKit.framework; sourceTree = "<absolute>"; };
 		E6C73D321B13CF97001305E0 /* DVTFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTFoundation.framework; path = /Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework; sourceTree = "<absolute>"; };
@@ -72,7 +72,7 @@
 		E6579F1A1B13C6A8000212D9 = {
 			isa = PBXGroup;
 			children = (
-				E6579F241B13C6A8000212D9 /* XJump */,
+				E6579F241B13C6A8000212D9 /* QuickJump */,
 				E6579F231B13C6A8000212D9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,30 +80,30 @@
 		E6579F231B13C6A8000212D9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E6579F221B13C6A8000212D9 /* XJump.xcplugin */,
+				E6579F221B13C6A8000212D9 /* QuickJump.xcplugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E6579F241B13C6A8000212D9 /* XJump */ = {
+		E6579F241B13C6A8000212D9 /* QuickJump */ = {
 			isa = PBXGroup;
 			children = (
-				E694A8781B166AFF0072B0B9 /* XJump */,
+				E694A8781B166AFF0072B0B9 /* QuickJump */,
 				E6C73D281B13CCD9001305E0 /* Dumped headers */,
 				E694A8771B16687D0072B0B9 /* Utils */,
 				E694A8761B16685C0072B0B9 /* Other */,
 				E6579F251B13C6A8000212D9 /* Supporting Files */,
 				E6C73D361B13D139001305E0 /* Frameworks */,
 			);
-			path = XJump;
+			path = QuickJump;
 			sourceTree = "<group>";
 		};
 		E6579F251B13C6A8000212D9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				E6579F261B13C6A8000212D9 /* Info.plist */,
-				E6579F271B13C6A8000212D9 /* XJump.xcscheme */,
-				E6C73D2C1B13CD27001305E0 /* XJump-Bridging-Header.h */,
+				E6579F271B13C6A8000212D9 /* QuickJump.xcscheme */,
+				E6C73D2C1B13CD27001305E0 /* QuickJump-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -127,10 +127,10 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		E694A8781B166AFF0072B0B9 /* XJump */ = {
+		E694A8781B166AFF0072B0B9 /* QuickJump */ = {
 			isa = PBXGroup;
 			children = (
-				E6579F291B13C6A8000212D9 /* XJump.swift */,
+				E6579F291B13C6A8000212D9 /* QuickJump.swift */,
 				E6C713631B16895C00E18014 /* JumpController.swift */,
 				E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */,
 				E64B17291B17C1C0002B389B /* Candidate.swift */,
@@ -138,7 +138,7 @@
 				E64B17311B17D136002B389B /* CandidateInfo.swift */,
 				E694A87F1B1687C90072B0B9 /* XCodeManager.swift */,
 			);
-			name = XJump;
+			name = QuickJump;
 			sourceTree = "<group>";
 		};
 		E6C73D281B13CCD9001305E0 /* Dumped headers */ = {
@@ -168,9 +168,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E6579F211B13C6A8000212D9 /* XJump */ = {
+		E6579F211B13C6A8000212D9 /* QuickJump */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E6579F2F1B13C6A8000212D9 /* Build configuration list for PBXNativeTarget "XJump" */;
+			buildConfigurationList = E6579F2F1B13C6A8000212D9 /* Build configuration list for PBXNativeTarget "QuickJump" */;
 			buildPhases = (
 				E6579F1F1B13C6A8000212D9 /* Sources */,
 				E6579F201B13C6A8000212D9 /* Resources */,
@@ -180,9 +180,9 @@
 			);
 			dependencies = (
 			);
-			name = XJump;
-			productName = XJump;
-			productReference = E6579F221B13C6A8000212D9 /* XJump.xcplugin */;
+			name = QuickJump;
+			productName = QuickJump;
+			productReference = E6579F221B13C6A8000212D9 /* QuickJump.xcplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -199,7 +199,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E6579F1E1B13C6A8000212D9 /* Build configuration list for PBXProject "XJump" */;
+			buildConfigurationList = E6579F1E1B13C6A8000212D9 /* Build configuration list for PBXProject "QuickJump" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -211,7 +211,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E6579F211B13C6A8000212D9 /* XJump */,
+				E6579F211B13C6A8000212D9 /* QuickJump */,
 			);
 		};
 /* End PBXProject section */
@@ -221,7 +221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6579F281B13C6A8000212D9 /* XJump.xcscheme in Resources */,
+				E6579F281B13C6A8000212D9 /* QuickJump.xcscheme in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +235,7 @@
 				E6C713681B168F7900E18014 /* StringUtils.swift in Sources */,
 				E694A87A1B166B3D0072B0B9 /* SingleCharTextField.swift in Sources */,
 				E6C713661B168B7E00E18014 /* DVTSourceTextView.swift in Sources */,
-				E6579F2A1B13C6A8000212D9 /* XJump.swift in Sources */,
+				E6579F2A1B13C6A8000212D9 /* QuickJump.swift in Sources */,
 				E64B172E1B17C40D002B389B /* CandidateLabelsController.swift in Sources */,
 				E6420C741B163B0B00699FC0 /* NSTextViewUtils.swift in Sources */,
 				E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */,
@@ -333,12 +333,12 @@
 					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Frameworks",
 					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/SharedFrameworks",
 				);
-				INFOPLIST_FILE = XJump/Info.plist;
+				INFOPLIST_FILE = QuickJump/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				LD_RUNPATH_SEARCH_PATHS = "$(DT_TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "XJump/XJump-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "QuickJump/QuickJump-Bridging-Header.h";
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Debug;
@@ -355,12 +355,12 @@
 					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Frameworks",
 					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/SharedFrameworks",
 				);
-				INFOPLIST_FILE = XJump/Info.plist;
+				INFOPLIST_FILE = QuickJump/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				LD_RUNPATH_SEARCH_PATHS = "$(DT_TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "XJump/XJump-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "QuickJump/QuickJump-Bridging-Header.h";
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Release;
@@ -368,7 +368,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E6579F1E1B13C6A8000212D9 /* Build configuration list for PBXProject "XJump" */ = {
+		E6579F1E1B13C6A8000212D9 /* Build configuration list for PBXProject "QuickJump" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E6579F2D1B13C6A8000212D9 /* Debug */,
@@ -377,7 +377,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E6579F2F1B13C6A8000212D9 /* Build configuration list for PBXNativeTarget "XJump" */ = {
+		E6579F2F1B13C6A8000212D9 /* Build configuration list for PBXNativeTarget "QuickJump" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E6579F301B13C6A8000212D9 /* Debug */,

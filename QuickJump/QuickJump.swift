@@ -1,5 +1,6 @@
 //
-//  XJump.swift
+//  QuickJump.swift
+//  QuickJump
 //
 //  Created by Victor Shamanov on 5/26/15.
 //  Copyright (c) 2015 Victor Shamanov. All rights reserved.
@@ -7,9 +8,9 @@
 
 import AppKit
 
-var sharedPlugin: XJump?
+var sharedPlugin: QuickJump?
 
-class XJump: NSObject {
+class QuickJump: NSObject {
     var bundle: NSBundle
     
     var jumpController = JumpController()
@@ -28,14 +29,14 @@ class XJump: NSObject {
     func createMenuItems() {
         var item = NSApp.mainMenu!!.itemWithTitle("Edit")
         if item != nil {
-            var actionMenuItem = NSMenuItem(title:"Toggle XJump", action:"toggleXJump", keyEquivalent:"")
+            var actionMenuItem = NSMenuItem(title:"Toggle QuickJump", action:"toggleQuickJump", keyEquivalent:"")
             actionMenuItem.target = self
             item!.submenu!.addItem(NSMenuItem.separatorItem())
             item!.submenu!.addItem(actionMenuItem)
         }
     }
 
-    func toggleXJump() {
+    func toggleQuickJump() {
         jumpController.toggle()
     }
 }

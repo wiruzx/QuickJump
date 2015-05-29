@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "890A4B3E171F031300AFE577"
-               BuildableName = "XJump.xcplugin"
-               BlueprintName = "XJump"
-               ReferencedContainer = "container:XJump.xcodeproj">
+               BuildableName = "QuickJump.xcplugin"
+               BlueprintName = "QuickJump"
+               ReferencedContainer = "container:QuickJump.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8966AFCA173EB7BF004150C0"
-               BuildableName = "XJumpTests.xctest"
-               BlueprintName = "XJumpTests"
-               ReferencedContainer = "container:XJump.xcodeproj">
+               BuildableName = "QuickJumpTests.xctest"
+               BlueprintName = "QuickJumpTests"
+               ReferencedContainer = "container:QuickJump.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -56,15 +56,16 @@
       allowLocationSimulation = "NO"
       viewDebuggingEnabled = "No">
       <PathRunnable
+         runnableDebuggingMode = "0"
          FilePath = "/Applications/Xcode.app">
       </PathRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "890A4B3E171F031300AFE577"
-            BuildableName = "XJump.xcplugin"
-            BlueprintName = "XJump"
-            ReferencedContainer = "container:XJump.xcodeproj">
+            BuildableName = "QuickJump.xcplugin"
+            BlueprintName = "QuickJump"
+            ReferencedContainer = "container:QuickJump.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>

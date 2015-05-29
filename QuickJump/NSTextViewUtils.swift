@@ -1,6 +1,6 @@
 //
 //  NSTextViewUtils.swift
-//  XJump
+//  QuickJump
 //
 //  Created by Victor Shamanov on 5/27/15.
 //  Copyright (c) 2015 Victor Shamanov. All rights reserved.
