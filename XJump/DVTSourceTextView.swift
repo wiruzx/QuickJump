@@ -26,12 +26,25 @@ extension DVTSourceTextView {
         }
     }
     
-    func rectsOfChar(char: Character) -> [NSRect] {
-        return textStorage?.string.allRangesOfCharacters(char).map(rectFromRange) ?? []
+    var sourceCode: String {
+        return (textStorage() as! NSTextStorage).string
     }
     
-    private func rectFromRange(range: NSRange) -> NSRect {
-        fatalError("Not implemented yet")
+    func rangesOfVisible(char: Character) -> [NSRange] {
+        return sourceCode.allRangesOfCharacters(char, inRange: visibleTextRange)
+    }
+    
+    func rectFromRange(range: NSRange) -> NSRect {
+        let rect = firstRectForCharacterRange(range, actualRange: nil)
+        let rectInWindow = window!.convertRectFromScreen(rect)
+        var rectInView = self.convertRect(rectInWindow, fromView: nil)
+        
+        let expandSize: CGFloat = 2
+        
+        rectInView.size.width += expandSize
+        rectInView.origin.x -= expandSize / 2
+        
+        return rectInView
     }
     
 }
