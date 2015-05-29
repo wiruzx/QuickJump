@@ -24,6 +24,7 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     private let inputTextField = SingleCharTextField()
     private var state = State.Inactive
+    private var labelsController: CandidateLabelsController?
     
     // MARK:- Instantiation
     
@@ -34,7 +35,7 @@ final class JumpController: SingleCharTextFieldDelegate {
     // MARK:- Internal methods
     
     func toggle() {
-        
+        showTextField()
     }
     
     // MARK:- Private methods
@@ -65,7 +66,16 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     private func showResults(char: Character) {
         state = .ShowResults
-        
+        if let editorView = xcodeManager.currentEditorView {
+            if labelsController == nil {
+                labelsController = CandidateLabelsController(superview: editorView)
+            }
+            
+            let ranges = editorView.rangesOfVisible(char)
+            let rects = ranges.map(editorView.rectFromRange)
+            
+            labelsController!.initialize(Array(zip(ranges, rects)))
+        }
     }
     
     // MARK:- SingleCharTextFieldDelegate
