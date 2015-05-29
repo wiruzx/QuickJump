@@ -66,6 +66,10 @@ final class CandidateLabelsController {
         return nil
     }
     
+    func cancel() {
+        candidateInfos = []
+    }
+    
     // MARK:- Private methods
     
     private func displayCandidates() {

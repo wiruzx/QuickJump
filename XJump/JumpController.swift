@@ -104,6 +104,7 @@ final class JumpController: SingleCharTextFieldDelegate {
     private func abort() {
         state = .Inactive
         removeTextField()
+        labelsController.cancel()
         currentEditorView.window?.makeFirstResponder(currentEditorView)
     }
 
@@ -128,6 +129,10 @@ final class JumpController: SingleCharTextFieldDelegate {
         default:
             break
         }
+    }
+    
+    func didLooseFocus(textField: SingleCharTextField) {
+        abort()
     }
     
 }
