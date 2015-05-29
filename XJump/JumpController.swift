@@ -74,7 +74,6 @@ final class JumpController: SingleCharTextFieldDelegate {
     }
     
     private func removeTextField() {
-        state = .Inactive
         inputTextField.removeFromSuperview()
     }
     
@@ -82,19 +81,34 @@ final class JumpController: SingleCharTextFieldDelegate {
         let ranges = currentEditorView.rangesOfVisible(char)
         let rects = ranges.map(currentEditorView.rectFromRange)
         
+        if ranges.isEmpty {
+            abort()
+            return
+        } else if ranges.count == 1 {
+            jump(ranges.first!)
+            state = .Inactive
+            removeTextField()
+            return
+        }
+        
         // TODO: Temporary
         if ranges.count >= 26 * 2 {
-            removeTextField()
-            currentEditorView.window?.makeFirstResponder(currentEditorView)
+            abort()
             return
         }
         
         state = .ShowCandidates
         labelsController.initialize(Array(zip(ranges, rects)))
     }
+    
+    private func abort() {
+        state = .Inactive
+        removeTextField()
+        currentEditorView.window?.makeFirstResponder(currentEditorView)
+    }
 
-    private func jump(candidateInfo: CandidateInfo) {
-        currentEditorView.setSelectedRange(candidateInfo.range)
+    private func jump(range: NSRange) {
+        currentEditorView.setSelectedRange(range)
         currentEditorView.window?.makeFirstResponder(currentEditorView)
     }
     
@@ -109,7 +123,7 @@ final class JumpController: SingleCharTextFieldDelegate {
             if let result = labelsController.next(char) {
                 removeTextField()
                 state = .Inactive
-                jump(result)
+                jump(result.range)
             }
         default:
             break
