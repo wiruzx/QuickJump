@@ -10,7 +10,15 @@ import Foundation
 
 final class JumpController: SingleCharTextFieldDelegate {
     
+    // MARK:- Type declaration
+    
+    private enum State {
+        case Inactive, InputChar, ShowCandidates
+    }
+    
     // MARK:- Private properties
+    
+    private var state: State = .Inactive
     
     private let xcodeManager = XCodeManager.sharedManager
     
@@ -42,6 +50,7 @@ final class JumpController: SingleCharTextFieldDelegate {
             return
         }
         
+        state = .InputChar
         showTextField()
     }
     
@@ -53,6 +62,7 @@ final class JumpController: SingleCharTextFieldDelegate {
         let textFieldRect = NSRect(origin: currentEditorView.cursorPosition, size: textFieldSize)
         
         inputTextField.frame = textFieldRect
+        inputTextField.alphaValue = 1
         
         currentEditorView.addSubview(inputTextField)
         
@@ -60,6 +70,11 @@ final class JumpController: SingleCharTextFieldDelegate {
     }
     
     private func hideTextField() {
+        inputTextField.alphaValue = 0
+    }
+    
+    private func removeTextField() {
+        state = .Inactive
         inputTextField.removeFromSuperview()
     }
     
@@ -67,14 +82,38 @@ final class JumpController: SingleCharTextFieldDelegate {
         let ranges = currentEditorView.rangesOfVisible(char)
         let rects = ranges.map(currentEditorView.rectFromRange)
         
-        labelsController!.initialize(Array(zip(ranges, rects)))
+        // TODO: Temporary
+        if ranges.count >= 26 * 2 {
+            removeTextField()
+            currentEditorView.window?.makeFirstResponder(currentEditorView)
+            return
+        }
+        
+        state = .ShowCandidates
+        labelsController.initialize(Array(zip(ranges, rects)))
+    }
+
+    private func jump(candidateInfo: CandidateInfo) {
+        currentEditorView.setSelectedRange(candidateInfo.range)
+        currentEditorView.window?.makeFirstResponder(currentEditorView)
     }
     
     // MARK:- SingleCharTextFieldDelegate
     
     func didRecieveChar(textField: SingleCharTextField, char: Character) {
-        hideTextField()
-        showResults(char)
+        switch state {
+        case .InputChar:
+            hideTextField()
+            showResults(char)
+        case .ShowCandidates:
+            if let result = labelsController.next(char) {
+                removeTextField()
+                state = .Inactive
+                jump(result)
+            }
+        default:
+            break
+        }
     }
     
 }
