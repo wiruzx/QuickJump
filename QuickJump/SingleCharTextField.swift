@@ -10,7 +10,7 @@ import AppKit
 
 protocol SingleCharTextFieldDelegate: class {
     func didRecieveChar(textField: SingleCharTextField, char: Character)
-    func didLooseFocus(textField: SingleCharTextField)
+    func didLoseFocus(textField: SingleCharTextField)
 }
 
 final class SingleCharTextField: NSTextField, NSTextFieldDelegate {
@@ -37,7 +37,7 @@ final class SingleCharTextField: NSTextField, NSTextFieldDelegate {
     // MARK:- Overriden methods
     
     override func controlTextDidEndEditing(obj: NSNotification) {
-        charInputDelegate?.didLooseFocus(self)
+        charInputDelegate?.didLoseFocus(self)
         stringValue = ""
     }
     

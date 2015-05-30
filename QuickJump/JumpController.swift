@@ -129,7 +129,7 @@ final class JumpController: SingleCharTextFieldDelegate {
         }
     }
     
-    func didLooseFocus(textField: SingleCharTextField) {
+    func didLoseFocus(textField: SingleCharTextField) {
         abort()
     }
     
