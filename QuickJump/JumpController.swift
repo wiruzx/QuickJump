@@ -20,8 +20,6 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     private var state: State = .Inactive
     
-    private let xcodeManager = XCodeManager.sharedManager
-    
     private var labelsController: CandidateLabelsController!
     
     private var currentEditorView: DVTSourceTextView! {
@@ -44,7 +42,7 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     func toggle() {
         
-        currentEditorView = xcodeManager.currentEditorView
+        currentEditorView = .activeEditorView
         
         if currentEditorView == nil {
             return

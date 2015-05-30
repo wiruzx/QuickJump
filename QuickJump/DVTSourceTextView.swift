@@ -10,6 +10,12 @@ import Foundation
 
 extension DVTSourceTextView {
     
+    static var activeEditorView: DVTSourceTextView? {
+        let windowController = NSApplication.sharedApplication().keyWindow?.windowController() as? IDEWorkspaceWindowController
+        let editor = windowController?.editorArea?.lastActiveEditorContext?.editor
+        return editor?.mainScrollView?.contentView.documentView as? DVTSourceTextView
+    }
+    
     var visibleTextRange: NSRange {
         
         if let clipView = superview as? NSClipView,
