@@ -8,17 +8,19 @@
 
 import AppKit
 
-var sharedPlugin: QuickJump?
-
-class QuickJump: NSObject {
-    var bundle: NSBundle
+final class QuickJump: NSObject {
     
-    var jumpController = JumpController()
+    static var sharedPlugin: QuickJump?
+    
+    let bundle: NSBundle
+    
+    private let jumpController = JumpController()
 
     init(bundle: NSBundle) {
         self.bundle = bundle
 
         super.init()
+        
         createMenuItems()
     }
 
@@ -26,18 +28,16 @@ class QuickJump: NSObject {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
-    func createMenuItems() {
-        var item = NSApp.mainMenu!!.itemWithTitle("Edit")
-        if item != nil {
-            var actionMenuItem = NSMenuItem(title:"Toggle QuickJump", action:"toggleQuickJump", keyEquivalent:"")
+    private func createMenuItems() {
+        if let submenu = NSApp.mainMenu??.itemWithTitle("Edit")?.submenu {
+            let actionMenuItem = NSMenuItem(title: "Toggle QuickJump", action: "toggleQuickJump", keyEquivalent: "")
             actionMenuItem.target = self
-            item!.submenu!.addItem(NSMenuItem.separatorItem())
-            item!.submenu!.addItem(actionMenuItem)
+            submenu.addItem(.separatorItem())
+            submenu.addItem(actionMenuItem)
         }
     }
 
-    func toggleQuickJump() {
+    @objc private func toggleQuickJump() {
         jumpController.toggle()
     }
 }
-

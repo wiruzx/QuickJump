@@ -12,8 +12,8 @@ extension NSObject {
     class func pluginDidLoad(bundle: NSBundle) {
         let appName = NSBundle.mainBundle().infoDictionary?["CFBundleName"] as? NSString
         if appName == "Xcode" {
-        	if sharedPlugin == nil {
-        		sharedPlugin = QuickJump(bundle: bundle)
+        	if QuickJump.sharedPlugin == nil {
+        		QuickJump.sharedPlugin = QuickJump(bundle: bundle)
         	}
         }
     }
