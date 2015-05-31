@@ -8,3 +8,4 @@
 
 #import <AppKit/AppKit.h>
 #import "IDESourceEditor.h"
+#import "SourceTextViewDelegateProxy.h"

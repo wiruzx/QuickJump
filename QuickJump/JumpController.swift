@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class JumpController: SingleCharTextFieldDelegate {
+final class JumpController: NSObject, SingleCharTextFieldDelegate, DVTSourceTextViewDelegate {
     
     // MARK:- Type declaration
     
@@ -26,10 +26,17 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     private var labelsController: CandidateLabelsController!
     
+    private var editorDelegateProxy: SourceTextViewDelegateProxy?
+    
     private var currentEditorView: DVTSourceTextView! {
         didSet {
             if currentEditorView != oldValue {
                 labelsController = CandidateLabelsController(superview: currentEditorView)
+                
+                editorDelegateProxy = SourceTextViewDelegateProxy(delegate: self,
+                                                                  originalDelegate: currentEditorView.delegate as! NSObject)
+                
+                currentEditorView.delegate = editorDelegateProxy as! DVTSourceTextViewDelegate
             }
         }
     }
@@ -38,7 +45,8 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     // MARK:- Instantiation
     
-    init() {
+    override init() {
+        super.init()
         inputTextField.charInputDelegate = self
     }
     

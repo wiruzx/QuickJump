@@ -13,6 +13,7 @@
 		E64B17301B17C8E0002B389B /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B172F1B17C8E0002B389B /* ArrayUtils.swift */; };
 		E64B17321B17D136002B389B /* CandidateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B17311B17D136002B389B /* CandidateInfo.swift */; };
 		E64DCE931B1CCF790040EA53 /* SequenceTypeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64DCE921B1CCF790040EA53 /* SequenceTypeUtils.swift */; };
+		E653D90E1B1B524D0083636E /* SourceTextViewDelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E653D90D1B1B524D0083636E /* SourceTextViewDelegateProxy.m */; };
 		E6579F281B13C6A8000212D9 /* QuickJump.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = E6579F271B13C6A8000212D9 /* QuickJump.xcscheme */; };
 		E6579F2A1B13C6A8000212D9 /* QuickJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F291B13C6A8000212D9 /* QuickJump.swift */; };
 		E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */; };
@@ -37,6 +38,8 @@
 		E64B172F1B17C8E0002B389B /* ArrayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
 		E64B17311B17D136002B389B /* CandidateInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateInfo.swift; sourceTree = "<group>"; };
 		E64DCE921B1CCF790040EA53 /* SequenceTypeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTypeUtils.swift; sourceTree = "<group>"; };
+		E653D90C1B1B524D0083636E /* SourceTextViewDelegateProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceTextViewDelegateProxy.h; sourceTree = "<group>"; };
+		E653D90D1B1B524D0083636E /* SourceTextViewDelegateProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceTextViewDelegateProxy.m; sourceTree = "<group>"; };
 		E6579F221B13C6A8000212D9 /* QuickJump.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickJump.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6579F261B13C6A8000212D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6579F271B13C6A8000212D9 /* QuickJump.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = QuickJump.xcscheme; path = QuickJump.xcodeproj/xcshareddata/xcschemes/QuickJump.xcscheme; sourceTree = SOURCE_ROOT; };
@@ -127,6 +130,8 @@
 		E694A8771B16687D0072B0B9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E653D90C1B1B524D0083636E /* SourceTextViewDelegateProxy.h */,
+				E653D90D1B1B524D0083636E /* SourceTextViewDelegateProxy.m */,
 				E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */,
 				E6C713651B168B7E00E18014 /* DVTSourceTextView.swift */,
 				E6C713671B168F7900E18014 /* StringUtils.swift */,
@@ -253,6 +258,7 @@
 				E64DCE931B1CCF790040EA53 /* SequenceTypeUtils.swift in Sources */,
 				E6B9F3641B1CD42B00CCB9F8 /* CandidateLabelType.swift in Sources */,
 				E6420C741B163B0B00699FC0 /* NSTextViewUtils.swift in Sources */,
+				E653D90E1B1B524D0083636E /* SourceTextViewDelegateProxy.m in Sources */,
 				E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */,
 				E64B17321B17D136002B389B /* CandidateInfo.swift in Sources */,
 				E64B172A1B17C1C0002B389B /* Candidate.swift in Sources */,
