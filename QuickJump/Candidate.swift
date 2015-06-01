@@ -10,21 +10,54 @@ import Foundation
 
 private let lowercase = "abcdefghijklmnopqrstuvwxyz"
 private let uppercase = lowercase.uppercaseString
-private let alphabet = lowercase + uppercase
+private let alphabet = Array(lowercase + uppercase)
 
 struct Candidate {
     let char: Character
-    let next: () -> Candidate?
+    var next: () -> Candidate?
     
-    private static func create(char: Character) -> Candidate {
-        return Candidate(char: char) { nil }
+    private static func createStatic(char: Character) -> Candidate {
+        return create(char, const(nil))
+    }
+    
+    private static func create(char: Character, _ next: () -> Candidate?) -> Candidate {
+        return Candidate(char: char, next: next)
+    }
+    
+    private static func createFromArray(array: [Character]) -> Candidate? {
+        if let (head, tail) = array.decomposed {
+            var head = Candidate.createStatic(head)
+            
+            for char in tail {
+                head = Candidate.create(char, const(head))
+            }
+            
+            return head
+        } else {
+            return nil
+        }
+    }
+    
+}
+
+private func incIndexes(capacity: Int)(_ indexes: [Int]) -> [Int] {
+    if let (head, tail) = indexes.decomposed {
+        if head >= capacity - 1 {
+            return [0] + incIndexes(capacity)(tail)
+        } else {
+            return [head + 1] + tail
+        }
+    } else {
+        return [0]
     }
 }
 
-func candidates(count: Int) -> [Candidate] {
-    if count <= alphabet.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) {
-        return map(alphabet, Candidate.create)
-    } else {
-        return []
-    }
+func candidates() -> SequenceOf<Candidate> {
+    let incf = incIndexes(alphabet.count)
+    var current = [Int]()
+    return SequenceOf(GeneratorOf {
+        current = incf(current)
+        let letters = current.map { alphabet[$0] }
+        return Candidate.createFromArray(letters)
+    })
 }

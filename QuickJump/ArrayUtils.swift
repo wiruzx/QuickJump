@@ -9,6 +9,11 @@
 import Foundation
 
 extension Array {
+    
+    var decomposed: (T, [T])? {
+        return isEmpty ? nil : (first!, Array(dropFirst(self)))
+    }
+    
     func each(f: T -> Void)  {
         for x in self {
             f(x)

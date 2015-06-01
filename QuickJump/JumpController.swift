@@ -89,12 +89,6 @@ final class JumpController: SingleCharTextFieldDelegate {
             return
         }
         
-        // TODO: Temporary
-        if ranges.count >= 26 * 2 {
-            abort()
-            return
-        }
-        
         state = .ShowCandidates
         labelsController.initialize(Array(zip(ranges, rects)))
     }
