@@ -1,5 +1,5 @@
 //
-//  NSTextField+CandidateLabelType.swift
+//  NSTextView+CandidateLabelType.swift
 //  QuickJump
 //
 //  Created by Victor Shamanov on 6/1/15.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension NSTextField: CandidateLabelType {
+extension NSTextView: CandidateLabelType {
     
     func addToView(view: NSView) {
         view.addSubview(self)
