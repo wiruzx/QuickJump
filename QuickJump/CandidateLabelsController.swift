@@ -22,7 +22,8 @@ final class CandidateLabelsController {
         }
     }
     
-    private var displayedLabels: [NSTextField] = []
+    private var labelFactory = CandidateLabelFactory()
+    private var displayedLabels: [CandidateLabelType] = []
     
     // MAKR:- Instantiation
     
@@ -33,7 +34,7 @@ final class CandidateLabelsController {
     // MARK:- Deinitialization
     
     deinit {
-        displayedLabels.map { $0.removeFromSuperview() }
+        displayedLabels.each { $0.removeFromSuperview() }
     }
     
     // MARK:- Public methods
@@ -80,13 +81,11 @@ final class CandidateLabelsController {
     private func displayCandidates() {
         displayedLabels.each { $0.removeFromSuperview() }
         displayedLabels = candidateInfos.map(labelFromInfo)
-        displayedLabels.each(superview.addSubview)
+        displayedLabels.each { $0.addToView(superview) }
     }
     
-    private func labelFromInfo(candidateInfo: CandidateInfo) -> NSTextField {
-        let textField = NSTextField(frame: candidateInfo.rect)
-        textField.stringValue = String(candidateInfo.candidate.char)
-        return textField
+    private func labelFromInfo(candidateInfo: CandidateInfo) -> CandidateLabelType {
+        return labelFactory.labelWithFrame(candidateInfo.rect, char: candidateInfo.candidate.char)
     }
     
 }
