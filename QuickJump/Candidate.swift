@@ -52,7 +52,7 @@ private func incIndexes(capacity: Int)(_ indexes: [Int]) -> [Int] {
     }
 }
 
-func candidates() -> SequenceOf<Candidate> {
+private func candidates() -> SequenceOf<Candidate> {
     let incf = incIndexes(alphabet.count)
     var current = [Int]()
     return SequenceOf(GeneratorOf {
@@ -60,4 +60,8 @@ func candidates() -> SequenceOf<Candidate> {
         let letters = current.map { alphabet[$0] }
         return Candidate.createFromArray(letters)
     })
+}
+
+func candidatesForCount(count: Int) -> SequenceOf<Candidate> {
+    return skip(count / alphabet.count)(candidates())
 }
