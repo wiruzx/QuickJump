@@ -14,7 +14,7 @@ extension Array {
         return isEmpty ? nil : (first!, Array(dropFirst(self)))
     }
     
-    func each(f: T -> Void)  {
+    func each(@noescape f: T -> Void)  {
         for x in self {
             f(x)
         }
