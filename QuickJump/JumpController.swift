@@ -16,6 +16,10 @@ final class JumpController: SingleCharTextFieldDelegate {
         case Inactive, InputChar, ShowCandidates
     }
     
+    // MARK:- Public properties
+    
+    var caseSensitive = false
+    
     // MARK:- Private properties
     
     private var state: State = .Inactive
@@ -75,8 +79,26 @@ final class JumpController: SingleCharTextFieldDelegate {
         inputTextField.removeFromSuperview()
     }
     
+    private func rangesForChar(char: Character) -> [NSRange] {
+        if caseSensitive {
+            return currentEditorView.rangesOfVisible(char)
+        } else {
+            let lowercaseChar = Character(String(char).lowercaseString)
+            let uppercaseChar = Character(String(char).uppercaseString)
+            
+            let charsEqual = lowercaseChar == uppercaseChar
+            
+            let lowercaseRanges = currentEditorView.rangesOfVisible(lowercaseChar)
+            let uppercaseRanges = charsEqual ? [] : currentEditorView.rangesOfVisible(uppercaseChar)
+            
+            return lowercaseRanges + uppercaseRanges
+        }
+    }
+    
     private func showResults(char: Character) {
-        let ranges = currentEditorView.rangesOfVisible(char)
+        
+        let ranges = rangesForChar(char)
+        
         let rects = ranges.map(currentEditorView.rectFromRange)
         
         if ranges.isEmpty {
