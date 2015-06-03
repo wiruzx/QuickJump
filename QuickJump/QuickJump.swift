@@ -15,6 +15,7 @@ final class QuickJump: NSObject {
     let bundle: NSBundle
     
     private let jumpController = JumpController()
+    private let settings = SettingsManager()
 
     init(bundle: NSBundle) {
         self.bundle = bundle
@@ -36,6 +37,9 @@ final class QuickJump: NSObject {
                                                             object: nil)
     }
     
+    private var caseSensitiveMenuItem: NSMenuItem?
+    private var caseInsensitiveMenuItem: NSMenuItem?
+    
     private func createMenuItems() {
         
         let quickJumpMenuName = "QuickJump"
@@ -51,6 +55,32 @@ final class QuickJump: NSObject {
             actionMenuItem.target = self
             submenu.addItem(actionMenuItem)
             
+            let caseTypeSubmenu = NSMenu()
+            
+            let caseType = settings.get(.CaseType) ?? CaseType.Sensitive
+            
+            jumpController.caseType = caseType
+            
+            let caseSensitiveItem = NSMenuItem(title: "Sensitive", action: "selectSensitive:", keyEquivalent: "")
+            caseSensitiveItem.target = self
+            caseSensitiveItem.state = caseType == .Sensitive ? 1 : 0
+            caseTypeSubmenu.addItem(caseSensitiveItem)
+            
+            caseSensitiveMenuItem = caseSensitiveItem
+            
+            let caseInsensitiveItem = NSMenuItem(title: "Insensitive", action: "selectInsensitive:", keyEquivalent: "")
+            caseInsensitiveItem.target = self
+            caseInsensitiveItem.state = caseType == .Insensitive ? 1 : 0
+            caseTypeSubmenu.addItem(caseInsensitiveItem)
+            
+            caseInsensitiveMenuItem = caseInsensitiveItem
+            
+            let caseTypeMenuItem = NSMenuItem(title: "Case sensivity", action: nil, keyEquivalent: "")
+            
+            caseTypeMenuItem.submenu = caseTypeSubmenu
+            
+            submenu.addItem(caseTypeMenuItem)
+            
             quickJumpMenu.submenu = submenu
             
             editorMenu.insertItem(.separatorItem(), atIndex: 0)
@@ -65,9 +95,30 @@ final class QuickJump: NSObject {
         jumpController.toggle()
     }
     
+    @objc private func selectSensitive(sender: AnyObject) {
+        changeCaseType(.Sensitive)
+    }
+    
+    @objc private func selectInsensitive(sender: AnyObject) {
+        changeCaseType(.Insensitive)
+    }
+    
     // MARK:- Notifications
     
     @objc private func menuDidChange(notification: NSNotification) {
         createMenuItems()
     }
+    
+    // MARK:- Private methods
+    
+    private func changeCaseType(type: CaseType) {
+        caseSensitiveMenuItem?.state = type == .Sensitive ? 1 : 0
+        caseInsensitiveMenuItem?.state = type == .Insensitive ? 1 : 0
+        
+        jumpController.caseType = type
+        
+        settings.set(type, forItemType: .CaseType)
+        settings.synchronize()
+    }
+    
 }

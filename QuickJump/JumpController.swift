@@ -18,7 +18,7 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     // MARK:- Public properties
     
-    var caseSensitive = false
+    var caseType = CaseType.Insensitive
     
     // MARK:- Private properties
     
@@ -80,7 +80,7 @@ final class JumpController: SingleCharTextFieldDelegate {
     }
     
     private func rangesForChar(char: Character) -> [NSRange] {
-        if caseSensitive {
+        if caseType == .Sensitive {
             return currentEditorView.rangesOfVisible(char)
         } else {
             let lowercaseChar = Character(String(char).lowercaseString)

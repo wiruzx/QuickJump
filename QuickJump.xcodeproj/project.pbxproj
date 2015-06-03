@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E603089F1B1FAC5600FDE9E6 /* CaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E603089E1B1FAC5600FDE9E6 /* CaseType.swift */; };
 		E6420C741B163B0B00699FC0 /* NSTextViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */; };
+		E648D64B1B1FA85000098ED6 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648D64A1B1FA85000098ED6 /* SettingsManager.swift */; };
 		E64B172A1B17C1C0002B389B /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B17291B17C1C0002B389B /* Candidate.swift */; };
 		E64B172E1B17C40D002B389B /* CandidateLabelsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B172D1B17C40D002B389B /* CandidateLabelsController.swift */; };
 		E64B17301B17C8E0002B389B /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B172F1B17C8E0002B389B /* ArrayUtils.swift */; };
@@ -31,7 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E603089E1B1FAC5600FDE9E6 /* CaseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseType.swift; sourceTree = "<group>"; };
 		E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTextViewUtils.swift; sourceTree = "<group>"; };
+		E648D64A1B1FA85000098ED6 /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		E64B17291B17C1C0002B389B /* Candidate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
 		E64B172D1B17C40D002B389B /* CandidateLabelsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateLabelsController.swift; sourceTree = "<group>"; };
 		E64B172F1B17C8E0002B389B /* ArrayUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 				E6FD2D141B1CD73900177B71 /* NSTextView+CandidateLabelType.swift */,
 				E6FD2D121B1CD57F00177B71 /* CandidateLabelFactory.swift */,
 				E64B17311B17D136002B389B /* CandidateInfo.swift */,
+				E648D64A1B1FA85000098ED6 /* SettingsManager.swift */,
+				E603089E1B1FAC5600FDE9E6 /* CaseType.swift */,
 			);
 			name = QuickJump;
 			sourceTree = "<group>";
@@ -251,8 +257,10 @@
 				E6579F2A1B13C6A8000212D9 /* QuickJump.swift in Sources */,
 				E64B172E1B17C40D002B389B /* CandidateLabelsController.swift in Sources */,
 				E64DCE931B1CCF790040EA53 /* SequenceTypeUtils.swift in Sources */,
+				E603089F1B1FAC5600FDE9E6 /* CaseType.swift in Sources */,
 				E6B9F3641B1CD42B00CCB9F8 /* CandidateLabelType.swift in Sources */,
 				E6420C741B163B0B00699FC0 /* NSTextViewUtils.swift in Sources */,
+				E648D64B1B1FA85000098ED6 /* SettingsManager.swift in Sources */,
 				E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */,
 				E64B17321B17D136002B389B /* CandidateInfo.swift in Sources */,
 				E64B172A1B17C1C0002B389B /* Candidate.swift in Sources */,
