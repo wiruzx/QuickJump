@@ -22,15 +22,28 @@ final class QuickJump: NSObject {
         super.init()
         
         createMenuItems()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: "menuDidChange:",
+                                                         name: NSMenuDidChangeItemNotification,
+                                                         object: nil)
+        
     }
-
+    
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+                                                            name: NSMenuDidChangeItemNotification,
+                                                            object: nil)
     }
-
+    
     private func createMenuItems() {
-        if let editorMenu = NSApplication.sharedApplication().mainMenu?.itemWithTitle("Editor")?.submenu {
-            let quickJumpMenu = NSMenuItem(title: "QuickJump", action: nil, keyEquivalent: "")
+        
+        let quickJumpMenuName = "QuickJump"
+        
+        if let editorMenu = NSApplication.sharedApplication().mainMenu?.itemWithTitle("Editor")?.submenu
+           where editorMenu.itemWithTitle(quickJumpMenuName) == nil {
+            
+            let quickJumpMenu = NSMenuItem(title: quickJumpMenuName, action: nil, keyEquivalent: "")
             
             let submenu = NSMenu()
             
@@ -45,8 +58,16 @@ final class QuickJump: NSObject {
             
         }
     }
+    
+    // MARK:- Actions
 
     @objc private func toggleQuickJump() {
         jumpController.toggle()
+    }
+    
+    // MARK:- Notifications
+    
+    @objc private func menuDidChange(notification: NSNotification) {
+        createMenuItems()
     }
 }
