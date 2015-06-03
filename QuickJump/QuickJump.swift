@@ -29,11 +29,20 @@ final class QuickJump: NSObject {
     }
 
     private func createMenuItems() {
-        if let submenu = NSApp.mainMenu??.itemWithTitle("Edit")?.submenu {
+        if let editorMenu = NSApplication.sharedApplication().mainMenu?.itemWithTitle("Editor")?.submenu {
+            let quickJumpMenu = NSMenuItem(title: "QuickJump", action: nil, keyEquivalent: "")
+            
+            let submenu = NSMenu()
+            
             let actionMenuItem = NSMenuItem(title: "Toggle QuickJump", action: "toggleQuickJump", keyEquivalent: "")
             actionMenuItem.target = self
-            submenu.addItem(.separatorItem())
             submenu.addItem(actionMenuItem)
+            
+            quickJumpMenu.submenu = submenu
+            
+            editorMenu.insertItem(.separatorItem(), atIndex: 0)
+            editorMenu.insertItem(quickJumpMenu, atIndex: 0)
+            
         }
     }
 
