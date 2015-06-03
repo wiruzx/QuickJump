@@ -13,7 +13,7 @@ final class CandidateLabelFactory {
     func labelWithFrame(frame: NSRect, char: Character) -> CandidateLabelType {
         let textView = NSTextView(frame: frame)
         textView.string = String(char)
-        textView.backgroundColor = NSColor.grayColor().colorWithAlphaComponent(0.9)
+        textView.backgroundColor = NSColor.darkGrayColor()
         textView.textColor = .whiteColor()
         textView.textContainerInset = NSSize(width: -3.5, height: 0)
         textView.font = NSFont(name: "Menlo-Regular", size: 12)
