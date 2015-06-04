@@ -46,6 +46,11 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     func toggle() {
         
+        if state == .ShowCandidates {
+            abort()
+            return
+        }
+
         currentEditorView = .activeEditorView
         
         if currentEditorView == nil {
