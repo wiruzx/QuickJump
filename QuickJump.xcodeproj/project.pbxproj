@@ -30,7 +30,6 @@
 		E6C73D3A1B13D188001305E0 /* IDEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C73D2F1B13CF8F001305E0 /* IDEKit.framework */; };
 		E6C919281B1BC04000E7236A /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C919271B1BC04000E7236A /* Functions.swift */; };
 		E6FD2D131B1CD57F00177B71 /* CandidateLabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FD2D121B1CD57F00177B71 /* CandidateLabelFactory.swift */; };
-		E6FD2D151B1CD73900177B71 /* NSTextView+CandidateLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FD2D141B1CD73900177B71 /* NSTextView+CandidateLabelType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +64,6 @@
 		E6C73D341B13CF9D001305E0 /* DVTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTKit.framework; path = /Applications/Xcode.app/Contents/SharedFrameworks/DVTKit.framework; sourceTree = "<absolute>"; };
 		E6C919271B1BC04000E7236A /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		E6FD2D121B1CD57F00177B71 /* CandidateLabelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateLabelFactory.swift; sourceTree = "<group>"; };
-		E6FD2D141B1CD73900177B71 /* NSTextView+CandidateLabelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTextView+CandidateLabelType.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +150,6 @@
 				E64B17291B17C1C0002B389B /* Candidate.swift */,
 				E64B172D1B17C40D002B389B /* CandidateLabelsController.swift */,
 				E6B9F3631B1CD42B00CCB9F8 /* CandidateLabelType.swift */,
-				E6FD2D141B1CD73900177B71 /* NSTextView+CandidateLabelType.swift */,
 				E6FD2D121B1CD57F00177B71 /* CandidateLabelFactory.swift */,
 				E667787B1B20DA230016C708 /* CandidateTextView.swift */,
 				E64B17311B17D136002B389B /* CandidateInfo.swift */,
@@ -256,7 +253,6 @@
 				E6C713681B168F7900E18014 /* StringUtils.swift in Sources */,
 				E694A87A1B166B3D0072B0B9 /* SingleCharTextField.swift in Sources */,
 				E6C713661B168B7E00E18014 /* DVTSourceTextView.swift in Sources */,
-				E6FD2D151B1CD73900177B71 /* NSTextView+CandidateLabelType.swift in Sources */,
 				E6579F2A1B13C6A8000212D9 /* QuickJump.swift in Sources */,
 				E64B172E1B17C40D002B389B /* CandidateLabelsController.swift in Sources */,
 				E64DCE931B1CCF790040EA53 /* SequenceTypeUtils.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import AppKit
 
-final class CandidateTextView: NSTextView {
+final class CandidateTextView: NSTextView, CandidateLabelType {
     
     // MARK:- Initialization
     
@@ -30,4 +30,10 @@ final class CandidateTextView: NSTextView {
         super.drawRect(dirtyRect)
     }
     
+    // MARK:- CandidateLabelType
+    
+    func addToView(view: NSView) {
+        view.addSubview(self)
+    }
+
 }
