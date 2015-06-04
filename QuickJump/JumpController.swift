@@ -127,7 +127,8 @@ final class JumpController: SingleCharTextFieldDelegate {
         currentEditorView.window?.makeFirstResponder(currentEditorView)
     }
 
-    private func jump(range: NSRange) {
+    private func jump(var range: NSRange) {
+        range.length = 0
         currentEditorView.setSelectedRange(range)
         currentEditorView.window?.makeFirstResponder(currentEditorView)
     }
