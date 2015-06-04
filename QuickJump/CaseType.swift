@@ -13,6 +13,11 @@ enum CaseType {
     case Insensitive
 }
 
+struct CaseKey: KeyType {
+    typealias EntityType = CaseType
+    let key = "CaseType"
+}
+
 extension CaseType: Encodable, Decodable {
     
     func encode() -> NSDictionaryLikeType {

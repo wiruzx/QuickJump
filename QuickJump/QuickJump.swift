@@ -57,7 +57,7 @@ final class QuickJump: NSObject {
             
             let caseTypeSubmenu = NSMenu()
             
-            let caseType = settings.get(.CaseType) ?? CaseType.Sensitive
+            let caseType = settings.get(CaseKey()) ?? .Sensitive
             
             jumpController.caseType = caseType
             
@@ -117,7 +117,7 @@ final class QuickJump: NSObject {
         
         jumpController.caseType = type
         
-        settings.set(type, forItemType: .CaseType)
+        settings.set(type, forItemType: CaseKey())
         settings.synchronize()
     }
     

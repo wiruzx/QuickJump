@@ -18,20 +18,12 @@ protocol Decodable {
     static func decode(dictionary: NSDictionaryLikeType) -> Self?
 }
 
+protocol KeyType {
+    typealias EntityType: Decodable
+    var key: String { get }
+}
+
 final class SettingsManager {
-    
-    // MARK:- Type declarations
-    
-    enum Item {
-        case CaseType
-        
-        private var key: String {
-            switch self {
-            case .CaseType:
-                return "CaseType"
-            }
-        }
-    }
     
     // MARK:- Private properties
     
@@ -39,11 +31,11 @@ final class SettingsManager {
     
     // MARK:- Public methods
     
-    func get<T: Decodable>(itemType: Item) -> T? {
-        return (userDefaults.objectForKey(itemType.key) as? NSDictionaryLikeType).flatMap(T.self.decode)
+    func get<T: KeyType>(itemType: T) -> T.EntityType? {
+        return (userDefaults.objectForKey(itemType.key) as? NSDictionaryLikeType).flatMap(T.EntityType.decode)
     }
     
-    func set<T: Encodable>(object: T, forItemType itemType: Item) {
+    func set<T: Encodable, K: KeyType where T == K.EntityType>(object: T, forItemType itemType: K) {
         userDefaults.setObject(object.encode(), forKey: itemType.key)
     }
     
