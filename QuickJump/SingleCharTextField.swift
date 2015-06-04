@@ -34,6 +34,18 @@ final class SingleCharTextField: NSTextField, NSTextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK:- NSTextFieldDelegate
+    
+    func control(control: NSControl, textView: NSTextView, doCommandBySelector commandSelector: Selector) -> Bool {
+        switch commandSelector {
+        case "complete:":
+            charInputDelegate?.didLoseFocus(self)
+            return true
+        default:
+            return false
+        }
+    }
+    
     // MARK:- Overriden methods
     
     override func controlTextDidEndEditing(obj: NSNotification) {
