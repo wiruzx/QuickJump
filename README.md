@@ -1,6 +1,8 @@
 ![QuickJump](logo.png)
 
-## Demo
+Quick code navigation for Xcode
+
+![Demo gif](http://i.imgur.com/O7GSm4w.gif)
 
 ## Installation
 
