@@ -57,6 +57,8 @@ final class QuickJump: NSObject {
             actionMenuItem.target = self
             submenu.addItem(actionMenuItem)
             
+            submenu.addItem(.separatorItem())
+
             let caseTypeSubmenu = NSMenu()
             
             let caseTypeMenuItem = NSMenuItem(title: "Case sensivity", action: nil, keyEquivalent: "")
