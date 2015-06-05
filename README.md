@@ -16,6 +16,8 @@ See demo:
 
 ### Alcatraz
 
+Available through [Alcatraz](http://alcatraz.io)
+
 ### Manual
 
 1. Clone the project
