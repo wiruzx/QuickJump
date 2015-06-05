@@ -1,12 +1,34 @@
 ![QuickJump](logo.png)
 
-Quick code navigation for Xcode
+QuickJump allows you navigate to any visible position in the editor.
+
+Just Toggle QuickJump, type a character and then type the matching character
+
+See demo:
+
+---
 
 ![Demo gif](http://i.imgur.com/O7GSm4w.gif)
 
+---
+
 ## Installation
 
-## Settings
+### Alcatraz
+
+### Manual
+
+1. Clone the project
+2. Open `QuickJump.xcodeproj` file
+3. Build project and restart Xcode
+
+### Set shortcut
+
+Go to `System Preferences > Keyboard > Shortcuts > App shortcuts` and press the + button
+
+Then chose Xcode and change menu title to: `Toggle QuickJump`
+
+![System preferences](http://i.imgur.com/4JWHSSM.png)
 
 ## License
 
