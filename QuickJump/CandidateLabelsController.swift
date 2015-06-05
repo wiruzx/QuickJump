@@ -13,6 +13,7 @@ final class CandidateLabelsController {
     // MARK:- Public properties
     
     let superview: NSView
+    let alphabet: [Character]
     
     // MAKR:- Private properties
     
@@ -27,8 +28,9 @@ final class CandidateLabelsController {
     
     // MAKR:- Instantiation
     
-    init(superview: NSView) {
+    init(superview: NSView, alphabet: [Character]) {
         self.superview = superview
+        self.alphabet = alphabet
     }
     
     // MARK:- Deinitialization
@@ -40,7 +42,7 @@ final class CandidateLabelsController {
     // MARK:- Public methods
     
     func initialize(rangesAndRects: [(NSRange, NSRect)]) {
-        candidateInfos = map(zip(candidatesForCount(rangesAndRects.count), rangesAndRects)) { c, rar in
+        candidateInfos = map(zip(candidatesForCount(alphabet)(rangesAndRects.count), rangesAndRects)) { c, rar in
             CandidateInfo(candidate: c, range: rar.0, rect: rar.1)
         }
     }

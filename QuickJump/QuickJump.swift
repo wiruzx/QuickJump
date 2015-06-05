@@ -40,6 +40,8 @@ final class QuickJump: NSObject {
     private var caseSensitiveMenuItem: NSMenuItem?
     private var caseInsensitiveMenuItem: NSMenuItem?
     
+    private var uppercaseCandidatesMenuItem: NSMenuItem?
+    
     private func createMenuItems() {
         
         let quickJumpMenuName = "QuickJump"
@@ -57,9 +59,26 @@ final class QuickJump: NSObject {
             
             let caseTypeSubmenu = NSMenu()
             
-            let caseType = settings.get(CaseKey()) ?? .Sensitive
+            let caseTypeMenuItem = NSMenuItem(title: "Case sensivity", action: nil, keyEquivalent: "")
+            caseTypeMenuItem.submenu = caseTypeSubmenu
+            submenu.addItem(caseTypeMenuItem)
             
+            let caseType = settings.get(CaseKey()) ?? .Sensitive
             jumpController.caseType = caseType
+            
+            let alphabet = settings.get(AlphabetKey()) ?? .DefaultAlphabet
+            jumpController.alphabet = alphabet.chars
+            
+            let uppercaseCandidatesItem = NSMenuItem(title: "Allow Uppercase candidates",
+                                                     action: "changeEnableUppercaseCandidatesToggle:",
+                                                     keyEquivalent: "")
+            uppercaseCandidatesItem.target = self
+            uppercaseCandidatesItem.state = alphabet == .LatinWithUppercase ? 1 : 0
+            
+            submenu.addItem(.separatorItem())
+            submenu.addItem(uppercaseCandidatesItem)
+            
+            uppercaseCandidatesMenuItem = uppercaseCandidatesItem
             
             let caseSensitiveItem = NSMenuItem(title: "Sensitive", action: "selectSensitive:", keyEquivalent: "")
             caseSensitiveItem.target = self
@@ -74,12 +93,6 @@ final class QuickJump: NSObject {
             caseTypeSubmenu.addItem(caseInsensitiveItem)
             
             caseInsensitiveMenuItem = caseInsensitiveItem
-            
-            let caseTypeMenuItem = NSMenuItem(title: "Case sensivity", action: nil, keyEquivalent: "")
-            
-            caseTypeMenuItem.submenu = caseTypeSubmenu
-            
-            submenu.addItem(caseTypeMenuItem)
             
             quickJumpMenu.submenu = submenu
             
@@ -103,6 +116,10 @@ final class QuickJump: NSObject {
         changeCaseType(.Insensitive)
     }
     
+    @objc private func changeEnableUppercaseCandidatesToggle(sender: AnyObject) {
+        changeUppercaseCandidates()
+    }
+    
     // MARK:- Notifications
     
     @objc private func menuDidChange(notification: NSNotification) {
@@ -110,6 +127,25 @@ final class QuickJump: NSObject {
     }
     
     // MARK:- Private methods
+    
+    private func changeUppercaseCandidates() {
+        
+        let current = settings.get(AlphabetKey()) ?? .DefaultAlphabet
+        
+        let newAlphabet: Alphabet
+        if current == .LatinWithUppercase {
+            uppercaseCandidatesMenuItem?.state = 0
+            newAlphabet = .Latin
+        } else {
+            uppercaseCandidatesMenuItem?.state = 1
+            newAlphabet = .LatinWithUppercase
+        }
+        
+        jumpController.alphabet = newAlphabet.chars
+        settings.set(newAlphabet, forItemType: AlphabetKey())
+        settings.synchronize()
+        
+    }
     
     private func changeCaseType(type: CaseType) {
         caseSensitiveMenuItem?.state = type == .Sensitive ? 1 : 0

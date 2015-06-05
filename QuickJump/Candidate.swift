@@ -8,10 +8,6 @@
 
 import Foundation
 
-private let lowercase = "abcdefghijklmnopqrstuvwxyz"
-private let uppercase = lowercase.uppercaseString
-private let alphabet = Array(lowercase + uppercase)
-
 struct Candidate {
     let char: Character
     var next: () -> Candidate?
@@ -52,7 +48,7 @@ private func incIndexes(capacity: Int)(_ indexes: [Int]) -> [Int] {
     }
 }
 
-private func candidates() -> SequenceOf<Candidate> {
+private func candidates(alphabet: [Character]) -> SequenceOf<Candidate> {
     let incf = incIndexes(alphabet.count)
     var current = [Int]()
     return SequenceOf(GeneratorOf {
@@ -62,6 +58,6 @@ private func candidates() -> SequenceOf<Candidate> {
     })
 }
 
-func candidatesForCount(count: Int) -> SequenceOf<Candidate> {
-    return skip(count / alphabet.count)(candidates())
+func candidatesForCount(alphabet: [Character])(_ count: Int) -> SequenceOf<Candidate> {
+    return skip(count / alphabet.count)(candidates(alphabet))
 }

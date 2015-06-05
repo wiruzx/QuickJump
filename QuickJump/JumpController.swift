@@ -19,6 +19,13 @@ final class JumpController: SingleCharTextFieldDelegate {
     // MARK:- Public properties
     
     var caseType = CaseType.Insensitive
+    var alphabet: [Character]! {
+        didSet {
+            if let a = alphabet, b = oldValue where a != b {
+                initializeLabelController()
+            }
+        }
+    }
     
     // MARK:- Private properties
     
@@ -29,7 +36,7 @@ final class JumpController: SingleCharTextFieldDelegate {
     private var currentEditorView: DVTSourceTextView! {
         didSet {
             if currentEditorView != oldValue {
-                labelsController = CandidateLabelsController(superview: currentEditorView)
+                initializeLabelController()
             }
         }
     }
@@ -62,6 +69,13 @@ final class JumpController: SingleCharTextFieldDelegate {
     }
     
     // MARK:- Private methods
+    
+    private func initializeLabelController() {
+        if let superview = currentEditorView,
+           let alphabet = alphabet {
+            labelsController = CandidateLabelsController(superview: superview, alphabet: alphabet)
+        }
+    }
     
     private func showTextField() {
         
