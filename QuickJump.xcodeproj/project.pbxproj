@@ -83,6 +83,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E60288371B23A34F003065BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E64B17291B17C1C0002B389B /* Candidate.swift */,
+				E64B17311B17D136002B389B /* CandidateInfo.swift */,
+				E603089E1B1FAC5600FDE9E6 /* CaseType.swift */,
+				E68CEC5E1B221C6600C5024C /* Alphabet.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E60288381B23A369003065BA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6579F291B13C6A8000212D9 /* QuickJump.swift */,
+				E6C713631B16895C00E18014 /* JumpController.swift */,
+				E64B172D1B17C40D002B389B /* CandidateLabelsController.swift */,
+				E648D64A1B1FA85000098ED6 /* SettingsManager.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E60288391B23A37A003065BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */,
+				E6B9F3631B1CD42B00CCB9F8 /* CandidateLabelType.swift */,
+				E6FD2D121B1CD57F00177B71 /* CandidateLabelFactory.swift */,
+				E667787B1B20DA230016C708 /* CandidateTextView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		E6579F1A1B13C6A8000212D9 = {
 			isa = PBXGroup;
 			children = (
@@ -146,18 +179,9 @@
 		E694A8781B166AFF0072B0B9 /* QuickJump */ = {
 			isa = PBXGroup;
 			children = (
-				E6579F291B13C6A8000212D9 /* QuickJump.swift */,
-				E6C713631B16895C00E18014 /* JumpController.swift */,
-				E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */,
-				E64B17291B17C1C0002B389B /* Candidate.swift */,
-				E64B172D1B17C40D002B389B /* CandidateLabelsController.swift */,
-				E6B9F3631B1CD42B00CCB9F8 /* CandidateLabelType.swift */,
-				E6FD2D121B1CD57F00177B71 /* CandidateLabelFactory.swift */,
-				E667787B1B20DA230016C708 /* CandidateTextView.swift */,
-				E64B17311B17D136002B389B /* CandidateInfo.swift */,
-				E648D64A1B1FA85000098ED6 /* SettingsManager.swift */,
-				E603089E1B1FAC5600FDE9E6 /* CaseType.swift */,
-				E68CEC5E1B221C6600C5024C /* Alphabet.swift */,
+				E60288381B23A369003065BA /* Controller */,
+				E60288371B23A34F003065BA /* Model */,
+				E60288391B23A37A003065BA /* View */,
 			);
 			name = QuickJump;
 			sourceTree = "<group>";
