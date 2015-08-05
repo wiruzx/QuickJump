@@ -39,8 +39,8 @@ final class QuickJump: NSObject {
     
     private var caseSensitiveMenuItem: NSMenuItem?
     private var caseInsensitiveMenuItem: NSMenuItem?
-    
     private var uppercaseCandidatesMenuItem: NSMenuItem?
+    private var forcedEnglishLayoutMenuItem: NSMenuItem?
     
     private func createMenuItems() {
         
@@ -71,6 +71,9 @@ final class QuickJump: NSObject {
             let alphabet = settings.get(AlphabetKey()) ?? .DefaultAlphabet
             jumpController.alphabet = alphabet.chars
             
+            let forcedLayoutEnabled = settings.get(ForcedEnglishKeyboardKey()) ?? false
+            jumpController.forcedEnglishLayout = forcedLayoutEnabled
+            
             let uppercaseCandidatesItem = NSMenuItem(title: "Allow Uppercase candidates",
                                                      action: "changeEnableUppercaseCandidatesToggle:",
                                                      keyEquivalent: "")
@@ -81,6 +84,18 @@ final class QuickJump: NSObject {
             submenu.addItem(uppercaseCandidatesItem)
             
             uppercaseCandidatesMenuItem = uppercaseCandidatesItem
+            
+            let forcedEnglishLayoutItem = NSMenuItem(title: "Force English keyboard layout",
+                                                     action: "changeEnableForcedEnglishLayoutToogle:",
+                                                     keyEquivalent: "")
+            
+            forcedEnglishLayoutItem.target = self
+            forcedEnglishLayoutItem.state = forcedLayoutEnabled ? 1 : 0
+            
+            submenu.addItem(.separatorItem())
+            submenu.addItem(forcedEnglishLayoutItem)
+            
+            forcedEnglishLayoutMenuItem = forcedEnglishLayoutItem
             
             let caseSensitiveItem = NSMenuItem(title: "Sensitive", action: "selectSensitive:", keyEquivalent: "")
             caseSensitiveItem.target = self
@@ -122,6 +137,10 @@ final class QuickJump: NSObject {
         changeUppercaseCandidates()
     }
     
+    @objc private func changeEnableForcedEnglishLayoutToogle(sender: AnyObject) {
+        changeForcedEnglishLayoutOption()
+    }
+    
     // MARK:- Notifications
     
     @objc private func menuDidChange(notification: NSNotification) {
@@ -129,6 +148,18 @@ final class QuickJump: NSObject {
     }
     
     // MARK:- Private methods
+    
+    private func changeForcedEnglishLayoutOption() {
+        let current = settings.get(ForcedEnglishKeyboardKey()) ?? false
+        
+        let new = !current
+        
+        jumpController.forcedEnglishLayout = new
+        forcedEnglishLayoutMenuItem?.state = new ? 1 : 0
+        
+        settings.set(new, forItemType: ForcedEnglishKeyboardKey())
+        settings.synchronize()
+    }
     
     private func changeUppercaseCandidates() {
         

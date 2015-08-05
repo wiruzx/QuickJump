@@ -20,6 +20,7 @@
 		E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */; };
 		E667787C1B20DA230016C708 /* CandidateTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667787B1B20DA230016C708 /* CandidateTextView.swift */; };
 		E68CEC5F1B221C6600C5024C /* Alphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68CEC5E1B221C6600C5024C /* Alphabet.swift */; };
+		E690B8511B728A75004522A2 /* ForcedEnglishKeyboardKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E690B8501B728A75004522A2 /* ForcedEnglishKeyboardKey.swift */; };
 		E694A87A1B166B3D0072B0B9 /* SingleCharTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */; };
 		E6B9F3641B1CD42B00CCB9F8 /* CandidateLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9F3631B1CD42B00CCB9F8 /* CandidateLabelType.swift */; };
 		E6C713641B16895C00E18014 /* JumpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C713631B16895C00E18014 /* JumpController.swift */; };
@@ -49,6 +50,7 @@
 		E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject_Extension.swift; sourceTree = "<group>"; };
 		E667787B1B20DA230016C708 /* CandidateTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateTextView.swift; sourceTree = "<group>"; };
 		E68CEC5E1B221C6600C5024C /* Alphabet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alphabet.swift; sourceTree = "<group>"; };
+		E690B8501B728A75004522A2 /* ForcedEnglishKeyboardKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForcedEnglishKeyboardKey.swift; sourceTree = "<group>"; };
 		E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleCharTextField.swift; sourceTree = "<group>"; };
 		E6B9F3631B1CD42B00CCB9F8 /* CandidateLabelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateLabelType.swift; sourceTree = "<group>"; };
 		E6C713631B16895C00E18014 /* JumpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				E64B17311B17D136002B389B /* CandidateInfo.swift */,
 				E603089E1B1FAC5600FDE9E6 /* CaseType.swift */,
 				E68CEC5E1B221C6600C5024C /* Alphabet.swift */,
+				E690B8501B728A75004522A2 /* ForcedEnglishKeyboardKey.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				E694A87A1B166B3D0072B0B9 /* SingleCharTextField.swift in Sources */,
 				E6C713661B168B7E00E18014 /* DVTSourceTextView.swift in Sources */,
 				E6579F2A1B13C6A8000212D9 /* QuickJump.swift in Sources */,
+				E690B8511B728A75004522A2 /* ForcedEnglishKeyboardKey.swift in Sources */,
 				E64B172E1B17C40D002B389B /* CandidateLabelsController.swift in Sources */,
 				E64DCE931B1CCF790040EA53 /* SequenceTypeUtils.swift in Sources */,
 				E603089F1B1FAC5600FDE9E6 /* CaseType.swift in Sources */,
