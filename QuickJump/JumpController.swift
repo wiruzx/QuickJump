@@ -27,6 +27,15 @@ final class JumpController: SingleCharTextFieldDelegate {
         }
     }
     
+    var forcedEnglishLayout: Bool {
+        get {
+            return inputTextField.forceEnglishKeyboard
+        }
+        set {
+            inputTextField.forceEnglishKeyboard = newValue
+        }
+    }
+    
     // MARK:- Private properties
     
     private var state: State = .Inactive

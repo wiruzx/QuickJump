@@ -19,6 +19,8 @@ final class SingleCharTextField: NSTextField, NSTextFieldDelegate {
     
     weak var charInputDelegate: SingleCharTextFieldDelegate?
     
+    var forceEnglishKeyboard = false
+    
     // MARK:- Instantiation
     
     convenience init() {
@@ -47,6 +49,14 @@ final class SingleCharTextField: NSTextField, NSTextFieldDelegate {
     }
     
     // MARK:- Overriden methods
+    
+    override func becomeFirstResponder() -> Bool {
+        let result = super.becomeFirstResponder()
+        if forceEnglishKeyboard {
+            NSTextInputContext.currentInputContext()?.selectedKeyboardInputSource = "com.apple.keylayout.US"
+        }
+        return result
+    }
     
     override func controlTextDidEndEditing(obj: NSNotification) {
         charInputDelegate?.didLoseFocus(self)
