@@ -7,14 +7,11 @@
 //
 
 import AppKit
-import Carbon
 
 protocol SingleCharTextFieldDelegate: class {
     func didRecieveChar(textField: SingleCharTextField, char: Character)
     func didLoseFocus(textField: SingleCharTextField)
 }
-
-private let englishInputSource = TISCopyInputSourceForLanguage("en").takeRetainedValue()
 
 final class SingleCharTextField: NSTextField, NSTextFieldDelegate {
     
@@ -23,10 +20,6 @@ final class SingleCharTextField: NSTextField, NSTextFieldDelegate {
     weak var charInputDelegate: SingleCharTextFieldDelegate?
     
     var forceEnglishKeyboard = false
-    
-    // MARK:- Private properties
-    
-    private var previousInputSource: TISInputSource?
     
     // MARK:- Instantiation
     
@@ -57,18 +50,17 @@ final class SingleCharTextField: NSTextField, NSTextFieldDelegate {
     
     // MARK:- Overriden methods
     
-    override func controlTextDidBeginEditing(obj: NSNotification) {
+    override func becomeFirstResponder() -> Bool {
+        let result = super.becomeFirstResponder()
         if forceEnglishKeyboard {
-            previousInputSource = TISCopyCurrentKeyboardInputSource().takeRetainedValue()
-            TISSelectInputSource(englishInputSource)
+            NSTextInputContext.currentInputContext()?.selectedKeyboardInputSource = "com.apple.keylayout.US"
         }
+        return result
     }
     
     override func controlTextDidEndEditing(obj: NSNotification) {
         charInputDelegate?.didLoseFocus(self)
         stringValue = ""
-        
-        previousInputSource.map(TISSelectInputSource)
     }
     
     override func textDidChange(_: NSNotification) {
