@@ -33,7 +33,9 @@ extension String {
         
         string.enumerateSubstringsInRange(inRange, options: .ByWords) { substr, range, _, _ in
             if first(substr) == char {
-                result.append(range) // TODO: fix range
+                var firstCharRange = range
+                firstCharRange.length = 1
+                result.append(firstCharRange)
             }
         }
         
