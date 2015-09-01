@@ -25,4 +25,19 @@ extension String {
         return result
     }
     
+    func allRangesOfCharacterInBeginigOfWord(char: Character, inRange: NSRange) -> [NSRange] {
+        
+        let string = self as NSString
+        
+        var result = [NSRange]()
+        
+        string.enumerateSubstringsInRange(inRange, options: .ByWords) { substr, range, _, _ in
+            if first(substr) == char {
+                result.append(range) // TODO: fix range
+            }
+        }
+        
+        return result
+    }
+    
 }
