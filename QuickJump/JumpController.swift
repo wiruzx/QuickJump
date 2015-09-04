@@ -12,6 +12,10 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     // MARK:- Type declaration
     
+    enum InputMode {
+        case Char, Word
+    }
+    
     private enum State {
         case Inactive, InputChar, ShowCandidates
     }
@@ -38,6 +42,8 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     // MARK:- Private properties
     
+    private var inputMode: InputMode = .Char
+    
     private var state: State = .Inactive
     
     private var labelsController: CandidateLabelsController!
@@ -60,7 +66,9 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     // MARK:- Internal methods
     
-    func toggle() {
+    func toggle(mode: InputMode) {
+        
+        self.inputMode = mode
         
         if state == .ShowCandidates {
             abort()
@@ -108,16 +116,25 @@ final class JumpController: SingleCharTextFieldDelegate {
     }
     
     private func rangesForChar(char: Character) -> [NSRange] {
+        
+        let rangesFn: Character -> [NSRange]
+        switch inputMode {
+        case .Word:
+            rangesFn = currentEditorView.rangesOfBeginingWords
+        case .Char:
+            rangesFn = currentEditorView.rangesOfVisible
+        }
+        
         if caseType == .Sensitive {
-            return currentEditorView.rangesOfVisible(char)
+            return rangesFn(char)
         } else {
             let lowercaseChar = Character(String(char).lowercaseString)
             let uppercaseChar = Character(String(char).uppercaseString)
             
             let charsEqual = lowercaseChar == uppercaseChar
             
-            let lowercaseRanges = currentEditorView.rangesOfVisible(lowercaseChar)
-            let uppercaseRanges = charsEqual ? [] : currentEditorView.rangesOfVisible(uppercaseChar)
+            let lowercaseRanges = rangesFn(lowercaseChar)
+            let uppercaseRanges = charsEqual ? [] : rangesFn(uppercaseChar)
             
             return lowercaseRanges + uppercaseRanges
         }
