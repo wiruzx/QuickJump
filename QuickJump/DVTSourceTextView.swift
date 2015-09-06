@@ -44,6 +44,10 @@ extension DVTSourceTextView {
         return sourceCode.allRangesOfCharacterInBeginigOfWord(char, inRange: visibleTextRange)
     }
     
+    func rangesOfBeginingsOfTheLines() -> [NSRange] {
+        return sourceCode.allRangesOfBeginingsOfTheLinesInRange(visibleTextRange)
+    }
+    
     func rectFromRange(range: NSRange) -> NSRect {
         let rect = firstRectForCharacterRange(range, actualRange: nil)
         let rectInWindow = window!.convertRectFromScreen(rect)
