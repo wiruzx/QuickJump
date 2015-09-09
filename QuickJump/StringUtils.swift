@@ -56,4 +56,17 @@ extension String {
         return result
     }
     
+    func allRangesOfBeginingsOfTheLinesInRange(range: NSRange) -> [NSRange] {
+        
+        var result = [NSRange]()
+        
+        (self as NSString).enumerateSubstringsInRange(range, options: .ByLines) { substr, range, _, _ in
+            var firstCharRange = range
+            firstCharRange.length = 1
+            result.append(firstCharRange)
+        }
+        
+        return result
+    }
+    
 }
