@@ -1,5 +1,7 @@
 ![QuickJump](logo.png)
 
+[AceJump](http://www.emacswiki.org/emacs/AceJump)-like plugin for Xcode
+
 QuickJump allows you navigate to any visible position in the editor.
 
 Just Toggle QuickJump, type a character and then type the matching character
@@ -14,11 +16,11 @@ See demo:
 
 ## Features
 
-- Word mode  
+- **Word mode**  
 Jump to first char of the word
-- Char mode  
+- **Char mode**  
 Jump to any char on the screen
-- Line mode  
+- **Line mode**  
 Jump to begining of any line on the screen
 
 ## Version 1.1
