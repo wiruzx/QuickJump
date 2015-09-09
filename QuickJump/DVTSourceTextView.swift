@@ -40,8 +40,34 @@ extension DVTSourceTextView {
         return sourceCode.allRangesOfCharacters(char, inRange: visibleTextRange)
     }
     
+    func rangesOfBeginingWords(char: Character) -> [NSRange] {
+        return sourceCode.allRangesOfCharacterInBeginigOfWord(char, inRange: visibleTextRange)
+    }
+    
+    func rangesOfBeginingsOfTheLines() -> [NSRange] {
+        return sourceCode.allRangesOfBeginingsOfTheLinesInRange(visibleTextRange)
+    }
+    
+    func widthOfFirstNonEmptyChar(_ location: Int = 0) -> CGFloat {
+        let width = firstRectForCharacterRange(NSMakeRange(location, 1), actualRange: nil).width
+        
+        if width > 0 {
+            return width
+        } else if location > 999 {
+            return 0
+        } else {
+            return widthOfFirstNonEmptyChar(location + 1)
+        }
+    }
+    
     func rectFromRange(range: NSRange) -> NSRect {
-        let rect = firstRectForCharacterRange(range, actualRange: nil)
+        
+        var rect = firstRectForCharacterRange(range, actualRange: nil)
+        
+        if rect.width == 0 {
+            rect.size.width = widthOfFirstNonEmptyChar()
+        }
+        
         let rectInWindow = window!.convertRectFromScreen(rect)
         var rectInView = self.convertRect(rectInWindow, fromView: nil)
         

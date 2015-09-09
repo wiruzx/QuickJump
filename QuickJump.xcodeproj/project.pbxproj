@@ -19,6 +19,7 @@
 		E6579F2A1B13C6A8000212D9 /* QuickJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F291B13C6A8000212D9 /* QuickJump.swift */; };
 		E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */; };
 		E667787C1B20DA230016C708 /* CandidateTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667787B1B20DA230016C708 /* CandidateTextView.swift */; };
+		E678AFD11B98968300FC3FE5 /* NSCharacterSet+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E678AFD01B98968300FC3FE5 /* NSCharacterSet+Utils.swift */; };
 		E68CEC5F1B221C6600C5024C /* Alphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68CEC5E1B221C6600C5024C /* Alphabet.swift */; };
 		E690B8511B728A75004522A2 /* ForcedEnglishKeyboardKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E690B8501B728A75004522A2 /* ForcedEnglishKeyboardKey.swift */; };
 		E694A87A1B166B3D0072B0B9 /* SingleCharTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */; };
@@ -49,6 +50,7 @@
 		E6579F291B13C6A8000212D9 /* QuickJump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickJump.swift; sourceTree = "<group>"; };
 		E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject_Extension.swift; sourceTree = "<group>"; };
 		E667787B1B20DA230016C708 /* CandidateTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateTextView.swift; sourceTree = "<group>"; };
+		E678AFD01B98968300FC3FE5 /* NSCharacterSet+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCharacterSet+Utils.swift"; sourceTree = "<group>"; };
 		E68CEC5E1B221C6600C5024C /* Alphabet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alphabet.swift; sourceTree = "<group>"; };
 		E690B8501B728A75004522A2 /* ForcedEnglishKeyboardKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForcedEnglishKeyboardKey.swift; sourceTree = "<group>"; };
 		E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleCharTextField.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				E64B172F1B17C8E0002B389B /* ArrayUtils.swift */,
 				E6C919271B1BC04000E7236A /* Functions.swift */,
 				E64DCE921B1CCF790040EA53 /* SequenceTypeUtils.swift */,
+				E678AFD01B98968300FC3FE5 /* NSCharacterSet+Utils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				E6579F2A1B13C6A8000212D9 /* QuickJump.swift in Sources */,
 				E690B8511B728A75004522A2 /* ForcedEnglishKeyboardKey.swift in Sources */,
 				E64B172E1B17C40D002B389B /* CandidateLabelsController.swift in Sources */,
+				E678AFD11B98968300FC3FE5 /* NSCharacterSet+Utils.swift in Sources */,
 				E64DCE931B1CCF790040EA53 /* SequenceTypeUtils.swift in Sources */,
 				E603089F1B1FAC5600FDE9E6 /* CaseType.swift in Sources */,
 				E6B9F3641B1CD42B00CCB9F8 /* CandidateLabelType.swift in Sources */,

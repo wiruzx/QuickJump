@@ -53,9 +53,17 @@ final class QuickJump: NSObject {
             
             let submenu = NSMenu()
             
-            let actionMenuItem = NSMenuItem(title: "Toggle QuickJump", action: "toggleQuickJump", keyEquivalent: "")
-            actionMenuItem.target = self
-            submenu.addItem(actionMenuItem)
+            let charModeItem = NSMenuItem(title: "QuickJump: char mode", action: "charMode", keyEquivalent: "")
+            charModeItem.target = self
+            submenu.addItem(charModeItem)
+            
+            let wordModeItem = NSMenuItem(title: "QuickJump: word mode", action: "wordMode", keyEquivalent: "")
+            wordModeItem.target = self
+            submenu.addItem(wordModeItem)
+            
+            let lineModeItem = NSMenuItem(title: "QuickJump: line mode", action: "lineMode", keyEquivalent: "")
+            lineModeItem.target = self
+            submenu.addItem(lineModeItem)
             
             submenu.addItem(.separatorItem())
 
@@ -121,8 +129,16 @@ final class QuickJump: NSObject {
     
     // MARK:- Actions
 
-    @objc private func toggleQuickJump() {
-        jumpController.toggle()
+    @objc private func charMode() {
+        jumpController.toggle(.Char)
+    }
+    
+    @objc private func wordMode() {
+        jumpController.toggle(.Word)
+    }
+    
+    @objc private func lineMode() {
+        jumpController.toggle(.Line)
     }
     
     @objc private func selectSensitive(sender: AnyObject) {
