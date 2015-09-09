@@ -13,7 +13,7 @@ final class JumpController: SingleCharTextFieldDelegate {
     // MARK:- Type declaration
     
     enum InputMode {
-        case Char, Word
+        case Char, Word, Line
     }
     
     private enum State {
@@ -81,8 +81,15 @@ final class JumpController: SingleCharTextFieldDelegate {
             return
         }
         
-        state = .InputChar
-        showTextField()
+        if mode == .Line {
+            state = .ShowCandidates
+            showTextField()
+            hideTextField()
+            showLineCandidates()
+        } else {
+            state = .InputChar
+            showTextField()
+        }
     }
     
     // MARK:- Private methods
@@ -92,6 +99,10 @@ final class JumpController: SingleCharTextFieldDelegate {
            let alphabet = alphabet {
             labelsController = CandidateLabelsController(superview: superview, alphabet: alphabet)
         }
+    }
+    
+    private func showLineCandidates() {
+        showResultsForRanges(currentEditorView.rangesOfBeginingsOfTheLines())
     }
     
     private func showTextField() {
@@ -123,6 +134,8 @@ final class JumpController: SingleCharTextFieldDelegate {
             rangesFn = currentEditorView.rangesOfBeginingWords
         case .Char:
             rangesFn = currentEditorView.rangesOfVisible
+        default:
+            fatalError("Unhandled behavior")
         }
         
         if caseType == .Sensitive {
@@ -140,9 +153,7 @@ final class JumpController: SingleCharTextFieldDelegate {
         }
     }
     
-    private func showResults(char: Character) {
-        
-        let ranges = rangesForChar(char)
+    private func showResultsForRanges(ranges: [NSRange]) {
         
         let rects = ranges.map(currentEditorView.rectFromRange)
         
@@ -179,7 +190,7 @@ final class JumpController: SingleCharTextFieldDelegate {
         switch state {
         case .InputChar:
             hideTextField()
-            showResults(char)
+            showResultsForRanges(rangesForChar(char))
         case .ShowCandidates:
             if let result = labelsController.next(char) {
                 removeTextField()
