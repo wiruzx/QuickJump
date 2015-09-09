@@ -61,6 +61,10 @@ final class QuickJump: NSObject {
             wordModeItem.target = self
             submenu.addItem(wordModeItem)
             
+            let lineModeItem = NSMenuItem(title: "QuickJump: line mode", action: "lineMode", keyEquivalent: "")
+            lineModeItem.target = self
+            submenu.addItem(lineModeItem)
+            
             submenu.addItem(.separatorItem())
 
             let caseTypeSubmenu = NSMenu()
@@ -131,6 +135,10 @@ final class QuickJump: NSObject {
     
     @objc private func wordMode() {
         jumpController.toggle(.Word)
+    }
+    
+    @objc private func lineMode() {
+        jumpController.toggle(.Line)
     }
     
     @objc private func selectSensitive(sender: AnyObject) {
