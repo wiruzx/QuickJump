@@ -11,7 +11,7 @@ import Foundation
 extension DVTSourceTextView {
     
     static var activeEditorView: DVTSourceTextView? {
-        let windowController = NSApplication.sharedApplication().keyWindow?.windowController() as? IDEWorkspaceWindowController
+        let windowController = NSApplication.sharedApplication().keyWindow?.windowController as? IDEWorkspaceWindowController
         let editor = windowController?.editorArea?.lastActiveEditorContext?.editor
         return editor?.mainScrollView?.contentView.documentView as? DVTSourceTextView
     }
@@ -48,7 +48,7 @@ extension DVTSourceTextView {
         return sourceCode.allRangesOfBeginingsOfTheLinesInRange(visibleTextRange)
     }
     
-    func widthOfFirstNonEmptyChar(_ location: Int = 0) -> CGFloat {
+    func widthOfFirstNonEmptyChar(location: Int = 0) -> CGFloat {
         let width = firstRectForCharacterRange(NSMakeRange(location, 1), actualRange: nil).width
         
         if width > 0 {

@@ -10,17 +10,17 @@ import Foundation
 
 extension Array {
     
-    var decomposed: (T, [T])? {
-        return isEmpty ? nil : (first!, Array(dropFirst(self)))
+    var decomposed: (Element, [Element])? {
+        return isEmpty ? nil : (first!, Array(self.dropFirst()))
     }
     
-    func each(@noescape f: T -> Void)  {
+    func each(@noescape f: Element -> Void)  {
         for x in self {
             f(x)
         }
     }
     
-    func findFirst(p: T -> Bool) -> T? {
+    func findFirst(p: Element -> Bool) -> Element? {
         for x in self {
             if p(x) {
                 return x

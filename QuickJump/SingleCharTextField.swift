@@ -24,7 +24,7 @@ final class SingleCharTextField: NSTextField, NSTextFieldDelegate {
     // MARK:- Instantiation
     
     convenience init() {
-        self.init(frame: .zeroRect)
+        self.init(frame: .zero)
     }
     
     override init(frame: NSRect) {
@@ -64,7 +64,7 @@ final class SingleCharTextField: NSTextField, NSTextFieldDelegate {
     }
     
     override func textDidChange(_: NSNotification) {
-        if let char = last(stringValue) {
+        if let char = stringValue.characters.last {
             charInputDelegate?.didRecieveChar(self, char: char)
             stringValue = ""
         }

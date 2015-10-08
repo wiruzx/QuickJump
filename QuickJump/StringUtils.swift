@@ -38,7 +38,7 @@ extension String {
         var previousChar: Character?
         
         (self as NSString).enumerateSubstringsInRange(range, options: .ByComposedCharacterSequences) { substr, range, _, _ in
-            let foundChar = first(substr)!
+            let foundChar = substr?.characters.first!
 
             if foundChar == char {
                 if let prev = previousChar {

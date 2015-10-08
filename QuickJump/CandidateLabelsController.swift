@@ -42,7 +42,7 @@ final class CandidateLabelsController {
     // MARK:- Public methods
     
     func initialize(rangesAndRects: [(NSRange, NSRect)]) {
-        candidateInfos = map(zip(candidatesForCount(alphabet)(rangesAndRects.count), rangesAndRects)) { c, rar in
+        candidateInfos = zip(candidatesForCount(alphabet)(rangesAndRects.count), rangesAndRects).map { c, rar in
             CandidateInfo(candidate: c, range: rar.0, rect: rar.1)
         }
     }
