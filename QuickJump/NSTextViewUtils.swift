@@ -8,7 +8,7 @@
 
 import AppKit
 
-private let defaultCursorPoint: NSPoint = .zeroPoint
+private let defaultCursorPoint: NSPoint = .zero
 
 extension NSTextView {
     

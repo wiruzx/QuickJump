@@ -18,9 +18,9 @@ struct Alphabet: Encodable, Decodable {
     
     init(_ string: String, addUppercase: Bool = false) {
         if addUppercase {
-            chars = Array(string.lowercaseString + string.uppercaseString)
+            chars = Array((string.lowercaseString + string.uppercaseString).characters)
         } else {
-            chars = Array(string)
+            chars = Array(string.characters)
         }
     }
     
@@ -33,7 +33,7 @@ struct Alphabet: Encodable, Decodable {
     // MARK:- Decodable
     
     static func decode(dictionary: NSDictionaryLikeType) -> Alphabet? {
-        return map(dictionary["string"] as? String) { Alphabet($0) }
+        return (dictionary["string"] as? String).map { Alphabet($0) }
     }
     
     // MARK:- Constants

@@ -48,16 +48,16 @@ private func incIndexes(capacity: Int)(_ indexes: [Int]) -> [Int] {
     }
 }
 
-private func candidates(alphabet: [Character]) -> SequenceOf<Candidate> {
+private func candidates(alphabet: [Character]) -> AnySequence<Candidate> {
     let incf = incIndexes(alphabet.count)
     var current = [Int]()
-    return SequenceOf(GeneratorOf {
+    return AnySequence(anyGenerator {
         current = incf(current)
         let letters = current.map { alphabet[$0] }
         return Candidate.createFromArray(letters)
     })
 }
 
-func candidatesForCount(alphabet: [Character])(_ count: Int) -> SequenceOf<Candidate> {
+func candidatesForCount(alphabet: [Character])(_ count: Int) -> AnySequence<Candidate> {
     return skip(count / alphabet.count)(candidates(alphabet))
 }

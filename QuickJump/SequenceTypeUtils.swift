@@ -8,10 +8,10 @@
 
 import Foundation
 
-func skip<S: SequenceType>(count: Int)(_ sequence: S) -> SequenceOf<S.Generator.Element> {
+func skip<S: SequenceType>(count: Int)(_ sequence: S) -> AnySequence<S.Generator.Element> {
     var generator = sequence.generate()
     for _ in 0 ..< count {
-        generator.next()
+        let _ = generator.next()
     }
-    return SequenceOf(GeneratorOf { generator.next() })
+    return AnySequence(anyGenerator { generator.next() })
 }
