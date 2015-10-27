@@ -22,8 +22,6 @@ final class QuickJump: NSObject {
 
         super.init()
         
-        createMenuItems()
-        
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: "menuDidChange:",
                                                          name: NSMenuDidChangeItemNotification,
@@ -160,7 +158,7 @@ final class QuickJump: NSObject {
     // MARK:- Notifications
     
     @objc private func menuDidChange(notification: NSNotification) {
-        createMenuItems()
+        dispatch_async(dispatch_get_main_queue(), createMenuItems)
     }
     
     // MARK:- Private methods
