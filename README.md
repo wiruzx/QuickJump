@@ -21,14 +21,6 @@ Jump to any char on the screen
 - Line mode  
 Jump to begining of any line on the screen
 
-## Version 1.1
-
-Please note, that in version **1.0** there was only one mode - `char` mode, so title for shortcut was `Toggle QuickJump` in keyboard settings
-
-In **1.1** I've also added `line` and `word` modes, so titles for shortcutes have changed.
-If you'd like to continue using only `char` you need to go to the keyboard settings and change `Toggle QuickJump` to `QuickJump: char mode` and that's it.
-But you also may add shortcutes for other modes
-
 ## Installation
 
 ### Alcatraz
