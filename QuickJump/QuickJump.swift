@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Victor Shamanov. All rights reserved.
 //
 
-import AppKit
+import Foundation
 
 final class QuickJump: NSObject {
     
