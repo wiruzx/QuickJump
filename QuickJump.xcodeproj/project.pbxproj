@@ -49,7 +49,18 @@
 		E6579F271B13C6A8000212D9 /* QuickJump.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = QuickJump.xcscheme; path = QuickJump.xcodeproj/xcshareddata/xcschemes/QuickJump.xcscheme; sourceTree = SOURCE_ROOT; };
 		E6579F291B13C6A8000212D9 /* QuickJump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickJump.swift; sourceTree = "<group>"; };
 		E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject_Extension.swift; sourceTree = "<group>"; };
+		E66243F41CF7A4E800A0D12C /* IDEEditorArea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDEEditorArea.h; path = "submodules/xcode-headers/IDEKit/IDEEditorArea.h"; sourceTree = SOURCE_ROOT; };
+		E66243F51CF7A52F00A0D12C /* IDEEditorContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDEEditorContext.h; path = "submodules/xcode-headers/IDEKit/IDEEditorContext.h"; sourceTree = SOURCE_ROOT; };
+		E66243F61CF7A57A00A0D12C /* IDEEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDEEditor.h; path = "submodules/xcode-headers/IDEKit/IDEEditor.h"; sourceTree = SOURCE_ROOT; };
+		E66243F71CF7A84000A0D12C /* DVTFontAndColorTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DVTFontAndColorTheme.h; path = "submodules/xcode-headers/DVTKit/DVTFontAndColorTheme.h"; sourceTree = SOURCE_ROOT; };
 		E667787B1B20DA230016C708 /* CandidateTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateTextView.swift; sourceTree = "<group>"; };
+		E673F0531CF7922A00567B22 /* DVTSourceTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DVTSourceTextView.h; path = "submodules/xcode-headers/DVTKit/DVTSourceTextView.h"; sourceTree = SOURCE_ROOT; };
+		E673F0541CF7925200567B22 /* DVTCompletingTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DVTCompletingTextView.h; path = "submodules/xcode-headers/DVTKit/DVTCompletingTextView.h"; sourceTree = SOURCE_ROOT; };
+		E673F05D1CF79C6B00567B22 /* DVTTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DVTTextView.h; path = "submodules/xcode-headers/DVTKit/DVTTextView.h"; sourceTree = SOURCE_ROOT; };
+		E673F05E1CF79C8C00567B22 /* IDEWorkspaceWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDEWorkspaceWindowController.h; path = "submodules/xcode-headers/IDEKit/IDEWorkspaceWindowController.h"; sourceTree = SOURCE_ROOT; };
+		E673F05F1CF79D8200567B22 /* IDEEditorAreaContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDEEditorAreaContainer.h; path = "submodules/xcode-headers/IDEKit/IDEEditorAreaContainer.h"; sourceTree = SOURCE_ROOT; };
+		E673F0611CF79DC700567B22 /* IDEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDEViewController.h; path = "submodules/xcode-headers/IDEKit/IDEViewController.h"; sourceTree = SOURCE_ROOT; };
+		E673F0621CF79DD700567B22 /* DVTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DVTViewController.h; path = "submodules/xcode-headers/DVTKit/DVTViewController.h"; sourceTree = SOURCE_ROOT; };
 		E678AFD01B98968300FC3FE5 /* NSCharacterSet+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCharacterSet+Utils.swift"; sourceTree = "<group>"; };
 		E68CEC5E1B221C6600C5024C /* Alphabet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alphabet.swift; sourceTree = "<group>"; };
 		E690B8501B728A75004522A2 /* ForcedEnglishKeyboardKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForcedEnglishKeyboardKey.swift; sourceTree = "<group>"; };
@@ -136,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				E694A8781B166AFF0072B0B9 /* QuickJump */,
+				E673F0521CF7920100567B22 /* Xcode headers */,
 				E694A8771B16687D0072B0B9 /* Utils */,
 				E694A8761B16685C0072B0B9 /* Other */,
 				E6579F251B13C6A8000212D9 /* Supporting Files */,
@@ -152,6 +164,24 @@
 				E6C73D2C1B13CD27001305E0 /* QuickJump-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E673F0521CF7920100567B22 /* Xcode headers */ = {
+			isa = PBXGroup;
+			children = (
+				E673F0541CF7925200567B22 /* DVTCompletingTextView.h */,
+				E673F05D1CF79C6B00567B22 /* DVTTextView.h */,
+				E673F0621CF79DD700567B22 /* DVTViewController.h */,
+				E66243F51CF7A52F00A0D12C /* IDEEditorContext.h */,
+				E66243F61CF7A57A00A0D12C /* IDEEditor.h */,
+				E66243F41CF7A4E800A0D12C /* IDEEditorArea.h */,
+				E673F0611CF79DC700567B22 /* IDEViewController.h */,
+				E673F05F1CF79D8200567B22 /* IDEEditorAreaContainer.h */,
+				E673F05E1CF79C8C00567B22 /* IDEWorkspaceWindowController.h */,
+				E66243F71CF7A84000A0D12C /* DVTFontAndColorTheme.h */,
+				E673F0531CF7922A00567B22 /* DVTSourceTextView.h */,
+			);
+			name = "Xcode headers";
 			sourceTree = "<group>";
 		};
 		E694A8761B16685C0072B0B9 /* Other */ = {
