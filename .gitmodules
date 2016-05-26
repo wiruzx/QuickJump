@@ -1,0 +1,3 @@
+[submodule "submodules/xcode-headers"]
+	path = submodules/xcode-headers
+	url = https://github.com/wiruzx/xcode-headers
