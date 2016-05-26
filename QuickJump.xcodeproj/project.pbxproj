@@ -58,11 +58,6 @@
 		E6C713631B16895C00E18014 /* JumpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpController.swift; sourceTree = "<group>"; };
 		E6C713651B168B7E00E18014 /* DVTSourceTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVTSourceTextView.swift; sourceTree = "<group>"; };
 		E6C713671B168F7900E18014 /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
-		E6C73D231B13CCD3001305E0 /* DVTFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DVTFoundation.h; sourceTree = "<group>"; };
-		E6C73D241B13CCD3001305E0 /* DVTKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DVTKit.h; sourceTree = "<group>"; };
-		E6C73D251B13CCD3001305E0 /* IDEFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDEFoundation.h; sourceTree = "<group>"; };
-		E6C73D261B13CCD3001305E0 /* IDEKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDEKit.h; sourceTree = "<group>"; };
-		E6C73D271B13CCD3001305E0 /* IDESourceEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDESourceEditor.h; sourceTree = "<group>"; };
 		E6C73D2C1B13CD27001305E0 /* QuickJump-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuickJump-Bridging-Header.h"; sourceTree = "<group>"; };
 		E6C73D2E1B13CF8F001305E0 /* IDEFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDEFoundation.framework; path = /Applications/Xcode.app/Contents/Frameworks/IDEFoundation.framework; sourceTree = "<absolute>"; };
 		E6C73D2F1B13CF8F001305E0 /* IDEKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDEKit.framework; path = /Applications/Xcode.app/Contents/Frameworks/IDEKit.framework; sourceTree = "<absolute>"; };
@@ -141,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				E694A8781B166AFF0072B0B9 /* QuickJump */,
-				E6C73D281B13CCD9001305E0 /* Dumped headers */,
 				E694A8771B16687D0072B0B9 /* Utils */,
 				E694A8761B16685C0072B0B9 /* Other */,
 				E6579F251B13C6A8000212D9 /* Supporting Files */,
@@ -190,18 +184,6 @@
 				E60288391B23A37A003065BA /* View */,
 			);
 			name = QuickJump;
-			sourceTree = "<group>";
-		};
-		E6C73D281B13CCD9001305E0 /* Dumped headers */ = {
-			isa = PBXGroup;
-			children = (
-				E6C73D231B13CCD3001305E0 /* DVTFoundation.h */,
-				E6C73D241B13CCD3001305E0 /* DVTKit.h */,
-				E6C73D251B13CCD3001305E0 /* IDEFoundation.h */,
-				E6C73D261B13CCD3001305E0 /* IDEKit.h */,
-				E6C73D271B13CCD3001305E0 /* IDESourceEditor.h */,
-			);
-			name = "Dumped headers";
 			sourceTree = "<group>";
 		};
 		E6C73D361B13D139001305E0 /* Frameworks */ = {
