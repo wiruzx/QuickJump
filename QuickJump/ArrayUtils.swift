@@ -14,17 +14,9 @@ extension Array {
         return isEmpty ? nil : (first!, Array(self.dropFirst()))
     }
     
-    func each(@noescape f: Element -> Void)  {
-        for x in self {
-            f(x)
-        }
-    }
-    
-    func findFirst(p: Element -> Bool) -> Element? {
-        for x in self {
-            if p(x) {
-                return x
-            }
+    func find(p: Element -> Bool) -> Element? {
+        for x in self where p(x) {
+            return x
         }
         
         return nil

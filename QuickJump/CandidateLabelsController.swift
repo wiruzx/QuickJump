@@ -36,7 +36,7 @@ final class CandidateLabelsController {
     // MARK:- Deinitialization
     
     deinit {
-        displayedLabels.each { $0.removeFromSuperview() }
+        displayedLabels.forEach { $0.removeFromSuperview() }
     }
     
     // MARK:- Public methods
@@ -81,9 +81,9 @@ final class CandidateLabelsController {
     // MARK:- Private methods
     
     private func displayCandidates() {
-        displayedLabels.each { $0.removeFromSuperview() }
+        displayedLabels.forEach { $0.removeFromSuperview() }
         displayedLabels = candidateInfos.map(labelFromInfo)
-        displayedLabels.each { $0.addToView(superview) }
+        displayedLabels.forEach { $0.addToView(superview) }
     }
     
     private func labelFromInfo(candidateInfo: CandidateInfo) -> CandidateLabelType {
