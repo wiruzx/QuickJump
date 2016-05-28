@@ -10,11 +10,12 @@ import Foundation
 
 extension NSObject {
     class func pluginDidLoad(bundle: NSBundle) {
-        let appName = NSBundle.mainBundle().infoDictionary?["CFBundleName"] as? NSString
-        if appName == "Xcode" {
-        	if QuickJump.sharedPlugin == nil {
-        		QuickJump.sharedPlugin = QuickJump(bundle: bundle)
-        	}
-        }
+        
+        guard let appName = NSBundle.mainBundle().infoDictionary?["CFBundleName"] as? NSString
+            where appName == "Xcode" else { return }
+        
+        guard QuickJump.sharedPlugin == nil else { return }
+        
+        QuickJump.sharedPlugin = QuickJump(bundle: bundle)
     }
 }

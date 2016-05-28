@@ -12,13 +12,10 @@ final class QuickJump: NSObject {
     
     static var sharedPlugin: QuickJump?
     
-    let bundle: NSBundle
-    
     private let jumpController = JumpController()
     private let settings: SettingsManager<SettingsKey> = .init(storage: NSUserDefaults.standardUserDefaults())
 
-    init(bundle: NSBundle) {
-        self.bundle = bundle
+    init(bundle _: NSBundle) {
 
         super.init()
         
