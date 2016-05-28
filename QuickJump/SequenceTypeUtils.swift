@@ -8,10 +8,37 @@
 
 import Foundation
 
-func skip<S: SequenceType>(count: Int)(_ sequence: S) -> AnySequence<S.Generator.Element> {
-    var generator = sequence.generate()
-    for _ in 0 ..< count {
-        let _ = generator.next()
+extension SequenceType {
+    
+    func skip(count: Int) -> AnySequence<Generator.Element> {
+        var generator = generate()
+        
+        for _ in 0 ..< count {
+            _ = generator.next()
+        }
+        
+        return AnySequence(anyGenerator(generator))
     }
-    return AnySequence(anyGenerator { generator.next() })
+    
+    func take(count: Int) -> AnySequence<Generator.Element> {
+        
+        var generator = generate()
+        var count = count
+        
+        return AnySequence(anyGenerator {
+            guard count > 0 else { return nil }
+            count -= 1
+            return generator.next()
+        })
+    }
+    
+    func find(@noescape predicate: Generator.Element -> Bool) -> Generator.Element? {
+        
+        for x in self where predicate(x) {
+            return x
+        }
+        
+        return nil
+    }
+    
 }

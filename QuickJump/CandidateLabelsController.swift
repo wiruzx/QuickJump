@@ -10,66 +10,69 @@ import Foundation
 
 final class CandidateLabelsController {
     
-    // MARK:- Public properties
-    
-    let superview: NSView
-    let alphabet: [Character]
-    
     // MAKR:- Private properties
+    
+    private let superview: NSView
+    private let candidateFactory: CandidateFactory
     
     private var candidateInfos: [CandidateInfo] = [] {
         didSet {
-            displayCandidates()
+            displayedLabels = candidateInfos.map(labelFromInfo)
         }
     }
     
-    private var labelFactory = CandidateLabelFactory()
-    private var displayedLabels: [CandidateLabelType] = []
+    private let labelFactory = CandidateLabelFactory()
+    
+    private var displayedLabels: [CandidateLabelType] = [] {
+        didSet {
+            oldValue.forEach { $0.removeFromSuperview() }
+            displayedLabels.forEach { $0.addToView(superview) }
+        }
+    }
     
     // MAKR:- Instantiation
     
     init(superview: NSView, alphabet: [Character]) {
         self.superview = superview
-        self.alphabet = alphabet
+        self.candidateFactory = CandidateFactory(alphabet: alphabet)
     }
     
     // MARK:- Deinitialization
     
     deinit {
-        displayedLabels.forEach { $0.removeFromSuperview() }
+        displayedLabels = []
     }
     
     // MARK:- Public methods
     
     func initialize(rangesAndRects: [(NSRange, NSRect)]) {
-        candidateInfos = zip(candidatesForCount(alphabet)(rangesAndRects.count), rangesAndRects).map { c, rar in
-            CandidateInfo(candidate: c, range: rar.0, rect: rar.1)
+        
+        let candidates = candidateFactory.candidates(rangesAndRects.count)
+        
+        candidateInfos = zip(candidates, rangesAndRects).map { candidate, rangeAndRect in
+            
+            let (range, rect) = rangeAndRect
+            
+            return CandidateInfo(candidate: candidate, range: range, rect: rect)
         }
     }
     
     func next(char: Character) -> CandidateInfo? {
         
-        let matched = candidateInfos.filter { $0.candidate.char == char }
+        var matched = candidateInfos.filter { $0.candidate.char == char }
         
-        var newCandidates = [CandidateInfo]()
-        
-        for info in matched {
-            if let next = info.candidate.next() {
-                var newCandidate = info
-                newCandidate.candidate = next
-                newCandidates.append(newCandidate)
+        for i in matched.indices {
+            if let next = matched[i].candidate.next() {
+                matched[i].candidate = next
             } else {
-                candidateInfos = []
-                return info
+                return matched[i]
             }
         }
         
         // User input char which is not equal to any of candidates
-        if newCandidates.isEmpty {
-            return nil
-        }
-
-        candidateInfos = newCandidates
+        guard !matched.isEmpty else { return nil }
+        
+        candidateInfos = matched
         
         return nil
     }
@@ -79,12 +82,6 @@ final class CandidateLabelsController {
     }
     
     // MARK:- Private methods
-    
-    private func displayCandidates() {
-        displayedLabels.forEach { $0.removeFromSuperview() }
-        displayedLabels = candidateInfos.map(labelFromInfo)
-        displayedLabels.forEach { $0.addToView(superview) }
-    }
     
     private func labelFromInfo(candidateInfo: CandidateInfo) -> CandidateLabelType {
         return labelFactory.labelWithFrame(candidateInfo.rect, char: candidateInfo.candidate.char)

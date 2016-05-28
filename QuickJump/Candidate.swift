@@ -6,58 +6,39 @@
 //  Copyright (c) 2015 Victor Shamanov. All rights reserved.
 //
 
-import Foundation
-
 struct Candidate {
+    
+    private let array: [Character]
+    
+    private init(_ array: [Character]) {
+        guard let first = array.first else {
+            fatalError("Array should not be empty")
+        }
+        
+        self.char = first
+        self.array = Array(array.dropFirst())
+    }
+    
     let char: Character
-    var next: () -> Candidate?
     
-    private static func createStatic(char: Character) -> Candidate {
-        return create(char, const(nil))
-    }
-    
-    private static func create(char: Character, _ next: () -> Candidate?) -> Candidate {
-        return Candidate(char: char, next: next)
-    }
-    
-    private static func createFromArray(array: [Character]) -> Candidate? {
-        if let (head, tail) = array.decomposed {
-            var head = Candidate.createStatic(head)
-            
-            for char in tail {
-                head = Candidate.create(char, const(head))
-            }
-            
-            return head
-        } else {
-            return nil
-        }
-    }
-    
-}
-
-private func incIndexes(capacity: Int)(_ indexes: [Int]) -> [Int] {
-    if let (head, tail) = indexes.decomposed {
-        if head >= capacity - 1 {
-            return [0] + incIndexes(capacity)(tail)
-        } else {
-            return [head + 1] + tail
-        }
-    } else {
-        return [0]
+    func next() -> Candidate? {
+        guard !array.isEmpty else { return nil }
+        return Candidate(array)
     }
 }
 
-private func candidates(alphabet: [Character]) -> AnySequence<Candidate> {
-    let incf = incIndexes(alphabet.count)
-    var current = [Int]()
-    return AnySequence(anyGenerator {
-        current = incf(current)
-        let letters = current.map { alphabet[$0] }
-        return Candidate.createFromArray(letters)
-    })
-}
-
-func candidatesForCount(alphabet: [Character])(_ count: Int) -> AnySequence<Candidate> {
-    return skip(count / alphabet.count)(candidates(alphabet))
+struct CandidateFactory {
+    
+    private let alphabet: [Character]
+    
+    init(alphabet: [Character]) {
+        self.alphabet = alphabet
+    }
+    
+    func candidates(count: Int) -> [Candidate] {
+        return IndexesSequence(capacity: alphabet.count)
+            .skip(count / alphabet.count)
+            .take(count)
+            .map { .init($0.map { alphabet[$0] }) }
+    }
 }
