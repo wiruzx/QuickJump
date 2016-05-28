@@ -168,7 +168,7 @@ final class JumpController: SingleCharTextFieldDelegate {
         }
         
         state = .ShowCandidates
-        labelsController.initialize(Array(zip(ranges, rects)))
+        labelsController.initialize(zip(ranges, rects).map { .init(range: $0, rect: $1) })
     }
     
     private func abort() {
@@ -195,7 +195,7 @@ final class JumpController: SingleCharTextFieldDelegate {
             if let result = labelsController.next(char) {
                 removeTextField()
                 state = .Inactive
-                jump(result.range)
+                jump(result.location.range)
             }
         default:
             break

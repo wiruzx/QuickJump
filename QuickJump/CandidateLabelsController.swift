@@ -45,16 +45,11 @@ final class CandidateLabelsController {
     
     // MARK:- Public methods
     
-    func initialize(rangesAndRects: [(NSRange, NSRect)]) {
+    func initialize(locations: [CandidateInfo.Location]) {
         
-        let candidates = candidateFactory.candidates(rangesAndRects.count)
+        let candidates = candidateFactory.candidates(locations.count)
         
-        candidateInfos = zip(candidates, rangesAndRects).map { candidate, rangeAndRect in
-            
-            let (range, rect) = rangeAndRect
-            
-            return CandidateInfo(candidate: candidate, range: range, rect: rect)
-        }
+        candidateInfos = zip(candidates, locations).map { .init(candidate: $0, location: $1) }
     }
     
     func next(char: Character) -> CandidateInfo? {
@@ -84,7 +79,7 @@ final class CandidateLabelsController {
     // MARK:- Private methods
     
     private func labelFromInfo(candidateInfo: CandidateInfo) -> CandidateLabelType {
-        return labelFactory.labelWithFrame(candidateInfo.rect, char: candidateInfo.candidate.char)
+        return labelFactory.labelWithFrame(candidateInfo.location.rect, char: candidateInfo.candidate.char)
     }
     
 }
