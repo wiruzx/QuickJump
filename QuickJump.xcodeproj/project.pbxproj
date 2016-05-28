@@ -18,10 +18,11 @@
 		E6579F281B13C6A8000212D9 /* QuickJump.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = E6579F271B13C6A8000212D9 /* QuickJump.xcscheme */; };
 		E6579F2A1B13C6A8000212D9 /* QuickJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F291B13C6A8000212D9 /* QuickJump.swift */; };
 		E6579F2C1B13C6A8000212D9 /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */; };
+		E65CD2621CF9DCB800F94D84 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65CD2611CF9DCB800F94D84 /* Storage.swift */; };
+		E65CD2641CF9DCF700F94D84 /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65CD2631CF9DCF700F94D84 /* Coding.swift */; };
 		E667787C1B20DA230016C708 /* CandidateTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667787B1B20DA230016C708 /* CandidateTextView.swift */; };
 		E678AFD11B98968300FC3FE5 /* NSCharacterSet+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E678AFD01B98968300FC3FE5 /* NSCharacterSet+Utils.swift */; };
 		E68CEC5F1B221C6600C5024C /* Alphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68CEC5E1B221C6600C5024C /* Alphabet.swift */; };
-		E690B8511B728A75004522A2 /* ForcedEnglishKeyboardKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E690B8501B728A75004522A2 /* ForcedEnglishKeyboardKey.swift */; };
 		E694A87A1B166B3D0072B0B9 /* SingleCharTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */; };
 		E6B9F3641B1CD42B00CCB9F8 /* CandidateLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9F3631B1CD42B00CCB9F8 /* CandidateLabelType.swift */; };
 		E6C713641B16895C00E18014 /* JumpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C713631B16895C00E18014 /* JumpController.swift */; };
@@ -49,6 +50,8 @@
 		E6579F271B13C6A8000212D9 /* QuickJump.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = QuickJump.xcscheme; path = QuickJump.xcodeproj/xcshareddata/xcschemes/QuickJump.xcscheme; sourceTree = SOURCE_ROOT; };
 		E6579F291B13C6A8000212D9 /* QuickJump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickJump.swift; sourceTree = "<group>"; };
 		E6579F2B1B13C6A8000212D9 /* NSObject_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject_Extension.swift; sourceTree = "<group>"; };
+		E65CD2611CF9DCB800F94D84 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		E65CD2631CF9DCF700F94D84 /* Coding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coding.swift; sourceTree = "<group>"; };
 		E66243F41CF7A4E800A0D12C /* IDEEditorArea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDEEditorArea.h; path = "submodules/xcode-headers/IDEKit/IDEEditorArea.h"; sourceTree = SOURCE_ROOT; };
 		E66243F51CF7A52F00A0D12C /* IDEEditorContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDEEditorContext.h; path = "submodules/xcode-headers/IDEKit/IDEEditorContext.h"; sourceTree = SOURCE_ROOT; };
 		E66243F61CF7A57A00A0D12C /* IDEEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDEEditor.h; path = "submodules/xcode-headers/IDEKit/IDEEditor.h"; sourceTree = SOURCE_ROOT; };
@@ -63,7 +66,6 @@
 		E673F0621CF79DD700567B22 /* DVTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DVTViewController.h; path = "submodules/xcode-headers/DVTKit/DVTViewController.h"; sourceTree = SOURCE_ROOT; };
 		E678AFD01B98968300FC3FE5 /* NSCharacterSet+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCharacterSet+Utils.swift"; sourceTree = "<group>"; };
 		E68CEC5E1B221C6600C5024C /* Alphabet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alphabet.swift; sourceTree = "<group>"; };
-		E690B8501B728A75004522A2 /* ForcedEnglishKeyboardKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForcedEnglishKeyboardKey.swift; sourceTree = "<group>"; };
 		E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleCharTextField.swift; sourceTree = "<group>"; };
 		E6B9F3631B1CD42B00CCB9F8 /* CandidateLabelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateLabelType.swift; sourceTree = "<group>"; };
 		E6C713631B16895C00E18014 /* JumpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpController.swift; sourceTree = "<group>"; };
@@ -100,7 +102,6 @@
 				E64B17311B17D136002B389B /* CandidateInfo.swift */,
 				E603089E1B1FAC5600FDE9E6 /* CaseType.swift */,
 				E68CEC5E1B221C6600C5024C /* Alphabet.swift */,
-				E690B8501B728A75004522A2 /* ForcedEnglishKeyboardKey.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -111,7 +112,6 @@
 				E6579F291B13C6A8000212D9 /* QuickJump.swift */,
 				E6C713631B16895C00E18014 /* JumpController.swift */,
 				E64B172D1B17C40D002B389B /* CandidateLabelsController.swift */,
-				E648D64A1B1FA85000098ED6 /* SettingsManager.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -146,10 +146,13 @@
 		E6579F241B13C6A8000212D9 /* QuickJump */ = {
 			isa = PBXGroup;
 			children = (
-				E694A8781B166AFF0072B0B9 /* QuickJump */,
-				E673F0521CF7920100567B22 /* Xcode headers */,
+				E60288381B23A369003065BA /* Controller */,
+				E65CD2651CF9E9B800F94D84 /* Managers */,
+				E60288371B23A34F003065BA /* Model */,
+				E60288391B23A37A003065BA /* View */,
 				E694A8771B16687D0072B0B9 /* Utils */,
 				E694A8761B16685C0072B0B9 /* Other */,
+				E673F0521CF7920100567B22 /* Xcode headers */,
 				E6579F251B13C6A8000212D9 /* Supporting Files */,
 				E6C73D361B13D139001305E0 /* Frameworks */,
 			);
@@ -164,6 +167,16 @@
 				E6C73D2C1B13CD27001305E0 /* QuickJump-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E65CD2651CF9E9B800F94D84 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E648D64A1B1FA85000098ED6 /* SettingsManager.swift */,
+				E65CD2611CF9DCB800F94D84 /* Storage.swift */,
+				E65CD2631CF9DCF700F94D84 /* Coding.swift */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		E673F0521CF7920100567B22 /* Xcode headers */ = {
@@ -204,16 +217,6 @@
 				E678AFD01B98968300FC3FE5 /* NSCharacterSet+Utils.swift */,
 			);
 			name = Utils;
-			sourceTree = "<group>";
-		};
-		E694A8781B166AFF0072B0B9 /* QuickJump */ = {
-			isa = PBXGroup;
-			children = (
-				E60288381B23A369003065BA /* Controller */,
-				E60288371B23A34F003065BA /* Model */,
-				E60288391B23A37A003065BA /* View */,
-			);
-			name = QuickJump;
 			sourceTree = "<group>";
 		};
 		E6C73D361B13D139001305E0 /* Frameworks */ = {
@@ -298,14 +301,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6C713681B168F7900E18014 /* StringUtils.swift in Sources */,
+				E65CD2621CF9DCB800F94D84 /* Storage.swift in Sources */,
 				E694A87A1B166B3D0072B0B9 /* SingleCharTextField.swift in Sources */,
 				E6C713661B168B7E00E18014 /* DVTSourceTextView.swift in Sources */,
 				E6579F2A1B13C6A8000212D9 /* QuickJump.swift in Sources */,
-				E690B8511B728A75004522A2 /* ForcedEnglishKeyboardKey.swift in Sources */,
 				E64B172E1B17C40D002B389B /* CandidateLabelsController.swift in Sources */,
 				E678AFD11B98968300FC3FE5 /* NSCharacterSet+Utils.swift in Sources */,
 				E64DCE931B1CCF790040EA53 /* SequenceTypeUtils.swift in Sources */,
 				E603089F1B1FAC5600FDE9E6 /* CaseType.swift in Sources */,
+				E65CD2641CF9DCF700F94D84 /* Coding.swift in Sources */,
 				E6B9F3641B1CD42B00CCB9F8 /* CandidateLabelType.swift in Sources */,
 				E6420C741B163B0B00699FC0 /* NSTextViewUtils.swift in Sources */,
 				E648D64B1B1FA85000098ED6 /* SettingsManager.swift in Sources */,

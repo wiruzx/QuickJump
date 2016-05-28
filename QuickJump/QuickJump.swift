@@ -15,7 +15,7 @@ final class QuickJump: NSObject {
     let bundle: NSBundle
     
     private let jumpController = JumpController()
-    private let settings = SettingsManager()
+    private let settings: SettingsManager<SettingsKey> = .init(storage: NSUserDefaults.standardUserDefaults())
 
     init(bundle: NSBundle) {
         self.bundle = bundle
@@ -71,13 +71,13 @@ final class QuickJump: NSObject {
             caseTypeMenuItem.submenu = caseTypeSubmenu
             submenu.addItem(caseTypeMenuItem)
             
-            let caseType = settings.get(CaseKey()) ?? .Sensitive
+            let caseType: CaseType = settings.get(.CaseType) ?? .Sensitive
             jumpController.caseType = caseType
             
-            let alphabet = settings.get(AlphabetKey()) ?? .DefaultAlphabet
+            let alphabet: Alphabet = settings.get(.Alphabet) ?? .DefaultAlphabet
             jumpController.alphabet = alphabet.chars
             
-            let forcedLayoutEnabled = settings.get(ForcedEnglishKeyboardKey()) ?? false
+            let forcedLayoutEnabled: Bool = settings.get(.ForceEnglishKeyboard) ?? false
             jumpController.forcedEnglishLayout = forcedLayoutEnabled
             
             let uppercaseCandidatesItem = NSMenuItem(title: "Allow Uppercase candidates",
@@ -164,20 +164,19 @@ final class QuickJump: NSObject {
     // MARK:- Private methods
     
     private func changeForcedEnglishLayoutOption() {
-        let current = settings.get(ForcedEnglishKeyboardKey()) ?? false
+        let current: Bool = settings.get(.ForceEnglishKeyboard) ?? false
         
         let new = !current
         
         jumpController.forcedEnglishLayout = new
         forcedEnglishLayoutMenuItem?.state = new ? 1 : 0
         
-        settings.set(new, forItemType: ForcedEnglishKeyboardKey())
-        settings.synchronize()
+        settings.set(new, forKey: .ForceEnglishKeyboard)
     }
     
     private func changeUppercaseCandidates() {
         
-        let current = settings.get(AlphabetKey()) ?? .DefaultAlphabet
+        let current: Alphabet = settings.get(.Alphabet) ?? .DefaultAlphabet
         
         let newAlphabet: Alphabet
         if current == .LatinWithUppercase {
@@ -189,9 +188,8 @@ final class QuickJump: NSObject {
         }
         
         jumpController.alphabet = newAlphabet.chars
-        settings.set(newAlphabet, forItemType: AlphabetKey())
-        settings.synchronize()
         
+        settings.set(newAlphabet, forKey: .Alphabet)
     }
     
     private func changeCaseType(type: CaseType) {
@@ -200,8 +198,7 @@ final class QuickJump: NSObject {
         
         jumpController.caseType = type
         
-        settings.set(type, forItemType: CaseKey())
-        settings.synchronize()
+        settings.set(type, forKey: .CaseType)
     }
     
 }

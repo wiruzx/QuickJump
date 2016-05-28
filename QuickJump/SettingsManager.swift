@@ -8,38 +8,44 @@
 
 import Foundation
 
-typealias NSDictionaryLikeType = [NSObject: AnyObject]
+// MARK: - SettingsKey
 
-protocol Encodable {
-    func encode() -> NSDictionaryLikeType
+enum SettingsKey: String {
+    case Alphabet = "alphabet"
+    case CaseType = "CaseType"
+    case ForceEnglishKeyboard = "ForcedEnglishKeyboardKey"
 }
 
-protocol Decodable {
-    static func decode(dictionary: NSDictionaryLikeType) -> Self?
-}
+// MARK: - SettingsManager
 
-protocol KeyType {
-    typealias EntityType: Decodable
-    var key: String { get }
-}
-
-final class SettingsManager {
+final class SettingsManager<Key: RawRepresentable where Key.RawValue == String> {
     
-    // MARK:- Private properties
+    // MARK: - Private properties
     
-    private let userDefaults = NSUserDefaults.standardUserDefaults()
+    private var storage: Storage
     
-    // MARK:- Public methods
+    // MARK: - Instantiation
     
-    func get<T: KeyType>(itemType: T) -> T.EntityType? {
-        return (userDefaults.objectForKey(itemType.key) as? NSDictionaryLikeType).flatMap(T.EntityType.decode)
+    init(storage: Storage) {
+        self.storage = storage
     }
     
-    func set<T: Encodable, K: KeyType where T == K.EntityType>(object: T, forItemType itemType: K) {
-        userDefaults.setObject(object.encode(), forKey: itemType.key)
+    // MARK: - Public methods
+    
+    func get<T: Decodable>(key: Key) -> T? {
+        
+        guard let dictionary = storage.objectForKey(key.rawValue) as? [String: AnyObject] else { return nil }
+        
+        guard let value = T(dictionary: dictionary) else {
+            assertionFailure("Value \(dictionary) for key \(key) cannot be converted to type \(T.self)")
+            return nil
+        }
+        
+        return value
     }
     
-    func synchronize() {
-        userDefaults.synchronize()
+    func set(value: Encodable, forKey key: Key) {
+        storage.setObject(value.encode(), forKey: key.rawValue)
     }
+    
 }
