@@ -11,7 +11,7 @@
 		E6420C741B163B0B00699FC0 /* NSTextViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */; };
 		E648D64B1B1FA85000098ED6 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648D64A1B1FA85000098ED6 /* SettingsManager.swift */; };
 		E64B172A1B17C1C0002B389B /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B17291B17C1C0002B389B /* Candidate.swift */; };
-		E64B172E1B17C40D002B389B /* CandidateLabelsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B172D1B17C40D002B389B /* CandidateLabelsController.swift */; };
+		E64B172E1B17C40D002B389B /* CandidateLabelsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B172D1B17C40D002B389B /* CandidateLabelsPresenter.swift */; };
 		E64B17321B17D136002B389B /* CandidateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B17311B17D136002B389B /* CandidateInfo.swift */; };
 		E64DCE931B1CCF790040EA53 /* SequenceTypeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64DCE921B1CCF790040EA53 /* SequenceTypeUtils.swift */; };
 		E6579F281B13C6A8000212D9 /* QuickJump.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = E6579F271B13C6A8000212D9 /* QuickJump.xcscheme */; };
@@ -22,6 +22,7 @@
 		E667787C1B20DA230016C708 /* CandidateTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E667787B1B20DA230016C708 /* CandidateTextView.swift */; };
 		E678AFD11B98968300FC3FE5 /* NSCharacterSet+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E678AFD01B98968300FC3FE5 /* NSCharacterSet+Utils.swift */; };
 		E68CEC5F1B221C6600C5024C /* Alphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68CEC5E1B221C6600C5024C /* Alphabet.swift */; };
+		E6941F6E1CFCB16700D37404 /* CandidateLabelsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6941F6D1CFCB16700D37404 /* CandidateLabelsInteractor.swift */; };
 		E694A87A1B166B3D0072B0B9 /* SingleCharTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */; };
 		E6B8D2E61CFA1365005D1AE3 /* IndexesSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B8D2E51CFA1365005D1AE3 /* IndexesSequence.swift */; };
 		E6B9F3641B1CD42B00CCB9F8 /* CandidateLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B9F3631B1CD42B00CCB9F8 /* CandidateLabelType.swift */; };
@@ -41,7 +42,7 @@
 		E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTextViewUtils.swift; sourceTree = "<group>"; };
 		E648D64A1B1FA85000098ED6 /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		E64B17291B17C1C0002B389B /* Candidate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
-		E64B172D1B17C40D002B389B /* CandidateLabelsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateLabelsController.swift; sourceTree = "<group>"; };
+		E64B172D1B17C40D002B389B /* CandidateLabelsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateLabelsPresenter.swift; sourceTree = "<group>"; };
 		E64B17311B17D136002B389B /* CandidateInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateInfo.swift; sourceTree = "<group>"; };
 		E64DCE921B1CCF790040EA53 /* SequenceTypeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTypeUtils.swift; sourceTree = "<group>"; };
 		E6579F221B13C6A8000212D9 /* QuickJump.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickJump.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +66,7 @@
 		E673F0621CF79DD700567B22 /* DVTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DVTViewController.h; path = "submodules/xcode-headers/DVTKit/DVTViewController.h"; sourceTree = SOURCE_ROOT; };
 		E678AFD01B98968300FC3FE5 /* NSCharacterSet+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCharacterSet+Utils.swift"; sourceTree = "<group>"; };
 		E68CEC5E1B221C6600C5024C /* Alphabet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alphabet.swift; sourceTree = "<group>"; };
+		E6941F6D1CFCB16700D37404 /* CandidateLabelsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateLabelsInteractor.swift; sourceTree = "<group>"; };
 		E694A8791B166B3D0072B0B9 /* SingleCharTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleCharTextField.swift; sourceTree = "<group>"; };
 		E6B8D2E51CFA1365005D1AE3 /* IndexesSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexesSequence.swift; sourceTree = "<group>"; };
 		E6B9F3631B1CD42B00CCB9F8 /* CandidateLabelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateLabelType.swift; sourceTree = "<group>"; };
@@ -112,7 +114,8 @@
 			children = (
 				E6579F291B13C6A8000212D9 /* QuickJump.swift */,
 				E6C713631B16895C00E18014 /* JumpController.swift */,
-				E64B172D1B17C40D002B389B /* CandidateLabelsController.swift */,
+				E64B172D1B17C40D002B389B /* CandidateLabelsPresenter.swift */,
+				E6941F6D1CFCB16700D37404 /* CandidateLabelsInteractor.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -304,9 +307,10 @@
 				E65CD2621CF9DCB800F94D84 /* Storage.swift in Sources */,
 				E694A87A1B166B3D0072B0B9 /* SingleCharTextField.swift in Sources */,
 				E6C713661B168B7E00E18014 /* DVTSourceTextView.swift in Sources */,
+				E6941F6E1CFCB16700D37404 /* CandidateLabelsInteractor.swift in Sources */,
 				E6579F2A1B13C6A8000212D9 /* QuickJump.swift in Sources */,
 				E6B8D2E61CFA1365005D1AE3 /* IndexesSequence.swift in Sources */,
-				E64B172E1B17C40D002B389B /* CandidateLabelsController.swift in Sources */,
+				E64B172E1B17C40D002B389B /* CandidateLabelsPresenter.swift in Sources */,
 				E678AFD11B98968300FC3FE5 /* NSCharacterSet+Utils.swift in Sources */,
 				E64DCE931B1CCF790040EA53 /* SequenceTypeUtils.swift in Sources */,
 				E603089F1B1FAC5600FDE9E6 /* CaseType.swift in Sources */,

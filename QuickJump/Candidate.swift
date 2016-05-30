@@ -22,8 +22,7 @@ struct Candidate {
     let char: Character
     
     func next() -> Candidate? {
-        guard !array.isEmpty else { return nil }
-        return Candidate(array)
+        return array.isEmpty ? nil : Candidate(array)
     }
 }
 
