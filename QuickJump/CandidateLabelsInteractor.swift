@@ -10,7 +10,7 @@ struct CandidateLabelsInteractor {
     
     private let candidateFactory: CandidateFactory
     
-    var candidateInfos: [CandidateInfo] = []
+    private(set) var candidateInfos: [CandidateInfo] = []
     
     init(alphabet: [Character]) {
         candidateFactory = .init(alphabet: alphabet)
