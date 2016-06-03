@@ -24,11 +24,9 @@ struct CandidateLabelsInteractor {
     mutating func next(char: Character) -> CandidateInfo? {
         var matched = candidateInfos.filter { $0.candidate.char == char }
         
-        for i in matched.indices {
-            if let next = matched[i].candidate.next() {
-                matched[i].candidate = next
-            } else {
-                return matched[i]
+        for index in matched.indices {
+            if !matched[index].updateNextCandidate() {
+                return matched[index]
             }
         }
         

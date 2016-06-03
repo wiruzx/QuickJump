@@ -17,4 +17,11 @@ struct CandidateInfo {
     
     var candidate: Candidate
     let location: Location
+    
+    mutating func updateNextCandidate() -> Bool {
+        guard let next = candidate.next() else { return false }
+        candidate = next
+        return true
+    }
+    
 }
