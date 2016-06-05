@@ -11,13 +11,19 @@ import Foundation
 extension SequenceType {
     
     func skip(count: Int) -> AnySequence<Generator.Element> {
+        
         var generator = generate()
+        var count = count
         
-        for _ in 0 ..< count {
-            _ = generator.next()
-        }
-        
-        return AnySequence(anyGenerator(generator))
+        return AnySequence(anyGenerator {
+            
+            while count > 0 {
+                guard let _ = generator.next() else { return nil }
+                count -= 1
+            }
+            
+            return generator.next()
+        })
     }
     
     func take(count: Int) -> AnySequence<Generator.Element> {
