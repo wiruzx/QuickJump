@@ -14,15 +14,15 @@ private let punctuation: NSCharacterSet = .punctuationCharacterSet() + .whitespa
 extension String {
     
     func allRangesOfCharacters(char: Character, inRange: NSRange) -> [NSRange] {
-        let string: NSString = self
         let charAsString = String(char)
         
-        var result = [NSRange]()
+        var result: [NSRange] = []
         
-        string.enumerateSubstringsInRange(inRange, options: .ByComposedCharacterSequences) { substr, range, _, _ in
-            if substr == charAsString {
-                result.append(range)
-            }
+        (self as NSString).enumerateSubstringsInRange(inRange, options: .ByComposedCharacterSequences) { substr, range, _, _ in
+            
+            guard substr == charAsString else { return }
+            
+            result.append(range)
         }
         
         return result
@@ -30,27 +30,21 @@ extension String {
     
     func allRangesOfCharacterInBeginigOfWord(char: Character, inRange range: NSRange) -> [NSRange] {
         
-        if !letters.characterIsMember(char) {
-            return allRangesOfCharacters(char, inRange: range)
-        }
+        guard letters.characterIsMember(char) else { return allRangesOfCharacters(char, inRange: range) }
         
-        var result = [NSRange]()
+        var result: [NSRange] = []
         var previousChar: Character?
         
         (self as NSString).enumerateSubstringsInRange(range, options: .ByComposedCharacterSequences) { substr, range, _, _ in
             let foundChar = substr?.characters.first!
 
-            if foundChar == char {
-                if let prev = previousChar {
-                    if punctuation.characterIsMember(prev) {
-                        result.append(range)
-                    }
-                } else {
-                    result.append(range)
-                }
-            }
+            defer { previousChar = foundChar }
             
-            previousChar = foundChar
+            guard foundChar == char else { return }
+            guard previousChar != nil else { return result.append(range) }
+            guard punctuation.characterIsMember(previousChar!) else { return }
+            
+            result.append(range)
         }
         
         return result
@@ -58,7 +52,7 @@ extension String {
     
     func allRangesOfBeginingsOfTheLinesInRange(range: NSRange) -> [NSRange] {
         
-        var result = [NSRange]()
+        var result: [NSRange] = []
         
         (self as NSString).enumerateSubstringsInRange(range, options: .ByLines) { substr, range, _, _ in
             var firstCharRange = range
