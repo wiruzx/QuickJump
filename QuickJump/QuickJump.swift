@@ -10,8 +10,6 @@ import Foundation
 
 final class QuickJump: NSObject {
     
-    static var sharedPlugin: QuickJump?
-    
     private let jumpController = JumpController()
     private let settings: SettingsManager<SettingsKey> = .init(storage: NSUserDefaults.standardUserDefaults())
 
