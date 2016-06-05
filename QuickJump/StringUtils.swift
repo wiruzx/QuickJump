@@ -30,7 +30,7 @@ extension String {
     
     func allRangesOfCharacterInBeginigOfWord(char: Character, inRange range: NSRange) -> [NSRange] {
         
-        guard letters.characterIsMember(char) else { return allRangesOfCharacters(char, inRange: range) }
+        guard letters.contains(char) else { return allRangesOfCharacters(char, inRange: range) }
         
         var result: [NSRange] = []
         var previousChar: Character?
@@ -42,7 +42,7 @@ extension String {
             
             guard foundChar == char else { return }
             guard previousChar != nil else { return result.append(range) }
-            guard punctuation.characterIsMember(previousChar!) else { return }
+            guard punctuation.contains(previousChar!) else { return }
             
             result.append(range)
         }
