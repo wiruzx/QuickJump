@@ -28,7 +28,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8966AFCA173EB7BF004150C0"
+               BlueprintIdentifier = "E60857EB1D0470490009D83E"
                BuildableName = "QuickJumpTests.xctest"
                BlueprintName = "QuickJumpTests"
                ReferencedContainer = "container:QuickJump.xcodeproj">
@@ -42,6 +42,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E60857EB1D0470490009D83E"
+               BuildableName = "QuickJumpTests.xctest"
+               BlueprintName = "QuickJumpTests"
+               ReferencedContainer = "container:QuickJump.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <AdditionalOptions>
       </AdditionalOptions>

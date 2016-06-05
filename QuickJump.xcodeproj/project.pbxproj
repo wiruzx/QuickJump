@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E603089F1B1FAC5600FDE9E6 /* CaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E603089E1B1FAC5600FDE9E6 /* CaseType.swift */; };
+		E60857EF1D0470490009D83E /* QuickJumpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60857EE1D0470490009D83E /* QuickJumpTests.swift */; };
 		E6420C741B163B0B00699FC0 /* NSTextViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */; };
 		E648D64B1B1FA85000098ED6 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648D64A1B1FA85000098ED6 /* SettingsManager.swift */; };
 		E64B172A1B17C1C0002B389B /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64B17291B17C1C0002B389B /* Candidate.swift */; };
@@ -39,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		E603089E1B1FAC5600FDE9E6 /* CaseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseType.swift; sourceTree = "<group>"; };
+		E60857EC1D0470490009D83E /* QuickJumpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickJumpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E60857EE1D0470490009D83E /* QuickJumpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickJumpTests.swift; sourceTree = "<group>"; };
+		E60857F01D0470490009D83E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTextViewUtils.swift; sourceTree = "<group>"; };
 		E648D64A1B1FA85000098ED6 /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		E64B17291B17C1C0002B389B /* Candidate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
@@ -83,6 +87,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E60857E91D0470490009D83E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E6C73D2D1B13CF70001305E0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -131,10 +142,20 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		E60857ED1D0470490009D83E /* QuickJumpTests */ = {
+			isa = PBXGroup;
+			children = (
+				E60857EE1D0470490009D83E /* QuickJumpTests.swift */,
+				E60857F01D0470490009D83E /* Info.plist */,
+			);
+			path = QuickJumpTests;
+			sourceTree = "<group>";
+		};
 		E6579F1A1B13C6A8000212D9 = {
 			isa = PBXGroup;
 			children = (
 				E6579F241B13C6A8000212D9 /* QuickJump */,
+				E60857ED1D0470490009D83E /* QuickJumpTests */,
 				E6579F231B13C6A8000212D9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -143,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				E6579F221B13C6A8000212D9 /* QuickJump.xcplugin */,
+				E60857EC1D0470490009D83E /* QuickJumpTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,6 +259,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E60857EB1D0470490009D83E /* QuickJumpTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E60857F31D0470490009D83E /* Build configuration list for PBXNativeTarget "QuickJumpTests" */;
+			buildPhases = (
+				E60857E81D0470490009D83E /* Sources */,
+				E60857E91D0470490009D83E /* Frameworks */,
+				E60857EA1D0470490009D83E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuickJumpTests;
+			productName = QuickJumpTests;
+			productReference = E60857EC1D0470490009D83E /* QuickJumpTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E6579F211B13C6A8000212D9 /* QuickJump */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6579F2F1B13C6A8000212D9 /* Build configuration list for PBXNativeTarget "QuickJump" */;
@@ -261,10 +300,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Victor Shamanov";
 				TargetAttributes = {
+					E60857EB1D0470490009D83E = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
 					E6579F211B13C6A8000212D9 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
@@ -283,11 +325,19 @@
 			projectRoot = "";
 			targets = (
 				E6579F211B13C6A8000212D9 /* QuickJump */,
+				E60857EB1D0470490009D83E /* QuickJumpTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E60857EA1D0470490009D83E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E6579F201B13C6A8000212D9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -299,6 +349,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E60857E81D0470490009D83E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E60857EF1D0470490009D83E /* QuickJumpTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E6579F1F1B13C6A8000212D9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -332,6 +390,37 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		E60857F11D0470490009D83E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = QuickJumpTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wiruzx.QuickJumpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E60857F21D0470490009D83E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = QuickJumpTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wiruzx.QuickJumpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		E6579F2D1B13C6A8000212D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -455,6 +544,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E60857F31D0470490009D83E /* Build configuration list for PBXNativeTarget "QuickJumpTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E60857F11D0470490009D83E /* Debug */,
+				E60857F21D0470490009D83E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		E6579F1E1B13C6A8000212D9 /* Build configuration list for PBXProject "QuickJump" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
