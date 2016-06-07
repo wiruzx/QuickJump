@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E603089F1B1FAC5600FDE9E6 /* CaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E603089E1B1FAC5600FDE9E6 /* CaseType.swift */; };
 		E60857EF1D0470490009D83E /* QuickJumpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60857EE1D0470490009D83E /* QuickJumpTests.swift */; };
-		E61D599A1D0493B8003A818C /* SequenceUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D59991D0493B8003A818C /* SequenceUtilsTests.swift */; };
 		E61D599E1D049979003A818C /* SequenceTypeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64DCE921B1CCF790040EA53 /* SequenceTypeUtils.swift */; };
 		E6420C741B163B0B00699FC0 /* NSTextViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */; };
 		E648D64B1B1FA85000098ED6 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648D64A1B1FA85000098ED6 /* SettingsManager.swift */; };
@@ -45,7 +44,6 @@
 		E60857EC1D0470490009D83E /* QuickJumpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickJumpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60857EE1D0470490009D83E /* QuickJumpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickJumpTests.swift; sourceTree = "<group>"; };
 		E60857F01D0470490009D83E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E61D59991D0493B8003A818C /* SequenceUtilsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceUtilsTests.swift; sourceTree = "<group>"; };
 		E6420C731B163B0B00699FC0 /* NSTextViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTextViewUtils.swift; sourceTree = "<group>"; };
 		E648D64A1B1FA85000098ED6 /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		E64B17291B17C1C0002B389B /* Candidate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				E60857EE1D0470490009D83E /* QuickJumpTests.swift */,
-				E61D59991D0493B8003A818C /* SequenceUtilsTests.swift */,
 				E60857F01D0470490009D83E /* Info.plist */,
 			);
 			path = QuickJumpTests;
@@ -350,7 +347,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E61D599E1D049979003A818C /* SequenceTypeUtils.swift in Sources */,
-				E61D599A1D0493B8003A818C /* SequenceUtilsTests.swift in Sources */,
 				E60857EF1D0470490009D83E /* QuickJumpTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

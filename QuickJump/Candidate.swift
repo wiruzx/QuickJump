@@ -36,8 +36,8 @@ struct CandidateFactory {
     
     func candidates(count: Int) -> [Candidate] {
         return IndexesSequence(capacity: alphabet.count)
-            .skip(count / alphabet.count)
-            .take(count)
+            .dropFirst(count / alphabet.count)
+            .prefix(count)
             .map { .init($0.map { alphabet[$0] }) }
     }
 }
