@@ -8,8 +8,8 @@
 
 import Foundation
 
-private let letters = NSCharacterSet.letterCharacterSet()
-private let punctuation: NSCharacterSet = .punctuationCharacterSet() + .whitespaceAndNewlineCharacterSet()
+private let letters = NSCharacterSet.alphanumericCharacterSet()
+private let punctuation: NSCharacterSet = .punctuationCharacterSet() + .whitespaceAndNewlineCharacterSet() + .symbolCharacterSet()
 
 extension String {
     
