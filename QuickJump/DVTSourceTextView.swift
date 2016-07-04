@@ -33,7 +33,7 @@ extension DVTSourceTextView {
     }
     
     var sourceCode: String {
-        return (textStorage() as! NSTextStorage).string
+        return textStorage!.string
     }
     
     func rangesOfVisible(char: Character) -> [NSRange] {

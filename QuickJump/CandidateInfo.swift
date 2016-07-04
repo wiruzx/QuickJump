@@ -9,7 +9,19 @@
 import Foundation
 
 struct CandidateInfo {
+    
+    struct Location {
+        let range: NSRange
+        let rect: NSRect
+    }
+    
     var candidate: Candidate
-    let range: NSRange
-    let rect: NSRect
+    let location: Location
+    
+    mutating func updateNextCandidate() -> Bool {
+        guard let next = candidate.next() else { return false }
+        candidate = next
+        return true
+    }
+    
 }

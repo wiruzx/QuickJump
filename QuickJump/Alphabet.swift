@@ -6,9 +6,7 @@
 //  Copyright (c) 2015 Victor Shamanov. All rights reserved.
 //
 
-import Foundation
-
-struct Alphabet: Encodable, Decodable {
+struct Alphabet {
     
     // MARK:- Properties
     
@@ -24,19 +22,7 @@ struct Alphabet: Encodable, Decodable {
         }
     }
     
-    // MARK:- Encodable
-    
-    func encode() -> NSDictionaryLikeType {
-        return ["string": String(chars)]
-    }
-    
-    // MARK:- Decodable
-    
-    static func decode(dictionary: NSDictionaryLikeType) -> Alphabet? {
-        return (dictionary["string"] as? String).map { Alphabet($0) }
-    }
-    
-    // MARK:- Constants
+    // MARK: - Public Constants
     
     static let DefaultAlphabet = LatinWithUppercase
     
@@ -45,13 +31,26 @@ struct Alphabet: Encodable, Decodable {
     
 }
 
+// MARK: - Constants
+
+private let LatinAlphabet = "abcdefghijklmnopqrstuvwxyz"
+
+// MARK: - Equatable
+
 func == (lhs: Alphabet, rhs: Alphabet) -> Bool {
     return lhs.chars == rhs.chars
 }
 
-private let LatinAlphabet = "abcdefghijklmnopqrstuvwxyz"
+// MARK: - Conding
 
-struct AlphabetKey: KeyType {
-    typealias EntityType = Alphabet
-    let key = "alphabet"
+extension Alphabet: Encodable, Decodable {
+    
+    func encode() -> [String: AnyObject] {
+        return ["string": String(chars)]
+    }
+    
+    init?(dictionary: [String: AnyObject]) {
+        guard let value = dictionary["string"] as? String else { return nil }
+        self.init(value)
+    }
 }

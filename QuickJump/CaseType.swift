@@ -6,21 +6,14 @@
 //  Copyright (c) 2015 Victor Shamanov. All rights reserved.
 //
 
-import Foundation
-
 enum CaseType {
     case Sensitive
     case Insensitive
 }
 
-struct CaseKey: KeyType {
-    typealias EntityType = CaseType
-    let key = "CaseType"
-}
-
 extension CaseType: Encodable, Decodable {
     
-    func encode() -> NSDictionaryLikeType {
+    func encode() -> [String: AnyObject] {
         
         let value: Int = {
             switch self {
@@ -34,15 +27,19 @@ extension CaseType: Encodable, Decodable {
         return ["value":value]
     }
     
-    static func decode(dictionary: NSDictionaryLikeType) -> CaseType? {
-        switch dictionary["value"] as? Int {
-        case .Some(0):
-            return .Sensitive
-        case .Some(1):
-            return .Insensitive
+    init?(dictionary: [String: AnyObject]) {
+        
+        guard let value = dictionary["value"] as? Int else { return nil }
+        
+        switch value {
+        case 0:
+            self = .Sensitive
+        case 1:
+            self = .Insensitive
         default:
+            assertionFailure("Invalid value \(value) for type \(CaseType.self)")
             return nil
         }
     }
-    
 }
+    

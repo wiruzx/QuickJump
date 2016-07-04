@@ -46,7 +46,7 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     private var state: State = .Inactive
     
-    private var labelsController: CandidateLabelsController!
+    private var labelsController: CandidateLabelsPresenter!
     
     private var currentEditorView: DVTSourceTextView! {
         didSet {
@@ -95,10 +95,10 @@ final class JumpController: SingleCharTextFieldDelegate {
     // MARK:- Private methods
     
     private func initializeLabelController() {
-        if let superview = currentEditorView,
-           let alphabet = alphabet {
-            labelsController = CandidateLabelsController(superview: superview, alphabet: alphabet)
-        }
+        
+        guard let view = currentEditorView, alphabet = alphabet else { return }
+        
+        labelsController = CandidateLabelsPresenter(view: view, alphabet: alphabet)
     }
     
     private func showLineCandidates() {
@@ -168,7 +168,7 @@ final class JumpController: SingleCharTextFieldDelegate {
         }
         
         state = .ShowCandidates
-        labelsController.initialize(Array(zip(ranges, rects)))
+        labelsController.initialize(zip(ranges, rects).map { .init(range: $0, rect: $1) })
     }
     
     private func abort() {
@@ -195,7 +195,7 @@ final class JumpController: SingleCharTextFieldDelegate {
             if let result = labelsController.next(char) {
                 removeTextField()
                 state = .Inactive
-                jump(result.range)
+                jump(result.location.range)
             }
         default:
             break

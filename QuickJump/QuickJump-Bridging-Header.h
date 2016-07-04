@@ -7,4 +7,8 @@
 //
 
 #import <AppKit/AppKit.h>
-#import "IDESourceEditor.h"
+#import "DVTSourceTextView.h"
+#import "IDEWorkspaceWindowController.h"
+#import "IDEEditorContext.h"
+#import "IDEEditor.h"
+#import "DVTFontAndColorTheme.h"

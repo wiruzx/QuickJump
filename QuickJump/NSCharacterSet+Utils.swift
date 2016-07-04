@@ -10,7 +10,7 @@ import Foundation
 
 extension NSCharacterSet {
     
-    func characterIsMember(character: Character) -> Bool {
+    func contains(character: Character) -> Bool {
         let set = NSCharacterSet(charactersInString: String(character))
         return isSupersetOfSet(set)
     }
