@@ -25,15 +25,10 @@ Jump to begining of any line on the screen
 
 ## Installation
 
-### Alcatraz
-
-Available through [Alcatraz](http://alcatraz.io)
-
-### Manual
-
 1. Clone the project
-2. Open `QuickJump.xcodeproj` file
-3. Build project and restart Xcode
+2. Fetch submodules `git submodule update --init --recursive`
+3. Open `QuickJump.xcodeproj` file
+4. Build project and restart Xcode
 
 ### Set shortcut
 
