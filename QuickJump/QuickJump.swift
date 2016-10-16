@@ -11,23 +11,20 @@ import Foundation
 final class QuickJump: NSObject {
     
     private let jumpController = JumpController()
-    private let settings: SettingsManager<SettingsKey> = .init(storage: NSUserDefaults.standardUserDefaults())
+    private let settings: SettingsManager<SettingsKey> = .init(storage: UserDefaults.standard)
 
-    init(bundle _: NSBundle) {
+    init(bundle _: Bundle) {
 
         super.init()
         
-        NSNotificationCenter.defaultCenter().addObserver(self,
-                                                         selector: "menuDidChange:",
-                                                         name: NSMenuDidChangeItemNotification,
-                                                         object: nil)
-        
+        NotificationCenter.default.addObserver(self, 
+                                               selector: #selector(menuDidChange),
+                                               name: NSNotification.Name.NSMenuDidChangeItem,
+                                               object: nil)
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self,
-                                                            name: NSMenuDidChangeItemNotification,
-                                                            object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.NSMenuDidChangeItem, object: nil)
     }
     
     private var caseSensitiveMenuItem: NSMenuItem?
@@ -39,26 +36,26 @@ final class QuickJump: NSObject {
         
         let quickJumpMenuName = "QuickJump"
         
-        if let editorMenu = NSApplication.sharedApplication().mainMenu?.itemWithTitle("Editor")?.submenu
-           where editorMenu.itemWithTitle(quickJumpMenuName) == nil {
+        if let editorMenu = NSApplication.shared().mainMenu?.item(withTitle: "Editor")?.submenu,
+            editorMenu.item(withTitle: quickJumpMenuName) == nil {
             
             let quickJumpMenu = NSMenuItem(title: quickJumpMenuName, action: nil, keyEquivalent: "")
             
             let submenu = NSMenu()
             
-            let charModeItem = NSMenuItem(title: "QuickJump: char mode", action: "charMode", keyEquivalent: "")
+            let charModeItem = NSMenuItem(title: "QuickJump: char mode", action: #selector(charMode), keyEquivalent: "")
             charModeItem.target = self
             submenu.addItem(charModeItem)
             
-            let wordModeItem = NSMenuItem(title: "QuickJump: word mode", action: "wordMode", keyEquivalent: "")
+            let wordModeItem = NSMenuItem(title: "QuickJump: word mode", action: #selector(wordMode), keyEquivalent: "")
             wordModeItem.target = self
             submenu.addItem(wordModeItem)
             
-            let lineModeItem = NSMenuItem(title: "QuickJump: line mode", action: "lineMode", keyEquivalent: "")
+            let lineModeItem = NSMenuItem(title: "QuickJump: line mode", action: #selector(lineMode), keyEquivalent: "")
             lineModeItem.target = self
             submenu.addItem(lineModeItem)
             
-            submenu.addItem(.separatorItem())
+            submenu.addItem(.separator())
 
             let caseTypeSubmenu = NSMenu()
             
@@ -66,56 +63,56 @@ final class QuickJump: NSObject {
             caseTypeMenuItem.submenu = caseTypeSubmenu
             submenu.addItem(caseTypeMenuItem)
             
-            let caseType: CaseType = settings.get(.CaseType) ?? .Sensitive
+            let caseType: CaseType = settings.get(.caseType) ?? .sensitive
             jumpController.caseType = caseType
             
-            let alphabet: Alphabet = settings.get(.Alphabet) ?? .DefaultAlphabet
+            let alphabet: Alphabet = settings.get(.alphabet) ?? .defaultAlphabet
             jumpController.alphabet = alphabet.chars
             
-            let forcedLayoutEnabled: Bool = settings.get(.ForceEnglishKeyboard) ?? false
+            let forcedLayoutEnabled: Bool = settings.get(.forceEnglishKeyboard) ?? false
             jumpController.forcedEnglishLayout = forcedLayoutEnabled
             
             let uppercaseCandidatesItem = NSMenuItem(title: "Allow Uppercase candidates",
-                                                     action: "changeEnableUppercaseCandidatesToggle:",
+                                                     action: #selector(changeEnableUppercaseCandidatesToggle),
                                                      keyEquivalent: "")
             uppercaseCandidatesItem.target = self
-            uppercaseCandidatesItem.state = alphabet == .LatinWithUppercase ? 1 : 0
+            uppercaseCandidatesItem.state = alphabet == .latinWithUppercase ? 1 : 0
             
-            submenu.addItem(.separatorItem())
+            submenu.addItem(.separator())
             submenu.addItem(uppercaseCandidatesItem)
             
             uppercaseCandidatesMenuItem = uppercaseCandidatesItem
             
             let forcedEnglishLayoutItem = NSMenuItem(title: "Force English keyboard layout",
-                                                     action: "changeEnableForcedEnglishLayoutToogle:",
+                                                     action: #selector(changeEnableForcedEnglishLayoutToogle),
                                                      keyEquivalent: "")
             
             forcedEnglishLayoutItem.target = self
             forcedEnglishLayoutItem.state = forcedLayoutEnabled ? 1 : 0
             
-            submenu.addItem(.separatorItem())
+            submenu.addItem(.separator())
             submenu.addItem(forcedEnglishLayoutItem)
             
             forcedEnglishLayoutMenuItem = forcedEnglishLayoutItem
             
-            let caseSensitiveItem = NSMenuItem(title: "Sensitive", action: "selectSensitive:", keyEquivalent: "")
+            let caseSensitiveItem = NSMenuItem(title: "Sensitive", action: #selector(selectSensitive), keyEquivalent: "")
             caseSensitiveItem.target = self
-            caseSensitiveItem.state = caseType == .Sensitive ? 1 : 0
+            caseSensitiveItem.state = caseType == .sensitive ? 1 : 0
             caseTypeSubmenu.addItem(caseSensitiveItem)
             
             caseSensitiveMenuItem = caseSensitiveItem
             
-            let caseInsensitiveItem = NSMenuItem(title: "Insensitive", action: "selectInsensitive:", keyEquivalent: "")
+            let caseInsensitiveItem = NSMenuItem(title: "Insensitive", action: #selector(selectInsensitive), keyEquivalent: "")
             caseInsensitiveItem.target = self
-            caseInsensitiveItem.state = caseType == .Insensitive ? 1 : 0
+            caseInsensitiveItem.state = caseType == .insensitive ? 1 : 0
             caseTypeSubmenu.addItem(caseInsensitiveItem)
             
             caseInsensitiveMenuItem = caseInsensitiveItem
             
             quickJumpMenu.submenu = submenu
             
-            editorMenu.insertItem(.separatorItem(), atIndex: 0)
-            editorMenu.insertItem(quickJumpMenu, atIndex: 0)
+            editorMenu.insertItem(.separator(), at: 0)
+            editorMenu.insertItem(quickJumpMenu, at: 0)
             
         }
     }
@@ -123,23 +120,23 @@ final class QuickJump: NSObject {
     // MARK:- Actions
 
     @objc private func charMode() {
-        jumpController.toggle(.Char)
+        jumpController.toggle(mode: .char)
     }
     
     @objc private func wordMode() {
-        jumpController.toggle(.Word)
+        jumpController.toggle(mode: .word)
     }
     
     @objc private func lineMode() {
-        jumpController.toggle(.Line)
+        jumpController.toggle(mode: .line)
     }
     
     @objc private func selectSensitive(sender: AnyObject) {
-        changeCaseType(.Sensitive)
+        changeCaseType(.sensitive)
     }
     
     @objc private func selectInsensitive(sender: AnyObject) {
-        changeCaseType(.Insensitive)
+        changeCaseType(.insensitive)
     }
     
     @objc private func changeEnableUppercaseCandidatesToggle(sender: AnyObject) {
@@ -153,47 +150,47 @@ final class QuickJump: NSObject {
     // MARK:- Notifications
     
     @objc private func menuDidChange(notification: NSNotification) {
-        dispatch_async(dispatch_get_main_queue(), createMenuItems)
+        DispatchQueue.main.async(execute: createMenuItems)
     }
     
     // MARK:- Private methods
     
     private func changeForcedEnglishLayoutOption() {
-        let current: Bool = settings.get(.ForceEnglishKeyboard) ?? false
+        let current: Bool = settings.get(.forceEnglishKeyboard) ?? false
         
         let new = !current
         
         jumpController.forcedEnglishLayout = new
         forcedEnglishLayoutMenuItem?.state = new ? 1 : 0
         
-        settings.set(new, forKey: .ForceEnglishKeyboard)
+        settings.set(value: new, forKey: .forceEnglishKeyboard)
     }
     
     private func changeUppercaseCandidates() {
         
-        let current: Alphabet = settings.get(.Alphabet) ?? .DefaultAlphabet
+        let current: Alphabet = settings.get(.alphabet) ?? .defaultAlphabet
         
         let newAlphabet: Alphabet
-        if current == .LatinWithUppercase {
+        if current == .latinWithUppercase {
             uppercaseCandidatesMenuItem?.state = 0
-            newAlphabet = .Latin
+            newAlphabet = .latin
         } else {
             uppercaseCandidatesMenuItem?.state = 1
-            newAlphabet = .LatinWithUppercase
+            newAlphabet = .latinWithUppercase
         }
         
         jumpController.alphabet = newAlphabet.chars
         
-        settings.set(newAlphabet, forKey: .Alphabet)
+        settings.set(value: newAlphabet, forKey: .alphabet)
     }
     
-    private func changeCaseType(type: CaseType) {
-        caseSensitiveMenuItem?.state = type == .Sensitive ? 1 : 0
-        caseInsensitiveMenuItem?.state = type == .Insensitive ? 1 : 0
+    private func changeCaseType(_ type: CaseType) {
+        caseSensitiveMenuItem?.state = type == .sensitive ? 1 : 0
+        caseInsensitiveMenuItem?.state = type == .insensitive ? 1 : 0
         
         jumpController.caseType = type
         
-        settings.set(type, forKey: .CaseType)
+        settings.set(value: type, forKey: .caseType)
     }
     
 }

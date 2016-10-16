@@ -38,11 +38,11 @@ final class CandidateLabelsPresenter {
     // MARK:- Public methods
     
     func initialize(locations: [CandidateInfo.Location]) {
-        interactor.initialize(locations)
+        interactor.initialize(locations: locations)
     }
     
     func next(char: Character) -> CandidateInfo? {
-        return interactor.next(char)
+        return interactor.next(char: char)
     }
     
     func cancel() {
@@ -52,7 +52,7 @@ final class CandidateLabelsPresenter {
     // MARK:- Private methods
     
     private func labelFromInfo(candidateInfo: CandidateInfo) -> CandidateLabelType {
-        return labelFactory.labelWithFrame(candidateInfo.location.rect, char: candidateInfo.candidate.char)
+        return labelFactory.label(frame: candidateInfo.location.rect, char: candidateInfo.candidate.char)
     }
     
 }

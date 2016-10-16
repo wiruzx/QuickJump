@@ -8,6 +8,6 @@
 
 import Foundation
 
-func const<T, U>(x: U) -> T -> U {
+func const<T, U>(_ x: U) -> (T) -> U {
     return { _ in x }
 }

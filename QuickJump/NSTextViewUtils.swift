@@ -18,8 +18,8 @@ extension NSTextView {
            let layoutManager = layoutManager,
            let textContainer = textContainer {
             
-            let glyphRange = layoutManager.glyphRangeForCharacterRange(range, actualCharacterRange: nil)
-            let rect = layoutManager.boundingRectForGlyphRange(glyphRange, inTextContainer: textContainer)
+            let glyphRange = layoutManager.glyphRange(forCharacterRange: range, actualCharacterRange: nil)
+            let rect = layoutManager.boundingRect(forGlyphRange: glyphRange, in: textContainer)
 
             let rectWithOffset = NSOffsetRect(rect, textContainerOrigin.x, textContainerOrigin.y)
             

@@ -17,7 +17,7 @@ struct CandidateLabelsInteractor {
     }
     
     mutating func initialize(locations: [CandidateInfo.Location]) {
-        let candidates = candidateFactory.candidates(locations.count)
+        let candidates = candidateFactory.candidates(count: locations.count)
         candidateInfos = zip(candidates, locations).map { .init(candidate: $0, location: $1) }
     }
     

@@ -10,7 +10,7 @@ struct Candidate {
     
     private let array: [Character]
     
-    private init(_ array: [Character]) {
+    fileprivate init(_ array: [Character]) {
         guard let first = array.first else {
             fatalError("Array should not be empty")
         }

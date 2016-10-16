@@ -11,14 +11,14 @@ import Foundation
 // MARK: - SettingsKey
 
 enum SettingsKey: String {
-    case Alphabet = "alphabet"
-    case CaseType = "CaseType"
-    case ForceEnglishKeyboard = "ForcedEnglishKeyboardKey"
+    case alphabet = "alphabet"
+    case caseType = "CaseType"
+    case forceEnglishKeyboard = "ForcedEnglishKeyboardKey"
 }
 
 // MARK: - SettingsManager
 
-final class SettingsManager<Key: RawRepresentable where Key.RawValue == String> {
+final class SettingsManager<Key: RawRepresentable> where Key.RawValue == String {
     
     // MARK: - Private properties
     
@@ -32,9 +32,9 @@ final class SettingsManager<Key: RawRepresentable where Key.RawValue == String> 
     
     // MARK: - Public methods
     
-    func get<T: Decodable>(key: Key) -> T? {
+    func get<T: Decodable>(_ key: Key) -> T? {
         
-        guard let dictionary = storage.objectForKey(key.rawValue) as? [String: AnyObject] else { return nil }
+        guard let dictionary = storage.object(forKey: key.rawValue) as? [String: AnyObject] else { return nil }
         
         guard let value = T(dictionary: dictionary) else {
             assertionFailure("Value \(dictionary) for key \(key) cannot be converted to type \(T.self)")
@@ -45,7 +45,7 @@ final class SettingsManager<Key: RawRepresentable where Key.RawValue == String> 
     }
     
     func set(value: Encodable, forKey key: Key) {
-        storage.setObject(value.encode(), forKey: key.rawValue)
+        storage.set(value.encode(), forKey: key.rawValue)
     }
     
 }

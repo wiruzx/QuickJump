@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension SequenceType {
+extension Sequence {
     
-    func find(@noescape predicate: Generator.Element -> Bool) -> Generator.Element? {
+    func find(_ predicate: (Iterator.Element) -> Bool) -> Iterator.Element? {
         
         for x in self where predicate(x) {
             return x
