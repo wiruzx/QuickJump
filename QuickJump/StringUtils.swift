@@ -8,17 +8,17 @@
 
 import Foundation
 
-private let letters = NSCharacterSet.alphanumericCharacterSet()
-private let punctuation: NSCharacterSet = .punctuationCharacterSet() + .whitespaceAndNewlineCharacterSet() + .symbolCharacterSet()
+private let letters: CharacterSet = .alphanumerics
+private let punctuation: CharacterSet = .punctuationCharacters + .whitespacesAndNewlines + .symbols
 
 extension String {
     
-    func allRangesOfCharacters(char: Character, inRange: NSRange) -> [NSRange] {
+    func allRangesOfCharacters(_ char: Character, inRange: NSRange) -> [NSRange] {
         let charAsString = String(char)
         
         var result: [NSRange] = []
         
-        (self as NSString).enumerateSubstringsInRange(inRange, options: .ByComposedCharacterSequences) { substr, range, _, _ in
+        (self as NSString).enumerateSubstrings(in: inRange, options: .byComposedCharacterSequences) { substr, range, _, _ in
             
             guard substr == charAsString else { return }
             
@@ -28,14 +28,14 @@ extension String {
         return result
     }
     
-    func allRangesOfCharacterInBeginigOfWord(char: Character, inRange range: NSRange) -> [NSRange] {
+    func allRangesOfCharacterInBeginigOfWord(_ char: Character, inRange range: NSRange) -> [NSRange] {
         
         guard letters.contains(char) else { return allRangesOfCharacters(char, inRange: range) }
         
         var result: [NSRange] = []
         var previousChar: Character?
         
-        (self as NSString).enumerateSubstringsInRange(range, options: .ByComposedCharacterSequences) { substr, range, _, _ in
+        (self as NSString).enumerateSubstrings(in: range, options: .byComposedCharacterSequences) { substr, range, _, _ in
             let foundChar = substr?.characters.first!
 
             defer { previousChar = foundChar }
@@ -50,11 +50,11 @@ extension String {
         return result
     }
     
-    func allRangesOfBeginingsOfTheLinesInRange(range: NSRange) -> [NSRange] {
+    func allRangesOfBeginingsOfTheLinesInRange(_ range: NSRange) -> [NSRange] {
         
         var result: [NSRange] = []
         
-        (self as NSString).enumerateSubstringsInRange(range, options: .ByLines) { substr, range, _, _ in
+        (self as NSString).enumerateSubstrings(in: range, options: NSString.EnumerationOptions()) { substr, range, _, _ in
             var firstCharRange = range
             firstCharRange.length = 1
             result.append(firstCharRange)

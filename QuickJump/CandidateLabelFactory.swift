@@ -20,7 +20,7 @@ final class CandidateLabelFactory {
     
     // MARK:- Public methods
     
-    func labelWithFrame(frame: NSRect, char: Character) -> CandidateLabelType {
+    func label(frame: NSRect, char: Character) -> CandidateLabelType {
         return CandidateTextView(frame: frame, font: currentFont, string: String(char))
     }
     

@@ -9,8 +9,8 @@
 import AppKit
 
 protocol SingleCharTextFieldDelegate: class {
-    func didRecieveChar(textField: SingleCharTextField, char: Character)
-    func didLoseFocus(textField: SingleCharTextField)
+    func didRecieveChar(_ textField: SingleCharTextField, char: Character)
+    func didLoseFocus(_ textField: SingleCharTextField)
 }
 
 final class SingleCharTextField: NSTextField, NSTextFieldDelegate {
@@ -38,9 +38,9 @@ final class SingleCharTextField: NSTextField, NSTextFieldDelegate {
     
     // MARK:- NSTextFieldDelegate
     
-    func control(control: NSControl, textView: NSTextView, doCommandBySelector commandSelector: Selector) -> Bool {
+    func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         switch commandSelector {
-        case "complete:":
+        case #selector(complete):
             charInputDelegate?.didLoseFocus(self)
             return true
         default:
@@ -53,17 +53,17 @@ final class SingleCharTextField: NSTextField, NSTextFieldDelegate {
     override func becomeFirstResponder() -> Bool {
         let result = super.becomeFirstResponder()
         if forceEnglishKeyboard {
-            NSTextInputContext.currentInputContext()?.selectedKeyboardInputSource = "com.apple.keylayout.US"
+            NSTextInputContext.current()?.selectedKeyboardInputSource = "com.apple.keylayout.US"
         }
         return result
     }
     
-    override func controlTextDidEndEditing(obj: NSNotification) {
+    override func controlTextDidEndEditing(_ obj: Notification) {
         charInputDelegate?.didLoseFocus(self)
         stringValue = ""
     }
     
-    override func textDidChange(_: NSNotification) {
+    override func textDidChange(_: Notification) {
         if let char = stringValue.characters.last {
             charInputDelegate?.didRecieveChar(self, char: char)
             stringValue = ""

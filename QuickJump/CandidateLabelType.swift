@@ -10,7 +10,7 @@ import Foundation
 
 protocol CandidateLabelType: class {
     
-    func addToView(view: NSView)
+    func addToView(_ view: NSView)
     func removeFromSuperview()
     
 }

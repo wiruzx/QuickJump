@@ -9,9 +9,9 @@
 import Foundation
 
 protocol Storage {
-    func objectForKey(key: String) -> AnyObject?
-    mutating func setObject(value: AnyObject?, forKey key: String)
-    mutating func removeObjectForKey(key: String)
+    func object(forKey key: String) -> Any?
+    mutating func set(_ value: Any?, forKey key: String)
+    mutating func removeObjectForKey(_ key: String)
 }
 
-extension NSUserDefaults: Storage {}
+extension UserDefaults: Storage {}

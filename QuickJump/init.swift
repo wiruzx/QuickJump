@@ -11,11 +11,11 @@ import Foundation
 private var plugin: QuickJump?
 
 private extension NSObject {
-    @objc class func pluginDidLoad(bundle: NSBundle) {
+    @objc class func pluginDidLoad(_ bundle: Bundle) {
         
         guard plugin == nil,
-            let appName = NSBundle.mainBundle().infoDictionary?["CFBundleName"] as? NSString
-            where appName == "Xcode" else { return }
+              let appName = Bundle.main.infoDictionary?["CFBundleName"] as? NSString,
+              appName == "Xcode" else { return }
         
         plugin = QuickJump(bundle: bundle)
     }

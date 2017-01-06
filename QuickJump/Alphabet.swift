@@ -14,9 +14,9 @@ struct Alphabet {
     
     // MARK:- Instantiation
     
-    init(_ string: String, addUppercase: Bool = false) {
+    init(string: String, addUppercase: Bool = false) {
         if addUppercase {
-            chars = Array((string.lowercaseString + string.uppercaseString).characters)
+            chars = Array((string.lowercased() + string.uppercased()).characters)
         } else {
             chars = Array(string.characters)
         }
@@ -24,16 +24,16 @@ struct Alphabet {
     
     // MARK: - Public Constants
     
-    static let DefaultAlphabet = LatinWithUppercase
+    static let defaultAlphabet = latinWithUppercase
     
-    static let LatinWithUppercase = Alphabet(LatinAlphabet, addUppercase: true)
-    static let Latin = Alphabet(LatinAlphabet)
+    static let latinWithUppercase = Alphabet(string: latinAlphabet, addUppercase: true)
+    static let latin = Alphabet(string: latinAlphabet)
     
 }
 
 // MARK: - Constants
 
-private let LatinAlphabet = "abcdefghijklmnopqrstuvwxyz"
+private let latinAlphabet = "abcdefghijklmnopqrstuvwxyz"
 
 // MARK: - Equatable
 
@@ -46,11 +46,11 @@ func == (lhs: Alphabet, rhs: Alphabet) -> Bool {
 extension Alphabet: Encodable, Decodable {
     
     func encode() -> [String: AnyObject] {
-        return ["string": String(chars)]
+        return ["string": String(chars) as AnyObject]
     }
     
     init?(dictionary: [String: AnyObject]) {
         guard let value = dictionary["string"] as? String else { return nil }
-        self.init(value)
+        self.init(string: value)
     }
 }
