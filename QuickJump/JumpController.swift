@@ -13,19 +13,19 @@ final class JumpController: SingleCharTextFieldDelegate {
     // MARK:- Type declaration
     
     enum InputMode {
-        case Char, Word, Line
+        case char, word, line
     }
     
     private enum State {
-        case Inactive, InputChar, ShowCandidates
+        case inactive, inputChar, showCandidates
     }
     
     // MARK:- Public properties
     
-    var caseType = CaseType.Insensitive
+    var caseType = CaseType.insensitive
     var alphabet: [Character]! {
         didSet {
-            if let a = alphabet, b = oldValue where a != b {
+            if let a = alphabet, let b = oldValue, a != b {
                 initializeLabelController()
             }
         }
@@ -42,9 +42,9 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     // MARK:- Private properties
     
-    private var inputMode: InputMode = .Char
+    private var inputMode: InputMode = .char
     
-    private var state: State = .Inactive
+    private var state: State = .inactive
     
     private var labelsController: CandidateLabelsPresenter!
     
@@ -70,7 +70,7 @@ final class JumpController: SingleCharTextFieldDelegate {
         
         self.inputMode = mode
         
-        if state == .ShowCandidates {
+        if state == .showCandidates {
             abort()
             return
         }
@@ -81,13 +81,13 @@ final class JumpController: SingleCharTextFieldDelegate {
             return
         }
         
-        if mode == .Line {
-            state = .ShowCandidates
+        if mode == .line {
+            state = .showCandidates
             showTextField()
             hideTextField()
             showLineCandidates()
         } else {
-            state = .InputChar
+            state = .inputChar
             showTextField()
         }
     }
@@ -96,7 +96,7 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     private func initializeLabelController() {
         
-        guard let view = currentEditorView, alphabet = alphabet else { return }
+        guard let view = currentEditorView, let alphabet = alphabet else { return }
         
         labelsController = CandidateLabelsPresenter(view: view, alphabet: alphabet)
     }
@@ -126,23 +126,23 @@ final class JumpController: SingleCharTextFieldDelegate {
         inputTextField.removeFromSuperview()
     }
     
-    private func rangesForChar(char: Character) -> [NSRange] {
+    private func rangesForChar(_ char: Character) -> [NSRange] {
         
-        let rangesFn: Character -> [NSRange]
+        let rangesFn: (Character) -> [NSRange]
         switch inputMode {
-        case .Word:
+        case .word:
             rangesFn = currentEditorView.rangesOfBeginingWords
-        case .Char:
+        case .char:
             rangesFn = currentEditorView.rangesOfVisible
         default:
             fatalError("Unhandled behavior")
         }
         
-        if caseType == .Sensitive {
+        if caseType == .sensitive {
             return rangesFn(char)
         } else {
-            let lowercaseChar = Character(String(char).lowercaseString)
-            let uppercaseChar = Character(String(char).uppercaseString)
+            let lowercaseChar = Character(String(char).lowercased())
+            let uppercaseChar = Character(String(char).uppercased())
             
             let charsEqual = lowercaseChar == uppercaseChar
             
@@ -153,7 +153,7 @@ final class JumpController: SingleCharTextFieldDelegate {
         }
     }
     
-    private func showResultsForRanges(ranges: [NSRange]) {
+    private func showResultsForRanges(_ ranges: [NSRange]) {
         
         let rects = ranges.map(currentEditorView.rectFromRange)
         
@@ -162,23 +162,24 @@ final class JumpController: SingleCharTextFieldDelegate {
             return
         } else if ranges.count == 1 {
             jump(ranges.first!)
-            state = .Inactive
+            state = .inactive
             removeTextField()
             return
         }
         
-        state = .ShowCandidates
-        labelsController.initialize(zip(ranges, rects).map { .init(range: $0, rect: $1) })
+        state = .showCandidates
+        labelsController.initialize(locations: zip(ranges, rects).map { .init(range: $0, rect: $1) })
     }
     
     private func abort() {
-        state = .Inactive
+        state = .inactive
         removeTextField()
         labelsController.cancel()
         currentEditorView.window?.makeFirstResponder(currentEditorView)
     }
 
-    private func jump(var range: NSRange) {
+    private func jump(_ range: NSRange) {
+        var range = range
         range.length = 0
         currentEditorView.setSelectedRange(range)
         currentEditorView.window?.makeFirstResponder(currentEditorView)
@@ -186,15 +187,15 @@ final class JumpController: SingleCharTextFieldDelegate {
     
     // MARK:- SingleCharTextFieldDelegate
     
-    func didRecieveChar(textField: SingleCharTextField, char: Character) {
+    func didRecieveChar(_ textField: SingleCharTextField, char: Character) {
         switch state {
-        case .InputChar:
+        case .inputChar:
             hideTextField()
             showResultsForRanges(rangesForChar(char))
-        case .ShowCandidates:
-            if let result = labelsController.next(char) {
+        case .showCandidates:
+            if let result = labelsController.next(char: char) {
                 removeTextField()
-                state = .Inactive
+                state = .inactive
                 jump(result.location.range)
             }
         default:
@@ -202,7 +203,7 @@ final class JumpController: SingleCharTextFieldDelegate {
         }
     }
     
-    func didLoseFocus(textField: SingleCharTextField) {
+    func didLoseFocus(_ textField: SingleCharTextField) {
         abort()
     }
     

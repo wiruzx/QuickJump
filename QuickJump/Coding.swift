@@ -22,6 +22,6 @@ extension Bool: Decodable, Encodable {
     }
     
     func encode() -> [String: AnyObject] {
-        return ["value": self]
+        return ["value": self as AnyObject]
     }
 }

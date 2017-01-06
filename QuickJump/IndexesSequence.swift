@@ -6,7 +6,7 @@
 //  Copyright © 2016 Victor Shamanov. All rights reserved.
 //
 
-struct IndexesSequence: SequenceType {
+struct IndexesSequence: Sequence {
     
     private let capacity: Int
     
@@ -14,14 +14,14 @@ struct IndexesSequence: SequenceType {
         self.capacity = capacity
     }
     
-    func generate() -> AnyGenerator<[Int]> {
+    func makeIterator() -> AnyIterator<[Int]> {
         
         var current = [0]
         
-        return anyGenerator { [capacity] in
+        return AnyIterator { [capacity] in
             
             if current[0] >= capacity - 1 {
-                current.insert(0, atIndex: 0)
+                current.insert(0, at: 0)
             } else {
                 current[0] += 1
             }

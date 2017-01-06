@@ -16,23 +16,23 @@ final class CandidateTextView: NSTextView, CandidateLabelType {
         self.init(frame: frame)
         
         self.string = string
-        backgroundColor = NSColor.darkGrayColor()
-        textColor = .whiteColor()
+        backgroundColor = .darkGray
+        textColor = .white
         textContainerInset = NSSize(width: -3.5, height: 0)
         self.font = font
     }
     
     // MARK:- Overriden methods
     
-    override func drawRect(dirtyRect: NSRect) {
+    override func draw(_ dirtyRect: NSRect) {
         let path = NSBezierPath(roundedRect: dirtyRect, xRadius: 2, yRadius: 2)
         path.addClip()
-        super.drawRect(dirtyRect)
+        super.draw(dirtyRect)
     }
     
     // MARK:- CandidateLabelType
     
-    func addToView(view: NSView) {
+    func addToView(_ view: NSView) {
         view.addSubview(self)
     }
 

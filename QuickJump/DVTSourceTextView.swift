@@ -11,7 +11,7 @@ import Foundation
 extension DVTSourceTextView {
     
     static var activeEditorView: DVTSourceTextView? {
-        let windowController = NSApplication.sharedApplication().keyWindow?.windowController as? IDEWorkspaceWindowController
+        let windowController = NSApplication.shared().keyWindow?.windowController as? IDEWorkspaceWindowController
         let editor = windowController?.editorArea?.lastActiveEditorContext?.editor
         return editor?.mainScrollView?.contentView.documentView as? DVTSourceTextView
     }
@@ -22,10 +22,10 @@ extension DVTSourceTextView {
            let layoutManager = layoutManager,
            let textContainer = textContainer {
             
-            let glyphRange = layoutManager.glyphRangeForBoundingRect(clipView.documentVisibleRect,
-                                                                     inTextContainer: textContainer)
+            let glyphRange = layoutManager.glyphRange(forBoundingRect: clipView.documentVisibleRect,
+                                                                     in: textContainer)
             
-            return layoutManager.characterRangeForGlyphRange(glyphRange, actualGlyphRange: nil)
+            return layoutManager.characterRange(forGlyphRange: glyphRange, actualGlyphRange: nil)
             
         } else {
             fatalError("Unhandled error")
@@ -36,11 +36,11 @@ extension DVTSourceTextView {
         return textStorage!.string
     }
     
-    func rangesOfVisible(char: Character) -> [NSRange] {
+    func rangesOfVisible(_ char: Character) -> [NSRange] {
         return sourceCode.allRangesOfCharacters(char, inRange: visibleTextRange)
     }
     
-    func rangesOfBeginingWords(char: Character) -> [NSRange] {
+    func rangesOfBeginingWords(_ char: Character) -> [NSRange] {
         return sourceCode.allRangesOfCharacterInBeginigOfWord(char, inRange: visibleTextRange)
     }
     
@@ -48,8 +48,8 @@ extension DVTSourceTextView {
         return sourceCode.allRangesOfBeginingsOfTheLinesInRange(visibleTextRange)
     }
     
-    func widthOfFirstNonEmptyChar(location: Int = 0) -> CGFloat {
-        let width = firstRectForCharacterRange(NSMakeRange(location, 1), actualRange: nil).width
+    func widthOfFirstNonEmptyChar(_ location: Int = 0) -> CGFloat {
+        let width = firstRect(forCharacterRange: NSMakeRange(location, 1), actualRange: nil).width
         
         if width > 0 {
             return width
@@ -60,16 +60,16 @@ extension DVTSourceTextView {
         }
     }
     
-    func rectFromRange(range: NSRange) -> NSRect {
+    func rectFromRange(_ range: NSRange) -> NSRect {
         
-        var rect = firstRectForCharacterRange(range, actualRange: nil)
+        var rect = firstRect(forCharacterRange: range, actualRange: nil)
         
         if rect.width == 0 {
             rect.size.width = widthOfFirstNonEmptyChar()
         }
         
-        let rectInWindow = window!.convertRectFromScreen(rect)
-        var rectInView = self.convertRect(rectInWindow, fromView: nil)
+        let rectInWindow = window!.convertFromScreen(rect)
+        var rectInView = self.convert(rectInWindow, from: nil)
         
         let expandSize: CGFloat = 2
         

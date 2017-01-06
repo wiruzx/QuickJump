@@ -7,8 +7,8 @@
 //
 
 enum CaseType {
-    case Sensitive
-    case Insensitive
+    case sensitive
+    case insensitive
 }
 
 extension CaseType: Encodable, Decodable {
@@ -17,14 +17,14 @@ extension CaseType: Encodable, Decodable {
         
         let value: Int = {
             switch self {
-            case .Sensitive:
+            case .sensitive:
                 return 0
-            case .Insensitive:
+            case .insensitive:
                 return 1
             }
         }()
         
-        return ["value":value]
+        return ["value":value as AnyObject]
     }
     
     init?(dictionary: [String: AnyObject]) {
@@ -33,9 +33,9 @@ extension CaseType: Encodable, Decodable {
         
         switch value {
         case 0:
-            self = .Sensitive
+            self = .sensitive
         case 1:
-            self = .Insensitive
+            self = .insensitive
         default:
             assertionFailure("Invalid value \(value) for type \(CaseType.self)")
             return nil

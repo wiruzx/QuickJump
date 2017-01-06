@@ -8,17 +8,17 @@
 
 import Foundation
 
-extension NSCharacterSet {
+extension CharacterSet {
     
-    func contains(character: Character) -> Bool {
-        let set = NSCharacterSet(charactersInString: String(character))
-        return isSupersetOfSet(set)
+    func contains(_ character: Character) -> Bool {
+        let set = CharacterSet(charactersIn: String(character))
+        return isSuperset(of: set)
     }
     
 }
 
-func + (lhs: NSCharacterSet, rhs: NSCharacterSet) -> NSCharacterSet {
-    let mutable = lhs.mutableCopy() as! NSMutableCharacterSet
-    mutable.formUnionWithCharacterSet(rhs)
-    return mutable.copy() as! NSCharacterSet
+func + (lhs: CharacterSet, rhs: CharacterSet) -> CharacterSet {
+    let mutable = (lhs as NSCharacterSet).mutableCopy() as! NSMutableCharacterSet
+    mutable.formUnion(with: rhs)
+    return mutable.copy() as! CharacterSet
 }
